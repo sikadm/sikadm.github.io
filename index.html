@@ -46,7 +46,7 @@ $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
 
 while ($row = mysqli_fetch_array($ressult)) {
-	echo $row['username'] . ' ' . $row['firstName'] . ': ' . $row['lastName' . ' ' . $row['password'] . '<br />';
+	echo $row['username'] . ' ' . $row['firstName'] . ': ' . $row['lastName' . ' ' . $row['password'] . '<br>';
 }
 mysqli_close($db);
 ?>
