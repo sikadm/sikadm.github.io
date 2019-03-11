@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+$db = mysqli_connect('localhost','root','sikadm1117','fitMat')
+or die('Error connecting to MySQL server.');
+?>
 <html>
 <head>
 <style>
@@ -34,6 +38,18 @@ text-align: center;
 	</div>
 	<br>
 	<div id="answer"></div>
+<?php
+$query = "SELECT * FROM users";
+mysqli_query($db, $query) or die('Error querying database.');
+
+$result = mysqli_query($db, $query);
+$row = mysqli_fetch_array($result);
+
+while ($row = mysqli_fetch_array($ressult)) {
+	echo $row['username'] . ' ' . $row['firstName'] . ': ' . $row['lastName' . ' ' . $row['password'] . '<br />';
+}
+mysqli_close($db);
+?>
 <script>
 	var selectOption = document.getElementById("option1");
 	var selectOption2 = document.getElementById("option2");
