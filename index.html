@@ -45,8 +45,8 @@ mysqli_query($db, $query) or die('Error querying database.');
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
 
-while ($row = mysqli_fetch_array($ressult)) {
-	echo $row['username'] . " " . $row['firstName'] . " " . $row['lastName'] . " " . $row['password'] . "<br>";
+while ($row = mysqli_fetch_array($result)) {
+	echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . "<br>";
 }
 mysqli_close($db);
 ?>
