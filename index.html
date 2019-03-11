@@ -3,14 +3,9 @@
 $servername = "localhost";
 $username = "root";
 $password = "sikadm1117";
-
-$db = new mysqli($servername, $username, $password, "fitMat");
-
-if($db->connect_error) {
-echo "connection failed";
-die("connection failed: " . $conn->connect_error);
-}
-echo "connected successfully";
+$database = "fitMat";
+$db = new mysqli($servername, $username, $password, $database);
+$mysqli->select_db($database) or die( "Unable to select database");
 ?>
 <html>
 <head>
