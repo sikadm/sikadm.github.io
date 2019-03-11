@@ -46,8 +46,10 @@ $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
 
 while ($row = mysqli_fetch_array($result)) {
-	echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . "<br>";
+	echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . ".";
 }
+?>
+<?php
 mysqli_close($db);
 ?>
 <script>
