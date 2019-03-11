@@ -15,17 +15,18 @@ font-family: lucida console;
 }
 .option {
 width: 300px;
-height: 150px
+height: 150px;
+position: center;
 margin-bottom: 10px;
 background: blue;
 font-family: sans-serif;
 }
 .option p {
 position: relative;
-left: 5px;
+left: 75px;
 padding: 10px;
-width: 290px;
-height: 90px;
+width: 150px;
+height: 75px;
 background: white;
 font-size: 20px;
 text-align: center;
@@ -47,9 +48,12 @@ text-align: center;
 	var selectOption2 = document.getElementById("option2");
 	var answerStated = document.getElementById("answer");
 	var onOptionClick = function(){
-		answerStated.textContent = "You selected High School"
+		answerStated.textContent = "You selected High School";
 	}
 	selectOption.addEventListener("click",onOptionClick);
-
+	var onOptionClick2 = function(){
+		answerStated.textContent = "You selected College";
+	}
+	selectOption2.addEventListener("click",onOption2Click);
 </script>
 </body>
