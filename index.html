@@ -1,1 +1,33 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background-color: rgb(255,255,204);
+text-align: center;
+font-size: 20px;
+font-family: lucida console;
+}
+h1{
+color: rgb(255,204,0);
+font-size: 100px;
+font-family: lucida console;
+}
+</style>
+</head>
+<body>
+<script>
+fill(0, 234, 255);
+rect(100, 100, 150, 50, 5);
+fill(0, 0, 0);
+textSize(19);
+text("Useless button", 110, 133);
+
+mouseClicked = function() {
+    if (mouseX >= 100 && mouseX <= 250 &&
+        mouseY >= 100 && mouseY <= 150) {
+        println("Still pretty useless");    
+    }
+};
+</script>
+</body>
