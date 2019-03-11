@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <?php
-$db = mysqli_connect('localhost','root','sikadm1117','fitMat')
-or die('Error connecting to MySQL server.');
+$servername = "localhost";
+$username = "root";
+$password = "sikadm1117";
+
+$db = new mysqli($servername, $username, $password);
+
+if($db->connect_error) {
+echo "connection failed";
+die("connection failed: " . $conn->connect_error);
+}
+echo "connected successfully";
 ?>
 <html>
 <head>
