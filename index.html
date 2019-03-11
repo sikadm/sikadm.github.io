@@ -5,7 +5,7 @@ $username = "root";
 $password = "sikadm1117";
 $database = "fitMat";
 $db = new mysqli($servername, $username, $password, $database);
-$mysqli->select_db($database) or die( "Unable to select database");
+$mysqli_select($database) or die( "Unable to select database");
 ?>
 <html>
 <head>
