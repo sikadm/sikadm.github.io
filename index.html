@@ -26,6 +26,7 @@ text-align: center;
 </style>
 </head>
 <body>
+	<h2 id="question">What will be your highest level of education?</h2>
 	<div class="option" id="option1">
 		<p>High School</p>
 	</div>
@@ -40,26 +41,32 @@ text-align: center;
 var currentQ;
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
-
+var question = document.getElementById("question");
 var drawQ1 = function() {
     currentQ = 1;
 };
 
 var drawQ2 = function() {
-    currentQ = 2;
-    option1.textContent = "Trade School";
+	question.textContent = "Will you go to Trade School or get a job?";
+	option1.textContent = "Trade School";
 	option2.textContent = "Job";
+	option1.addEventListener("click", drawQ4);
+	option2.addEventListener("click", drawQ4);
 };
 
 var drawQ3 = function() {
-    currentQ = 3;
+	question.textContent = "Will you continue on with school or start your career?";
 	option1.textContent = "Graduate School";
 	option2.textContent = "Career";
-
+	option1.addEventListener("click", drawQ4);
+	option2.addEventListener("clicl", drawQ4);
 };
 
 var drawQ4 = function() {
-    currentQ = 4;
+    option1.textContent = "Apartment";
+	option2.textContent = "House";
+	option1.addEventListener("click", drawQ2);
+option2.addEventListener("click", drawQ3);
 };
 
 var drawQ5 = function() {
