@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "sikadm1117";
-$database = "fitMat";
-$db = new mysqli($servername, $username, $password, $database);
-$mysqli_select($database) or die( "Unable to select database");
-?>
+
 <html>
 <head>
 <style>
@@ -42,29 +35,106 @@ text-align: center;
 	</div>
 	<br>
 	<div id="answer"></div>
-<?php
-$query = "SELECT * FROM users";
-mysqli_query($db, $query) or die('Error querying database.');
 
-$result = mysqli_query($db, $query);
-$row = mysqli_fetch_array($result);
-	echo $row[0] . " " . $row[1] . " " . $row[2] . " " . $row[3] . ".";
-?>
-	
-<?php
-mysqli_close($db);
-?>
 <script>
-	var selectOption = document.getElementById("option1");
-	var selectOption2 = document.getElementById("option2");
-	var answerStated = document.getElementById("answer");
-	var onOptionClick = function(){
-		answerStated.textContent = "You selected High School";
-	}
-	selectOption.addEventListener("click",onOptionClick);
-	var onOptionClick2 = function(){
-		answerStated.textContent = "You selected College";
-	}
-	selectOption2.addEventListener("click",onOptionClick2);
+var currentQuestion;
+
+var drawQ1 = function() {
+    currentScene = 1;
+    background(235, 247, 255);
+    fill(0, 85, 255);
+    textSize(25);
+    text("The Story of Winston", 10, 200);
+};
+
+var drawQ2 = function() {
+    currentScene = 2;
+    background(173, 239, 255);
+    fill(7, 14, 145);
+    textSize(25);
+    text("Lil Winston is born!", 10, 100);
+    image(getImage("creatures/BabyWinston"), 80, 150);
+};
+
+var drawQ3 = function() {
+    currentScene = 3;
+    background(173, 239, 255);
+    fill(7, 14, 145);
+    textSize(25);
+    text("Winston grows up!", 10, 100);
+    image(getImage("creatures/Winston"), 80, 200);
+};
+
+var drawQ4 = function() {
+    currentScene = 4;
+    
+    // Based on https://www.khanacademy.org/cs/drums/6586586242744320
+    background(194, 255, 222);
+    
+    var x = cos(millis()*1); 
+    var y = cos(millis()+98);
+    
+    // face
+    image(getImage("creatures/Winston"),x+177, x+101,50, 50);
+    
+    // body
+    strokeWeight(2);
+    line(202, 213, x+203, x+150);
+    line(x+220, x*20+266, 202, 213);
+    line(x+188, x*2+266, 202, 213);
+    line(x+167, x*20+150, 204, 169);
+    line(y+164,y*20+148,204, 168);
+    
+    // drum set
+    strokeWeight(3);
+    fill(255, 255, 255);
+    ellipse(162, 176, 54, 15);
+    line(161, 264, 161, 184);
+    line(134, 275, 162, 255);
+    line(185, 275,162, 257);
+    fill(0, 0, 0);
+    ellipse(226, 268, 65, 65);
+    fill(255, 255, 255);
+    ellipse(226, 268, 60, 60);
+};
+
+var drawQ5 = function() {
+    currentScene = 5;
+    background(173, 239, 255);
+    fill(7, 14, 145);
+    textSize(25);
+    text("Winston has babies!", 10, 47);
+    textSize(17);
+    text("Click to make more babies", 10, 78);
+    
+    image(getImage("creatures/Winston"), 21, 183);
+    fill(71, 71, 71);
+    rect(32, 185, 108, 15);
+    rect(46, 126, 82, 60);
+    
+    image(getImage("creatures/BabyWinston"), 150, 250);
+};
+
+draw = function() {
+    if (currentQ === 4) {
+        drawQ4();
+    }
+};
+
+mouseClicked = function() {
+    if (currentScene === 1) {
+        drawQ2();
+    } else if (currentQ === 2) {
+        drawQ3();
+    } else if (currentQ === 3) {
+        drawQ4();
+    }  else if (currentQ === 4) {
+        drawQ5();
+    } else if (currentQ === 5) {
+        drawQ1();
+    }
+};
+
+drawScene1();
 </script>
 </body>
