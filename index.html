@@ -38,6 +38,8 @@ text-align: center;
 
 <script>
 var currentQ;
+var option1 = document.getElementById("option1");
+var option2 = document.getElementById("option2");
 
 var drawQ1 = function() {
     currentQ = 1;
@@ -51,6 +53,8 @@ var drawQ2 = function() {
 
 var drawQ3 = function() {
     currentQ = 3;
+	option1.textContent = "Graduate School";
+	option2.textContent = "Career";
 
 };
 
@@ -63,20 +67,7 @@ var drawQ5 = function() {
 
 };
 
-mouseClicked = function() {
-    if (currentQ === 1) {
-        drawQ2();
-    } else if (currentQ === 2) {
-        drawQ3();
-    } else if (currentQ === 3) {
-        drawQ4();
-    }  else if (currentQ === 4) {
-        drawQ5();
-    } else if (currentQ === 5) {
-        drawQ1();
-    }
-};
-
-drawQ1();
+option1.addEventListener("click", drawQ2);
+option2.addEventListener("click", drawQ3);
 </script>
 </body>
