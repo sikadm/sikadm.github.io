@@ -63,15 +63,17 @@ var drawQ3 = function() {
 };
 
 var drawQ4 = function() {
-    option1.textContent = "Apartment";
+	question.textContent = "Where will you live?";
+	option1.textContent = "Apartment";
 	option2.textContent = "House";
-	option1.addEventListener("click", drawQ2);
-option2.addEventListener("click", drawQ3);
+	option1.addEventListener("click", drawQ5);
+	option2.addEventListener("click", drawQ5);
 };
 
 var drawQ5 = function() {
-    currentQ = 5;
-
+	question.textContent = "Will you have a roommate?";
+	option1.textContent = "Yes";
+	option2.textContent = "No";
 };
 
 option1.addEventListener("click", drawQ2);
