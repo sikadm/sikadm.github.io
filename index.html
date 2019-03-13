@@ -121,16 +121,27 @@
 				option1.textContent = "Yes";
 				option2.textContent = "No";
 				option3box.style.display = "block";
-			}
+			};
 
 			var drawQ8 = function() {
 				question.textContent = "What kind of degree are you getting?";
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
 				option3box.style.display = "block";
+				option1.addEventListener("click", drawQ9);
+				option2.addEventListener("click", drawQ9);
+			};
+			var drawQ9 = function() {
+				question.textContent = "Where will you live (location)?"
+				option1.textContent = "City";
+				option2.textContent = "Suburbs";
+				option3box.style.display = "block";
+				option3.textContent = "Rural";
 				option1.addEventListener("click", drawQ4);
 				option2.addEventListener("click", drawQ4);
-			}	
+				option3.addEventListener("click", drawQ4);
+				
+			};
 
 			option1.addEventListener("click", drawQ1);
 		</script>
