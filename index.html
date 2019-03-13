@@ -77,8 +77,8 @@
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
-				option1.addEventListener("click", drawQ4);
-				option2.addEventListener("click", drawQ4);
+				option1.addEventListener("click", drawQ9);
+				option2.addEventListener("click", drawQ9);
 			};
 
 			var drawQ3 = function() {
@@ -86,7 +86,7 @@
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
 				option1.addEventListener("click", drawQ8);
-				option2.addEventListener("click", drawQ5);
+				option2.addEventListener("click", drawQ9);
 			};
 
 			var drawQ4 = function() {
@@ -120,14 +120,14 @@
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
 				option1.textContent = "Yes";
 				option2.textContent = "No";
-				option3box.style.display = "block";
+				option3box.style.display = "none";
 			};
 
 			var drawQ8 = function() {
 				question.textContent = "What kind of degree are you getting?";
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
-				option3box.style.display = "block";
+				option3box.style.display = "none";
 				option1.addEventListener("click", drawQ9);
 				option2.addEventListener("click", drawQ9);
 			};
