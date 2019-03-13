@@ -48,6 +48,7 @@
 			<br>
 			<p id="option4">none</p>
 		</div>
+		<img id="W2" src="w2only" style="display:none;"/>
 
 		<script>
 			var option1 = document.getElementById("option1");
@@ -59,10 +60,12 @@
 			var option2box = document.getElementById("box2");
 			var option3box = document.getElementById("box3");
 			var option4box = document.getElementById("box4");
+			var W2form = document.getElementById("W2");
 
 			option2box.style.display = "none";
 			option3box.style.display = "none";
 			option4box.style.display = "none";
+			
 
 			var drawQ1 = function() {
 				option2box.style.display = "block";
@@ -138,7 +141,7 @@
 				option2.addEventListener("click", drawQ9);
 			};
 			var drawQ9 = function() {
-				question.textContent = "Where will you live (location)?"
+				question.textContent = "Where will you live (location)?";
 				option1.textContent = "City";
 				option2.textContent = "Suburbs";
 				option3box.style.display = "block";
@@ -149,7 +152,7 @@
 				
 			};
 			var drawQ10 = function() {
-				question.textContent = "Do you have life insurance?"
+				question.textContent = "Do you have life insurance?";
 				option3box.style.display = "block";
 				option4box.style.display = "block";
 				option1.textContent = "Yes, provided through my job";
@@ -160,6 +163,14 @@
 				option2.addEventListener("click", drawQ11);
 				option3.addEventListener("click", drawQ11);
 				option4.addEventListener("click", drawQ11);
+				
+			};
+			var drawQ11 = function() {
+				question.textContent = "Tax Time! W2 and 1040";	
+				option1box.style.display = "none";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				W2form.style.display = "block";
 				
 			};
 
