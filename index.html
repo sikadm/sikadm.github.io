@@ -54,7 +54,7 @@ var drawQ1 = function() {
 	option1.textContent = "High School";
 	option2.textContent = "College";
 	option1.addEventListener("click", drawQ2);
-	option2.addEventListener("click", drawQ3);
+	option2.addEventListener("click", drawQ6);
 };
 
 var drawQ2 = function() {
@@ -69,8 +69,8 @@ var drawQ3 = function() {
 	question.textContent = "Will you continue on with school or start your career?";
 	option1.textContent = "Graduate School";
 	option2.textContent = "Career";
-	option1.addEventListener("click", drawQ4);
-	option2.addEventListener("click", drawQ4);
+	option1.addEventListener("click", drawQ8);
+	option2.addEventListener("click", drawQ5);
 };
 
 var drawQ4 = function() {
@@ -95,6 +95,9 @@ var drawQ6 = function() {
 	option1.textContent = "Business";
 	option2.textContent = "Engineering";
 	option3.textContent = "Arts/Science";
+	option1.addEventListener("click", drawQ3);
+	option2.addEventListener("click", drawQ3);
+	option3.addEventListener("click", drawQ3);
 };
 
 var drawQ7 = function() {
@@ -102,6 +105,15 @@ var drawQ7 = function() {
 	option1.textContent = "Yes";
 	option2.textContent = "No";
 	option3.style.display = "block";
+}
+
+var drawQ8 = function() {
+	question.textContent = "What kind of degree are you getting?";
+	option1.textContent = "Doctorate";
+	option2.textContent = "Masters";
+	option3.style.display = "block";
+	option1.addEventListener("click", drawQ4);
+	option2.addEventListener("click", drawQ4);
 }	
 
 option1.addEventListener("click", drawQ1);
