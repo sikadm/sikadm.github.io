@@ -91,10 +91,13 @@
 
 			var drawQ4 = function() {
 				question.textContent = "Where will you live?";
-				option1.textContent = "Apartment";
-				option2.textContent = "House";
+				option3box.style.display = "block";
+				option1.textContent = "High-End Apartment";
+				option2.textContent = "Cheap Apartment";
+				option3.textContent = "House";
 				option1.addEventListener("click", drawQ5);
 				option2.addEventListener("click", drawQ5);
+				option3.addEventListener("click", drawQ5);
 			};
 
 			var drawQ5 = function() {
