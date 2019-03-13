@@ -22,28 +22,45 @@ border: 5px solid rgb(145,0,0);
 background: blue;
 font-family: sans-serif;
 text-align: center;
+vertical-align: middle;
 }
 </style>
 </head>
 <body>
-	<h2 id="question">What will be your highest level of education?</h2>
+	<h2 id="question">Welcome to The Game of Life!</h2>
 	<div class="option" id="option1">
-		<p>High School</p>
+		<p>Click here to get started!</p>
 	</div>
 	<br>
 	<div class="option" id="option2">
-		<p>College</p>
+		<p>none</p>
 	</div>
 	<br>
-	<div id="answer"></div>
+	<div class="option" id="option3">
+		<p>none</p>
+	</div>
+	<div class="option" id="option4">
+		<p>none</p>
+	</div>
 
 <script>
 var currentQ;
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
+var option3 = document.getElementById("option3");
+var option4 = document.getElementById("option4");
 var question = document.getElementById("question");
+
+option2.style.display = "none";
+option3.style.display = "none";
+option4.style.display = "none";
+
 var drawQ1 = function() {
-    currentQ = 1;
+	question.textContent = "What's your highest level of education?";
+	option1.textContent = "High School";
+	option2.textContent = "College";
+	option1.addEventListener("click", drawQ2);
+	option2.addEventListener("click", drawQ3);
 };
 
 var drawQ2 = function() {
@@ -52,6 +69,7 @@ var drawQ2 = function() {
 	option2.textContent = "Job";
 	option1.addEventListener("click", drawQ4);
 	option2.addEventListener("click", drawQ4);
+	op
 };
 
 var drawQ3 = function() {
@@ -76,7 +94,6 @@ var drawQ5 = function() {
 	option2.textContent = "No";
 };
 
-option1.addEventListener("click", drawQ2);
-option2.addEventListener("click", drawQ3);
+option1.addEventListener("click", drawQ1);
 </script>
 </body>
