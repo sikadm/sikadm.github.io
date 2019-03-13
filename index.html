@@ -74,7 +74,6 @@ var drawQ2 = function() {
 	option2.textContent = "Job";
 	option1.addEventListener("click", drawQ4);
 	option2.addEventListener("click", drawQ4);
-	op
 };
 
 var drawQ3 = function() {
@@ -98,6 +97,21 @@ var drawQ5 = function() {
 	option1.textContent = "Yes";
 	option2.textContent = "No";
 };
+
+var drawQ6 = function() {
+	option3.style.display = "block";
+	question.textContent = "What is your major?";
+	option1.textContent = "Business";
+	option2.textContent = "Engineering";
+	option3.textContent = "Arts/Science";
+};
+
+var drawQ7 = function() {
+	question.textContent = "Do you need a vehicle? (drive to work etc.)";
+	option1.textContent = "Yes";
+	option2.textContent = "No";
+	option3.style.display = "block";
+}	
 
 option1.addEventListener("click", drawQ1);
 </script>
