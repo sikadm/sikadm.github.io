@@ -24,35 +24,38 @@ font-size: 150%;
 		<p id="option1">Click here to get started!</p>
 	</div>
 	<br>
-	<div class="option">
+	<div class="option" id="box2">
 		<br>
 		<p  id="option2">none</p>
 	</div>
 	<br>
-	<div class="option">
+	<div class="option" id="box3">
 		<br>
 		<p id="option3">none</p>
 	</div>
 	<br>
-	<div class="option">
+	<div class="option" id="box4">
 		<br>
 		<p id="option4">none</p>
 	</div>
 
 <script>
-var currentQ;
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
 var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
 var question = document.getElementById("question");
 
-option2.style.display = "none";
-option3.style.display = "none";
-option4.style.display = "none";
+var option2box = document.getElementById("box2");
+var option3box = document.getElementById("box3");
+var option4box = document.getElementById("box4");
+	
+option2box.style.display = "none";
+option3box.style.display = "none";
+option4box.style.display = "none";
 
 var drawQ1 = function() {
-	option2.style.display = "block";
+	option2box.style.display = "block";
 	question.textContent = "What's your highest level of education?";
 	option1.textContent = "High School";
 	option2.textContent = "College";
@@ -93,7 +96,7 @@ var drawQ5 = function() {
 };
 
 var drawQ6 = function() {
-	option3.style.display = "block";
+	option3box.style.display = "block";
 	question.textContent = "What is your major?";
 	option1.textContent = "Business";
 	option2.textContent = "Engineering";
@@ -107,14 +110,14 @@ var drawQ7 = function() {
 	question.textContent = "Do you need a vehicle? (drive to work etc.)";
 	option1.textContent = "Yes";
 	option2.textContent = "No";
-	option3.style.display = "block";
+	option3box.style.display = "block";
 }
 
 var drawQ8 = function() {
 	question.textContent = "What kind of degree are you getting?";
 	option1.textContent = "Doctorate";
 	option2.textContent = "Masters";
-	option3.style.display = "block";
+	option3box.style.display = "block";
 	option1.addEventListener("click", drawQ4);
 	option2.addEventListener("click", drawQ4);
 }	
