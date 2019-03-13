@@ -29,7 +29,7 @@
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
-		<div class="option">
+		<div class="option" id="box1">
 			<br>
 			<p id="option1">Click here to get started!</p>
 		</div>
@@ -57,6 +57,7 @@
 			var option4 = document.getElementById("option4");
 			var question = document.getElementById("question");
 
+			var option1box = document.getElementById("box1");
 			var option2box = document.getElementById("box2");
 			var option3box = document.getElementById("box3");
 			var option4box = document.getElementById("box4");
@@ -169,7 +170,7 @@
 				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
-				option4.box.style.display = "none";
+				option4box.style.display = "none";
 				question.textContent = "Tax Time! W2 and 1040";	
 				W2form.style.display = "block";
 				
