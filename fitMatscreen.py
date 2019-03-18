@@ -3,6 +3,9 @@ import serial, os
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+cgitb.enable()
+form = cgi.FieldStorage()  
+
 ser = serial.Serial('COM6', 500000)
 
 w, h = 138, 48;
