@@ -29,6 +29,15 @@
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
+		<form name = "salary" id="salary" action="return drawQ7()" onsubmit="return validateForm()" method="post">
+			Enter your predicted salary:<br>
+			<input type="text" name="yearly_salary">
+			<br>
+			<input type="submit">
+			<br>
+			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
+		</form>
+		
 		<div class="option" id="box1">
 			<br>
 			<p id="option1">Click here to get started!</p>
@@ -51,6 +60,7 @@
 		<img id="W2" src="w2only" style="display:none;"/>
 
 		<script>
+			var salary = document.getElementById("salary");
 			var option1 = document.getElementById("option1");
 			var option2 = document.getElementById("option2");
 			var option3 = document.getElementById("option3");
@@ -63,6 +73,7 @@
 			var option4box = document.getElementById("box4");
 			var W2form = document.getElementById("W2");
 
+			salary.style.display = "none";
 			option2box.style.display = "none";
 			option3box.style.display = "none";
 			option4box.style.display = "none";
@@ -81,8 +92,8 @@
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
-				option1.addEventListener("click", drawQ9);
-				option2.addEventListener("click", drawQ9);
+				option1.addEventListener("click", drawQ12);
+				option2.addEventListener("click", drawQ12);
 			};
 
 			var drawQ3 = function() {
@@ -90,7 +101,7 @@
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
 				option1.addEventListener("click", drawQ8);
-				option2.addEventListener("click", drawQ9);
+				option2.addEventListener("click", drawQ12);
 			};
 
 			var drawQ4 = function() {
@@ -138,8 +149,8 @@
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
 				option3box.style.display = "none";
-				option1.addEventListener("click", drawQ9);
-				option2.addEventListener("click", drawQ9);
+				option1.addEventListener("click", drawQ12);
+				option2.addEventListener("click", drawQ12);
 			};
 			var drawQ9 = function() {
 				question.textContent = "Where will you live (location)?";
@@ -175,6 +186,28 @@
 				W2form.style.display = "block";
 				
 			};
+			var drawQ12 = function() {
+				salary.style.display = "block";
+				option1box.style.display = "none";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				question.textContent = "Income";
+			};
+			function validateForm() {
+					var x = document.forms["salary"]["yearly_salary"].value;
+					if (x == "") {
+						alert("Salary must be filled out");
+						return false;
+					};
+					else if (x !="") {
+						drawQ7;
+					};
+						 
+			};
+			
+				
+				
 
 			option1.addEventListener("click", drawQ1);
 		</script>
