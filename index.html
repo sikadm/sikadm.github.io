@@ -60,7 +60,7 @@
 		<img id="W2" src="w2only" style="display:none;"/>
 
 		<script>
-			var salary = document.getElementById("salary");
+			var salaryForm = document.getElementById("salary");
 			var option1 = document.getElementById("option1");
 			var option2 = document.getElementById("option2");
 			var option3 = document.getElementById("option3");
@@ -73,7 +73,7 @@
 			var option4box = document.getElementById("box4");
 			var W2form = document.getElementById("W2");
 
-			salary.style.display = "none";
+			salaryForm.style.display = "none";
 			option2box.style.display = "none";
 			option3box.style.display = "none";
 			option4box.style.display = "none";
@@ -187,7 +187,7 @@
 				
 			};
 			var drawQ12 = function() {
-				salary.style.display = "block";
+				salaryForm.style.display = "block";
 				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
@@ -201,7 +201,7 @@
 						return false;
 					};
 					else if (x !="") {
-						drawQ7;
+						drawQ7();
 					};
 						 
 			};
