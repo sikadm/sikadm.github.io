@@ -23,6 +23,7 @@
 				vertical-align: middle;
 				color: black;
 				font-size: 150%;
+				cursor: pointer;
 			}
 			#Progress_Status {
 				position: relative;
@@ -39,6 +40,30 @@
 				text-align: center;
 				line-height: 32px;
 				color: black;
+			}
+			input[type=button] {
+				background-color: white;
+				color: black;
+				padding: 14px 40px;
+				border-radius: 12px;
+				border: 5px solid rgb(145,0,0); 
+				font-size: 20px;
+			}
+			input [type=text] {
+				width: 50%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+			input[type=submit] {
+				background-color: white;
+				color: black;
+				padding: 14px 40px;
+				border-radius: 12px;
+				border: 5px solid rgb(145,0,0); 
+				font-size: 20px;
 			}
 
 		</style> 
@@ -101,6 +126,7 @@
 			var progress = document.getElementById("progressbar");
 			var year = 0;
 
+			progress.style.display = "none";
 			salaryForm.style.display = "none";
 			option2box.style.display = "none";
 			option3box.style.display = "none";
