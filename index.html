@@ -26,7 +26,7 @@
 			}
 			#Progress_Status {
 				width: 500px;
-				background-color: #ddd;
+				background-color: white;
 				left: 20%;
 				bottom: 0;
 			}
@@ -75,6 +75,7 @@
 		<div id="Progress_Status">		
 			<div id="progressbar"></div>
 		</div>
+		
 			
 		<img id="W2" src="w2only" style="display:none;"/>	//image of W2 form
 		
@@ -106,6 +107,7 @@
 			var drawQ1 = function() {
 				option2box.style.display = "block";
 				progress.style.width = 18 + '%';
+				progress.textContent = "18 yrs old";
 				question.textContent = "What is (or will be) your highest level of education?";
 				option1.textContent = "High School";
 				option2.textContent = "College";
