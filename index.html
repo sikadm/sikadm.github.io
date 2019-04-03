@@ -29,7 +29,7 @@
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
-		<form name = "salary" id="salary">
+		<form name = "salary" id="salary" onsubmit="validateForm()">
 			Enter your predicted salary:<br>
 			<input type="text" name="yearly_salary">
 			<br>
@@ -200,8 +200,15 @@
 				question.textContent = "Income";
 			};
 			
+			function validateForm() {
+				var x = document.forms["salary"]["yearly_salary"].value;
+				if (x == "") {
+					alert("Salary must be filled out");
+				}
+			};
+			
 
-			$("#salary").on("submit", function(event)) {
+/*			$("#salary").on("submit", function(event)) {
 				var $salarynum = $("#salary"); 
 				var salarynum = $salarynum.val();
 				if (salarynum == "") {
@@ -216,7 +223,7 @@
 					}
 				
 			});
-			
+*/			
 			option1.addEventListener("click", drawQ1);
 		</script>
 	</body>
