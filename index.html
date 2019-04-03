@@ -29,7 +29,7 @@
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
-		<form name = "salary" id="salary" action="return drawQ7()" onsubmit="return validateForm()" method="post">
+		<form name = "salary" id="salary" action="return drawQ7()" onsubmit="validateForm()" method="post">
 			Enter your predicted salary:<br>
 			<input type="text" name="yearly_salary">
 			<br>
@@ -74,7 +74,6 @@
 			var option3box = document.getElementById("box3");
 			var option4box = document.getElementById("box4");
 			var W2form = document.getElementById("W2");
-			var salaryButton = document.getElementById("salarySubmit");
 
 			salaryForm.style.display = "none";
 			option2box.style.display = "none";
@@ -212,20 +211,17 @@
 						 
 			};
 			*/
-			salaryButton.onclick = function setup() {
+			function validateForm() {
 				var x = document.forms["salary"]["yearly_salary"].value;
 				if (x == "") {
 						alert("Salary must be filled out");
-						return false;
 					}
 				else if (x !="") {
 					if (isNaN(x)) {
 						alert("Salary can only contain numbers");
-						return false;
 					}
 					else {
 						drawQ7();
-						return true;
 					}
 			};
 /*
