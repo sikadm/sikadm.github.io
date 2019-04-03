@@ -33,7 +33,7 @@
 			Enter your predicted salary:<br>
 			<input type="text" name="yearly_salary">
 			<br>
-			<input type="submit">
+			<input id="submitSalary" type="submit">
 			<br>
 			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
 		</form>
@@ -74,6 +74,7 @@
 			var option3box = document.getElementById("box3");
 			var option4box = document.getElementById("box4");
 			var W2form = document.getElementById("W2");
+			var salaryButton = document.getElementById("salarySubmit");
 
 			salaryForm.style.display = "none";
 			option2box.style.display = "none";
@@ -209,14 +210,32 @@
 						drawQ7();
 					}
 						 
-	*/		};
+			};
+			*/
+			salaryButton.onclick = function setup() {
+				var x = document.forms["salary"]["yearly_salary"].value;
+				if (x == "") {
+						alert("Salary must be filled out");
+						return false;
+					}
+				else if (x !="") {
+					if (isNaN(x)) {
+						alert("Salary can only contain numbers");
+						return false;
+					}
+					else {
+						drawQ7();
+						return true;
+					}
+			};
+/*
 			$("#salary").on("submit", function(event) {
 				event.preventDefault();
 				var $salarynum = $("#salary"); 
 				var salarynum = $salarynum.val();
 			});
 			
-				
+	*/			
 				
 
 			option1.addEventListener("click", drawQ1);
