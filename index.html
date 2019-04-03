@@ -33,7 +33,7 @@
 			Enter your predicted salary:<br>
 			<input type="text" name="yearly_salary">
 			<br>
-			<input type="submit" onclick="drawQ7()">
+			<input type="submit">
 			<br>
 			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
 		</form>
@@ -199,42 +199,26 @@
 				option4box.style.display = "none";
 				question.textContent = "Income";
 			};
-			function validateForm() {
-					var x = document.forms["salary"]["yearly_salary"].value;
-					if (x == "") {
-						alert("Salary must be filled out");
-						return false;
-					}
-					else if (x !="") {
-						drawQ7();
-					}
-						 
-			};
 			
-	/*		function validateForm() {
-				var x = document.forms["salary"]["yearly_salary"].value;
-				if (x == "") {
-						alert("Salary must be filled out");
-						return false;
-					}
-				else if (x !="") {
-					if (isNaN(x)) {
-						alert("Salary can only contain numbers");
-						return false;
-					}
-					else {
-						drawQ7();
-						return true;
-					}
-			};
 
-			$("#salary").on("submit", function(event) {
+			$("#salary").on("submit", function(event)) {
 				event.preventDefault();
 				var $salarynum = $("#salary"); 
 				var salarynum = $salarynum.val();
+				if (salarynum == "") {
+						alert("Salary must be filled out");
+					}
+				else if (salarynum !="") {
+					if (isNaN(salarynum)) {
+						alert("Salary can only contain numbers");
+					}
+					else {
+						drawQ7();
+					}
+				
 			});
 			
-	*/			
+				
 				
 
 			option1.addEventListener("click", drawQ1);
