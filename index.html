@@ -24,6 +24,20 @@
 				color: black;
 				font-size: 150%;
 			}
+			#Progress_Status {
+				width: 50%;
+				background-color: #ddd;
+				position: absolute;
+				bottom: 0;
+			}
+			#progressbar {
+				width: 1%;
+				height: 35px;
+				background-color: #4CAF50;
+				text-align: center;
+				line-height: 32px;
+				color: black;
+			}
 		</style> 
 	</head> 
 	<body>
@@ -56,9 +70,13 @@
 			<br>
 			<p id="option4">none</p>
 		</div>
+		<div id="Progress_Status">
+			<div id="progressbar"></div>
+		</div>
+			
 		<img id="W2" src="w2only" style="display:none;"/>
 		
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 		<script>
 			var salaryForm = document.getElementById("salary");
@@ -73,7 +91,10 @@
 			var option3box = document.getElementById("box3");
 			var option4box = document.getElementById("box4");
 			var W2form = document.getElementById("W2");
+			var progress = document.getElementById("progressbar");
+			var year = 0;
 
+			progress.style.display = "block";
 			salaryForm.style.display = "none";
 			option2box.style.display = "none";
 			option3box.style.display = "none";
@@ -86,7 +107,9 @@
 				option1.textContent = "High School";
 				option2.textContent = "College";
 				option1.addEventListener("click", drawQ2);
+				option1.addEventListener("click", progress.style.width = 18%);
 				option2.addEventListener("click", drawQ6);
+				option2.addEventListener("click", progress.style.width = 22%);
 			};
 
 			var drawQ2 = function() {
