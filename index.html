@@ -210,24 +210,9 @@
 				else {
 				}
 			};
-			
-
-/*			$("#salary").on("submit", function(event)) {
-				var $salarynum = $("#salary"); 
-				var salarynum = $salarynum.val();
-				if (salarynum == "") {
-						alert("Salary must be filled out");
-					}
-				else if (salarynum != "") {
-					if (isNaN(salarynum)) {
-						alert("Salary can only contain numbers");
-					}
-					else {
-						drawQ7();
-					}
-				
-			});
-*/			
+			$("#salary").submit(function(e) {
+				e.preventDefault();
+			});		
 			option1.addEventListener("click", drawQ1);
 		</script>
 	</body>
