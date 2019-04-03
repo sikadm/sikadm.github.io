@@ -201,6 +201,7 @@
 			};
 			
 			function validateForm() {
+				preventDefault();
 				var x = document.forms["salary"]["yearly_salary"].value;
 				if (x == "") {
 					alert("Salary must be filled out");
