@@ -58,6 +58,8 @@
 			<p id="option4">none</p>
 		</div>
 		<img id="W2" src="w2only" style="display:none;"/>
+		
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 		<script>
 			var salaryForm = document.getElementById("salary");
@@ -137,6 +139,9 @@
 
 			var drawQ7 = function() {
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
+				salaryForm.style.display="none";
+				option1.style.display = "block";
+				option2.style.display = "block";
 				option1.textContent = "Yes";
 				option2.textContent = "No";
 				option3box.style.display = "none";
@@ -194,7 +199,7 @@
 				option4box.style.display = "none";
 				question.textContent = "Income";
 			};
-			function validateForm() {
+/*			function validateForm() {
 					var x = document.forms["salary"]["yearly_salary"].value;
 					if (x == "") {
 						alert("Salary must be filled out");
@@ -204,7 +209,12 @@
 						drawQ7();
 					}
 						 
-			};
+	*/		};
+			$("#salary").on("submit", function(event) {
+				event.preventDefault();
+				var $salarynum = $("#salary"); 
+				var salarynum = $salarynum.val();
+			});
 			
 				
 				
