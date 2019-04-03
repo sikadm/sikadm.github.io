@@ -70,13 +70,13 @@
 			<br>
 			<p id="option4">none</p>
 		</div>
-		<div id="Progress_Status">
+		<div id="Progress_Status">		//progress bar
 			<div id="progressbar"></div>
 		</div>
 			
-		<img id="W2" src="w2only" style="display:none;"/>
+		<img id="W2" src="w2only" style="display:none;"/>	//image of W2 form
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> //jQuery
 
 		<script>
 			var salaryForm = document.getElementById("salary");
@@ -116,6 +116,7 @@
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
 				option1.addEventListener("click", drawQ12);
+				option1.addEventListener("click", progress.style.width = 20 + '%');
 				option2.addEventListener("click", drawQ12);
 			};
 
@@ -178,7 +179,9 @@
 				option2.textContent = "Masters";
 				option3box.style.display = "none";
 				option1.addEventListener("click", drawQ12);
+				option1.addEventListener("click", progress.style.width = 26 + '%');
 				option2.addEventListener("click", drawQ12);
+				option2.addEventListener("click", progress.style.width = 24 + '%');
 			};
 			var drawQ9 = function() {
 				question.textContent = "Where will you live (location)?";
@@ -222,16 +225,19 @@
 				option4box.style.display = "none";
 				question.textContent = "Income";
 			};
-			
+			var x; //global variable of salary
 			function validateForm() {
-				var x = document.forms["salary"]["yearly_salary"].value;
+				x = document.forms["salary"]["yearly_salary"].value;
 				if (x == "") {
 					alert("Salary must be filled out");
 				}
-				else if (confirm("Ready to get started?")){
-					drawQ7();
+				else if (isNaN(x)){
+					alert("Salary can only contain numbers");
 				}
 				else {
+					if (confirm("Ready to get started?")) {
+						drawQ7();
+					}
 				}
 			};
 			$("#salary").submit(function(e) {
