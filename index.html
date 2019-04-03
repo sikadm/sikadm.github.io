@@ -29,7 +29,7 @@
 				background-color: #ddd;
 				position: relative;
 				bottom: 0;
-				vertical-align: middle;
+				left: 45%;
 			}
 			#progressbar {
 				width: 1%;
@@ -104,6 +104,7 @@
 
 			var drawQ1 = function() {
 				option2box.style.display = "block";
+				progress.style.width = 18 + '%';
 				question.textContent = "What is (or will be) your highest level of education?";
 				option1.textContent = "High School";
 				option2.textContent = "College";
@@ -120,6 +121,7 @@
 			};
 
 			var drawQ3 = function() {
+				progress.style.width = 22 + '%';
 				question.textContent = "Will you continue on with school or start your career?";
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
@@ -149,6 +151,7 @@
 
 			var drawQ6 = function() {
 				option3box.style.display = "block";
+				progress.style.width = 19 + '%';
 				question.textContent = "What is your major?";
 				option1.textContent = "Business";
 				option2.textContent = "Engineering";
