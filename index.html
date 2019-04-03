@@ -33,7 +33,7 @@
 			Enter your predicted salary:<br>
 			<input type="text" name="yearly_salary">
 			<br>
-			<input id="submitSalary" type="submit">
+			<input type="submit">
 			<br>
 			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
 		</form>
@@ -215,13 +215,16 @@
 				var x = document.forms["salary"]["yearly_salary"].value;
 				if (x == "") {
 						alert("Salary must be filled out");
+						return false;
 					}
 				else if (x !="") {
 					if (isNaN(x)) {
 						alert("Salary can only contain numbers");
+						return false;
 					}
 					else {
 						drawQ7();
+						return true;
 					}
 			};
 /*
