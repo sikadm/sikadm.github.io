@@ -28,18 +28,18 @@
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
-		<form name = "salary" id="salary" onsubmit="validateForm()">
+		<form name = "salary" id="salary">
 			Enter your predicted salary:<br>
 			<input type="text" name="yearly_salary">
 			<br>
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" onclick="validateForm()">
 			<br>
 			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
 		</form>
 		
 		<div class="option" id="box1">
 			<br>
-			<p id="option1">Click here to get started!</p>
+			<p id="option1">Click to Start!</p>
 		</div>
 		<br>
 		<div class="option" id="box2">
@@ -82,7 +82,7 @@
 
 			var drawQ1 = function() {
 				option2box.style.display = "block";
-				question.textContent = "What's your highest level of education?";
+				question.textContent = "What is (or will be) your highest level of education?";
 				option1.textContent = "High School";
 				option2.textContent = "College";
 				option1.addEventListener("click", drawQ2);
@@ -200,10 +200,14 @@
 			};
 			
 			function validateForm() {
-				preventDefault();
 				var x = document.forms["salary"]["yearly_salary"].value;
 				if (x == "") {
 					alert("Salary must be filled out");
+				}
+				else if (confirm("Ready to get started?")){
+					drawQ7();
+				}
+				else {
 				}
 			};
 			
