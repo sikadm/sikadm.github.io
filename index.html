@@ -126,14 +126,13 @@
 				option2.textContent = "Job";
 				option1.addEventListener("click", drawQ12);
 				option1.addEventListener("click", year = 20);
-				//option1.addEventListener("click", progress.textContent = "20 yrs old");
+				option1.addEventListener("click", updateBar);
 				option2.addEventListener("click", drawQ12);
 			};
 
 			var drawQ3 = function() {
 				year = 22;
-				progress.style.width = year + '%';
-				progress.textContent = year + " yrs old";
+				updateBar();
 				question.textContent = "Will you continue on with school or start your career?";
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
@@ -163,7 +162,8 @@
 
 			var drawQ6 = function() {
 				option3box.style.display = "block";
-				progress.style.width = 19 + '%';
+				year = 19;
+				updateBar();
 				question.textContent = "What is your major?";
 				option1.textContent = "Business";
 				option2.textContent = "Engineering";
@@ -191,11 +191,9 @@
 				option2.textContent = "Masters";
 				option3box.style.display = "none";
 				option1.addEventListener("click", drawQ12);
-				option1.addEventListener("click", progress.style.width = 26 + '%');
-				option1.addEventListener("click", progress.textContent = "26 yrs old");
+				option1.addEventListener("click", year = 26);
 				option2.addEventListener("click", drawQ12);
-				option2.addEventListener("click", progress.style.width = 24 + '%');
-				option2.addEventListener("click", progress.textContent = "24 yrs old");
+				option2.addEventListener("click", year = 24);
 			};
 			var drawQ9 = function() {
 				question.textContent = "Where will you live (location)?";
@@ -223,7 +221,8 @@
 				
 			};
 			var drawQ11 = function() {
-				progress.style.width = progress.style.width++
+				year++;
+				updateBar();
 				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
@@ -233,6 +232,7 @@
 				
 			};
 			var drawQ12 = function() {
+				updateBar();
 				salaryForm.style.display = "block";
 				option1box.style.display = "none";
 				option2box.style.display = "none";
@@ -255,6 +255,11 @@
 					}
 				}
 			};
+			function updateBar() {
+				progress.style.width = year + "%";
+				progress.textContent = year + " yrs old";
+			};
+			
 			$("#salary").submit(function(e) {
 				e.preventDefault();
 			});		
