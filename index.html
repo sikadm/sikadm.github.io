@@ -30,7 +30,7 @@
 				background-color: white;
 				top: 90%;
 				left: 40%;
-				margin: 100px 100px 0 -250px;
+				margin: 50px 100px 0 -200px;
 			}
 			#progressbar {
 				width: 18%;
@@ -40,12 +40,14 @@
 				line-height: 32px;
 				color: black;
 			}
+
 		</style> 
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
 		<form name = "salary" id="salary">
-			Enter your predicted salary:<br>
+			<p style="color:white;">Enter your predicted salary:</p>
+			<br>
 			<input type="text" name="yearly_salary">
 			<br>
 			<input type="submit" value="Submit" onclick="validateForm()">
@@ -99,7 +101,6 @@
 			var progress = document.getElementById("progressbar");
 			var year = 0;
 
-			progress.style.display = "block";
 			salaryForm.style.display = "none";
 			option2box.style.display = "none";
 			option3box.style.display = "none";
@@ -107,9 +108,11 @@
 			
 
 			var drawQ1 = function() {
+				year = 18;
 				option2box.style.display = "block";
-				progress.style.width = 18 + '%';
-				progress.textContent = "18 yrs old";
+				progress.style.display = "block";
+				progress.style.width = year + '%';
+				progress.textContent =  year + " yrs old";
 				question.textContent = "What is (or will be) your highest level of education?";
 				option1.textContent = "High School";
 				option2.textContent = "College";
@@ -122,12 +125,15 @@
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
 				option1.addEventListener("click", drawQ12);
-				option1.addEventListener("click", progress.style.width = 20 + '%');
+				option1.addEventListener("click", year = 20);
+				//option1.addEventListener("click", progress.textContent = "20 yrs old");
 				option2.addEventListener("click", drawQ12);
 			};
 
 			var drawQ3 = function() {
-				progress.style.width = 22 + '%';
+				year = 22;
+				progress.style.width = year + '%';
+				progress.textContent = year + " yrs old";
 				question.textContent = "Will you continue on with school or start your career?";
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
@@ -186,8 +192,10 @@
 				option3box.style.display = "none";
 				option1.addEventListener("click", drawQ12);
 				option1.addEventListener("click", progress.style.width = 26 + '%');
+				option1.addEventListener("click", progress.textContent = "26 yrs old");
 				option2.addEventListener("click", drawQ12);
 				option2.addEventListener("click", progress.style.width = 24 + '%');
+				option2.addEventListener("click", progress.textContent = "24 yrs old");
 			};
 			var drawQ9 = function() {
 				question.textContent = "Where will you live (location)?";
@@ -208,13 +216,14 @@
 				option2.textContent = "Yes, still apart of my parents";
 				option3.textContent = "Yes, paid for by self";
 				option4.textContent = "No";
-				// option1.addEventListener("click", drawQ11);
-				// option2.addEventListener("click", drawQ11);
-				// option3.addEventListener("click", drawQ11);
-				// option4.addEventListener("click", drawQ11);
+				option1.addEventListener("click", drawQ11);
+				option2.addEventListener("click", drawQ11);
+				option3.addEventListener("click", drawQ11);
+				option4.addEventListener("click", drawQ11);
 				
 			};
 			var drawQ11 = function() {
+				progress.style.width = progress.style.width++
 				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
@@ -242,7 +251,7 @@
 				}
 				else {
 					if (confirm("Ready to get started?")) {
-						drawQ7();
+						drawQ9();
 					}
 				}
 			};
