@@ -72,6 +72,17 @@
 				font-size: 20px;
 				margin: 25px;
 			}
+			textarea {
+				width: 100px;
+				  height: 50px;
+				  padding: 12px 20px;
+				  box-sizing: border-box;
+				  border: 5px solid rgb(145,0,0); 
+				  border-radius: 12px;
+				  background-color: white;
+				  font-size: 18px;
+				  resize: none;
+			}
 		</style> 
 	</head> 
 	<body>
@@ -79,7 +90,7 @@
 		<form class="simple-form" name = "salary" id="salary">
 			<label>Enter your predicted salary:</label>
 			<br>
-			<textarea rows="4" cols="50" name="yearly_salary">
+			<textarea name="yearly_salary">
 			</textarea>
 			<br>
 			<input type="submit" value="Submit" onclick="validateForm()">
