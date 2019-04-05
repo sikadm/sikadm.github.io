@@ -31,7 +31,7 @@
 				background-color: white;
 				top: 90%;
 				left: 40%;
-				margin: 50px 100px 0 -100px;
+				margin: 50px 100px 0 -50px;
 			}
 			#progressbar {
 				width: 18%;
@@ -85,12 +85,27 @@
 				align-content: left;
 				margin: 25px;
 			}
+			#money_tracking {
+				width: 300px; 
+				margin: auto; 
+				height: 70px; 
+				border: 5px solid rgb(145,0,0); 
+				background: white; 
+				vertical-align: middle;
+				position:absolute;
+				top:10px;
+				right: 10px;
+			}
+				
 		</style> 
 	</head> 
 	<body>
 		<h2 id="question">Welcome to The Game of Life!</h2>
-		<form class="simple-form" name = "salary" id="salary">
-			<label>Enter your predicted salary:</label>
+		<div id="money_tracking">
+			
+		</div>
+		<form name = "salary" id="salary">
+			<label>Enter your predicted yearly salary:</label>
 			<br>
 			<textarea name="yearly_salary"></textarea>
 			<br>
@@ -131,6 +146,7 @@
 
 		<script>
 			var salaryForm = document.getElementById("salary");
+			var money = document.getElementById("money_tracking");
 			var option1 = document.getElementById("option1");
 			var option2 = document.getElementById("option2");
 			var option3 = document.getElementById("option3");
@@ -147,6 +163,7 @@
 
 			progress.style.display = "none";
 			salaryForm.style.display = "none";
+			money.style.display = "none";
 			option2box.style.display = "none";
 			option3box.style.display = "none";
 			option4box.style.display = "none";
@@ -154,6 +171,7 @@
 
 			var drawQ1 = function() {
 				year = 18;
+				money.style.display = "block";
 				option2box.style.display = "block";
 				progress.style.display = "block";
 				progress.style.width = year + '%';
@@ -243,6 +261,7 @@
 			};
 			var drawQ9 = function() {
 				salaryForm.style.display = "none";
+				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option3box.style.display = "block";
 				question.textContent = "Where will you live (location)?";
