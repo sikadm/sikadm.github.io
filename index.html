@@ -93,8 +93,8 @@
 				background: white; 
 				vertical-align: middle;
 				position:absolute;
-				top:10px;
-				right: 10px;
+				top:20px;
+				right: 20px;
 			}
 				
 		</style> 
@@ -171,7 +171,6 @@
 
 			var drawQ1 = function() {
 				year = 18;
-				money.style.display = "block";
 				option2box.style.display = "block";
 				progress.style.display = "block";
 				progress.style.width = year + '%';
@@ -260,6 +259,8 @@
 				option2.addEventListener("click", year = 24);
 			};
 			var drawQ9 = function() {
+				money.style.display = "block";
+				money.textContent = "$" + x;
 				salaryForm.style.display = "none";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
