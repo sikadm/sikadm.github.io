@@ -97,6 +97,10 @@
 				right: 20px;
 				font-size: 30px;
 			}
+			#thoughtBubble {
+				position:absolute;
+				bottom: 25px;
+				right: 20px;
 				
 		</style> 
 	</head> 
@@ -140,7 +144,7 @@
 			<div id="progressbar"></div>
 		</div>
 		
-			
+		<img id="thoughtBubble" src="thoughtbubb;e.jpg" alt="thought bubble">	
 		<img id="W2" src="w2only" style="display:none;"/>	//image of W2 form
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> //jQuery
@@ -153,6 +157,7 @@
 			var option3 = document.getElementById("option3");
 			var option4 = document.getElementById("option4");
 			var question = document.getElementById("question");
+			var bubble = document.getElementById("thoughtBubble");
 
 			var option1box = document.getElementById("box1");
 			var option2box = document.getElementById("box2");
@@ -163,6 +168,7 @@
 			var year = 0;
 
 			progress.style.display = "none";
+			bubble.style.display = "none";
 			salaryForm.style.display = "none";
 			money.style.display = "none";
 			option2box.style.display = "none";
