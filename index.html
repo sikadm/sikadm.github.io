@@ -103,7 +103,13 @@
 				right: 20px;
 				width: 300px;
 				height: 300px;
-				
+			}
+			#thought {
+				position: absolute;
+				bottom: 35px;
+				right:25px;
+				font: 20px;
+			}
 		</style> 
 	</head> 
 	<body>
@@ -146,7 +152,9 @@
 			<div id="progressbar"></div>
 		</div>
 		
-		<img id="thoughtBubble" src="thoughtbubble.png" alt="thought bubble">	
+		<div id="thought">
+		<img id="thoughtBubble" src="thoughtbubble.png" alt="thought bubble">
+		</div>
 		<img id="W2" src="w2only" style="display:none;"/>	//image of W2 form
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> //jQuery
@@ -160,6 +168,7 @@
 			var option4 = document.getElementById("option4");
 			var question = document.getElementById("question");
 			var bubble = document.getElementById("thoughtBubble");
+			var bubbleWords = document.getElementById("thought");
 
 			var option1box = document.getElementById("box1");
 			var option2box = document.getElementById("box2");
@@ -171,6 +180,7 @@
 
 			progress.style.display = "none";
 			bubble.style.display = "none";
+			bubbleWords.style.display = "none";
 			salaryForm.style.display = "none";
 			money.style.display = "none";
 			option2box.style.display = "none";
@@ -190,7 +200,7 @@
 				option1.addEventListener("click", drawQ2);
 				option2.addEventListener("click", drawQ6);
 				bubble.style.display = "block";
-				bubble.textContent = "You will have the option for grad school later.";
+				bubbleWords.textContent = "You will have the option for grad school later.";
 			};
 
 			var drawQ2 = function() {
