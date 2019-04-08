@@ -213,8 +213,8 @@
 				question.textContent = "What is (or will be) your highest level of education?";
 				option1.textContent = "High School";
 				option2.textContent = "College";
-				option1.addEventListener("click", drawQ2);
-				option2.addEventListener("click", drawQ6);
+				option1box.addEventListener("click", drawQ2);
+				option2box.addEventListener("click", drawQ6);
 				bubble.style.display = "block";
 				bubbleWords.textContent = "You will have the option for grad school later.";
 			};
@@ -223,10 +223,10 @@
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
-				option1.addEventListener("click", drawQ12);
-				option1.addEventListener("click", year = 20);
-				option1.addEventListener("click", updateBar);
-				option2.addEventListener("click", drawQ12);
+				option1box.addEventListener("click", drawQ12);
+				option1box.addEventListener("click", year = 20);
+				option1box.addEventListener("click", updateBar);
+				option2box.addEventListener("click", drawQ12);
 			};
 
 			var drawQ3 = function() {
@@ -236,8 +236,8 @@
 				question.textContent = "Will you continue on with school or start your career?";
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
-				option1.addEventListener("click", drawQ8);
-				option2.addEventListener("click", drawQ12);
+				option1box.addEventListener("click", drawQ8);
+				option2box.addEventListener("click", drawQ12);
 			};
 
 			var drawQ4 = function() {
@@ -249,9 +249,9 @@
 				option1.textContent = "High-End Apartment";
 				option2.textContent = "Cheap Apartment";
 				option3.textContent = "House";
-				option1.addEventListener("click", drawQ5);
-				option2.addEventListener("click", drawQ5);
-				option3.addEventListener("click", drawQ5);
+				option1box.addEventListener("click", drawQ5);
+				option2box.addEventListener("click", drawQ5);
+				option3box.addEventListener("click", drawQ5);
 			};
 
 			var drawQ5 = function() {
@@ -261,8 +261,8 @@
 				question.textContent = "Will you have a roommate?";
 				option1.textContent = "Yes";
 				option2.textContent = "No";
-				option1.addEventListener("click", drawQ7);
-				option2.addEventListener("click", drawQ7);
+				option1box.addEventListener("click", drawQ7);
+				option2box.addEventListener("click", drawQ7);
 			};
 
 			var drawQ6 = function() {
@@ -275,9 +275,9 @@
 				option1.textContent = "Business";
 				option2.textContent = "Engineering";
 				option3.textContent = "Arts/Science";
-				option1.addEventListener("click", drawQ3);
-				option2.addEventListener("click", drawQ3);
-				option3.addEventListener("click", drawQ3);
+				option1box.addEventListener("click", drawQ3);
+				option2box.addEventListener("click", drawQ3);
+				option3box.addEventListener("click", drawQ3);
 			};
 
 			var drawQ7 = function() {
@@ -288,8 +288,8 @@
 				option1.textContent = "Yes";
 				option2.textContent = "No";
 				option3box.style.display = "none";
-				option1.addEventListener("click", drawQ10);
-				option2.addEventListener("click", drawQ10);
+				option1box.addEventListener("click", drawQ10);
+				option2box.addEventListener("click", drawQ10);
 			};
 
 			var drawQ8 = function() {
@@ -297,10 +297,10 @@
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
 				option3box.style.display = "none";
-				option1.addEventListener("click", drawQ12);
-				option1.addEventListener("click", year = 26);
-				option2.addEventListener("click", drawQ12);
-				option2.addEventListener("click", year = 24);
+				option1box.addEventListener("click", drawQ12);
+				option1box.addEventListener("click", year = 26);
+				option2box.addEventListener("click", drawQ12);
+				option2box.addEventListener("click", year = 24);
 			};
 			var drawQ9 = function() {
 				money.style.display = "block";
@@ -314,9 +314,9 @@
 				option2.textContent = "Suburbs";
 				option3box.style.display = "block";
 				option3.textContent = "Rural";
-				option1.addEventListener("click", drawQ4);
-				option2.addEventListener("click", drawQ4);
-				option3.addEventListener("click", drawQ4);
+				option1box.addEventListener("click", drawQ4);
+				option2box.addEventListener("click", drawQ4);
+				option3box.addEventListener("click", drawQ4);
 				
 			};
 			var drawQ10 = function() {
@@ -327,10 +327,10 @@
 				option2.textContent = "Yes, still apart of my parents";
 				option3.textContent = "Yes, paid for by self";
 				option4.textContent = "No";
-				option1.addEventListener("click", drawQ11);
-				option2.addEventListener("click", drawQ11);
-				option3.addEventListener("click", drawQ11);
-				option4.addEventListener("click", drawQ11);
+				option1box.addEventListener("click", drawQ11);
+				option2box.addEventListener("click", drawQ11);
+				option3box.addEventListener("click", drawQ11);
+				option4box.addEventListener("click", drawQ11);
 				
 			};
 			var drawQ11 = function() {
@@ -377,7 +377,7 @@
 			$("#salary").submit(function(e) {
 				e.preventDefault();
 			});		
-			option1.addEventListener("click", drawQ1);
+			option1box.addEventListener("click", drawQ1);
 		</script>
 	</body>
 </html>
