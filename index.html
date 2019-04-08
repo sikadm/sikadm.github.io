@@ -2,6 +2,7 @@
 
 <html> 
 	<head> 
+		<link rel="icon" href="money-bag.png" type="image/gpng" sizes="16x16">
 		<style> 
 			body { 
 				background-color: rgb(0,0,0); 
@@ -110,6 +111,11 @@
 				right:25px;
 				font: 20px;
 			}
+			#iconrights {
+				position: absolute;
+				bottom: 10px;
+				font: 10px;
+			}
 		</style> 
 	</head> 
 	<body>
@@ -155,6 +161,11 @@
 		<div>
 		<img id="thoughtBubble" src="thoughtbubble.png" alt="thought bubble">
 			<div id="thought">words</div>
+		</div>
+		<div id="iconrights">Icons made by 
+			<a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> 
+			from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
+			is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
 		</div>
 		<img id="W2" src="w2form" style="display:none;"/>	//image of W2 form
 		<img id="1040form" src="1040form" style="display:none;"/>
@@ -244,6 +255,7 @@
 			var drawQ5 = function() {
 				option1box.style.display = "block";
 				option2box.style.display = "block";
+				option3box.style.display = "none";
 				question.textContent = "Will you have a roommate?";
 				option1.textContent = "Yes";
 				option2.textContent = "No";
