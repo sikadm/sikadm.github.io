@@ -110,8 +110,8 @@
 			}
 			#thought {
 				position: absolute;
-				bottom: 35px;
-				right:25px;
+				bottom: 50px;
+				right:40px;
 				font-size: 20px;
 				color: black;
 			}
@@ -170,7 +170,7 @@
 		<img id="W2" src="w2form.png" style="display:none"/>
 		<br>
 		<img id="1040form" src="1040form.png" style="display:none"/>
-		<div>
+		<div id="container">
 		<img id="thoughtBubble" src="thoughtbubble.png" alt="thought bubble">
 			<div id="thought">words</div>
 		</div>
@@ -190,8 +190,7 @@
 			var option3 = document.getElementById("option3");
 			var option4 = document.getElementById("option4");
 			var question = document.getElementById("question");
-			var bubble = document.getElementById("thoughtBubble");
-			var bubbleWords = document.getElementById("thought");
+			var bubble = document.getElementById("container");
 
 			var option1box = document.getElementById("box1");
 			var option2box = document.getElementById("box2");
@@ -204,7 +203,6 @@
 
 			progress.style.display = "none";
 			bubble.style.display = "none";
-			bubbleWords.style.display = "none";
 			salaryForm.style.display = "none";
 			money.style.display = "none";
 			option2box.style.display = "none";
