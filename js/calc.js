@@ -15,6 +15,3 @@ function remainingBalance() {
     document.getElementById("remaining-amount").innerHTML = remaining.toFixed(2);
 	return false;
 }
-$("#loan-form").submit(function(e) {
-				e.preventDefault();
-});
