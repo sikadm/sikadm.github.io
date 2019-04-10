@@ -232,10 +232,10 @@
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
-				option1box.addEventListener("click", drawQ12);
+				option1box.addEventListener("click", income);
 				option1box.addEventListener("click", year = 20);
 				option1box.addEventListener("click", updateBar);
-				option2box.addEventListener("click", drawQ12);
+				option2box.addEventListener("click", income);
 			};
 
 			var collegeGraduate = function() {
@@ -328,9 +328,11 @@
 				option2box.addEventListener("click", vehicle);
 				option2box.addEventListener("click", roommateMultiplier = 1);
 			};
+			var bank;
 			function housingUpdate(){
 				var yearlyRent = roommateMultiplier*rent*housingMultiplier;
-				x = x - yearlyRent;
+				bank = x - yearlyRent;
+				money.textContent = "$" + bank;
 			};
 			var vehicle = function() {
 				housingUpdate();
