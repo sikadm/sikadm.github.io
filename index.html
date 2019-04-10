@@ -224,7 +224,7 @@
 				option1box.addEventListener("click", drawQ2);
 				option2box.addEventListener("click", drawQ6);
 				bubble.style.display = "block";
-				bubbleWords.textContent = "You will have the option for grad school later.";
+				bubble.textContent = "You will have the option for grad school later.";
 			};
 
 			var drawQ2 = function() {
@@ -273,21 +273,6 @@
 				option2box.addEventListener("click", drawQ7);
 			};
 
-			var drawQ6 = function() {
-				option1box.style.display = "block";
-				option2box.style.display = "block";
-				option3box.style.display = "block";
-				year = 19;
-				updateBar();
-				question.textContent = "What is your major?";
-				option1.textContent = "Business";
-				option2.textContent = "Engineering";
-				option3.textContent = "Arts/Science";
-				option1box.addEventListener("click", drawQ3);
-				option2box.addEventListener("click", drawQ3);
-				option3box.addEventListener("click", drawQ3);
-			};
-
 			var drawQ7 = function() {
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
 				salaryForm.style.display="none";
@@ -310,6 +295,7 @@
 				option2box.addEventListener("click", drawQ12);
 				option2box.addEventListener("click", year = 24);
 			};
+			var housingMultiplier;
 			var drawQ9 = function() {
 				money.style.display = "block";
 				money.textContent = "$" + x;
@@ -323,12 +309,13 @@
 				option3box.style.display = "block";
 				option3.textContent = "Rural";
 				option1box.addEventListener("click", drawQ4);
+				
 				option2box.addEventListener("click", drawQ4);
 				option3box.addEventListener("click", drawQ4);
 				
 			};
 			var drawQ10 = function() {
-				question.textContent = "Do you have life insurance?";
+				question.textContent = "Do you have health insurance?";
 				option3box.style.display = "block";
 				option4box.style.display = "block";
 				option1.textContent = "Yes, provided through my job";
