@@ -14,6 +14,6 @@ function remainingBalance() {
 
     document.getElementById("remaining-amount").innerHTML = remaining.toFixed(2);
 }
-$("#salary").submit(function(e) {
+$("#loan-form").submit(function(e) {
 				e.preventDefault();
 });
