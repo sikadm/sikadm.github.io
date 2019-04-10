@@ -248,6 +248,56 @@
 				option1box.addEventListener("click", gradSchool);
 				option2box.addEventListener("click", income);
 			};
+			var gradSchool = function() {
+				question.textContent = "What kind of degree are you getting?";
+				option1.textContent = "Doctorate";
+				option2.textContent = "Masters";
+				option3box.style.display = "none";
+				option1box.addEventListener("click", income);
+				option1box.addEventListener("click", year = 26);
+				option2box.addEventListener("click", income);
+				option2box.addEventListener("click", year = 24);
+			};
+			var income = function() {
+				updateBar();
+				salaryForm.style.display = "block";
+				option1box.style.display = "none";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				question.textContent = "Income";
+			};
+			var x; //global variable of salary
+			function validateForm() {
+				x = document.forms["salary"]["yearly_salary"].value;
+				if (x == "") {
+					alert("Salary must be filled out");
+				}
+				else if (isNaN(x)){
+					alert("Salary can only contain numbers");
+				}
+				else {
+					if (confirm("Ready to get started?")) {
+						housingLocation();
+					}
+				}
+			};
+			var housingMultiplier;
+			var housingLocation = function() {
+				money.style.display = "block";
+				money.textContent = "$" + x;
+				salaryForm.style.display = "none";
+				option1box.style.display = "block";
+				option2box.style.display = "block";
+				question.textContent = "Where will you live (location)?";
+				option1.textContent = "City";
+				option2.textContent = "Suburbs";
+				option1box.addEventListener("click", housingType);
+				option1box.addEventListener("click", housingMultiplier = 1);
+				option2box.addEventListener("click", housingType);
+				option2box.addEventListener("click", housingMultiplier = 2);
+				
+			};
 			var rent;
 			var housingType = function() {
 				salaryForm.style.display = "none";
@@ -278,8 +328,12 @@
 				option2box.addEventListener("click", vehicle);
 				option2box.addEventListener("click", roommateMultiplier = 1);
 			};
-			var yearlyRent = roommateMultiplier*rent*housingMultiplier;
+			function housingUpdate(){
+				var yearlyRent = roommateMultiplier*rent*housingMultiplier;
+				x = x - yearlyRent;
+			};
 			var vehicle = function() {
+				housingUpdate();
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
 				salaryForm.style.display="none";
 				option1box.style.display = "block";
@@ -289,33 +343,6 @@
 				option3box.style.display = "none";
 				option1box.addEventListener("click", healthInsurance);
 				option2box.addEventListener("click", healthInsurance);
-			};
-
-			var gradSchool = function() {
-				question.textContent = "What kind of degree are you getting?";
-				option1.textContent = "Doctorate";
-				option2.textContent = "Masters";
-				option3box.style.display = "none";
-				option1box.addEventListener("click", income);
-				option1box.addEventListener("click", year = 26);
-				option2box.addEventListener("click", income);
-				option2box.addEventListener("click", year = 24);
-			};
-			var housingMultiplier;
-			var housingLocation = function() {
-				money.style.display = "block";
-				money.textContent = "$" + x;
-				salaryForm.style.display = "none";
-				option1box.style.display = "block";
-				option2box.style.display = "block";
-				question.textContent = "Where will you live (location)?";
-				option1.textContent = "City";
-				option2.textContent = "Suburbs";
-				option1box.addEventListener("click", housingType);
-				option1box.addEventListener("click", housingMultiplier = 1);
-				option2box.addEventListener("click", housingType);
-				option2box.addEventListener("click", housingMultiplier = 2);
-				
 			};
 			var healthInsurance = function() {
 				question.textContent = "Do you have health insurance?";
@@ -342,32 +369,7 @@
 				form1040.style.display = "block";
 				
 			};
-		
-			var income = function() {
-				updateBar();
-				salaryForm.style.display = "block";
-				option1box.style.display = "none";
-				option2box.style.display = "none";
-				option3box.style.display = "none";
-				option4box.style.display = "none";
-				question.textContent = "Income";
-			};
 
-			var x; //global variable of salary
-			function validateForm() {
-				x = document.forms["salary"]["yearly_salary"].value;
-				if (x == "") {
-					alert("Salary must be filled out");
-				}
-				else if (isNaN(x)){
-					alert("Salary can only contain numbers");
-				}
-				else {
-					if (confirm("Ready to get started?")) {
-						drawQ9();
-					}
-				}
-			};
 			function updateBar() {
 				progress.style.width = year + "%";
 				progress.textContent = year + " yrs old";
