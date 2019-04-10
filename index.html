@@ -190,6 +190,7 @@
 			var option4 = document.getElementById("option4");
 			var question = document.getElementById("question");
 			var bubble = document.getElementById("container");
+			var thought = document.getElementById("thought");
 
 			var option1box = document.getElementById("box1");
 			var option2box = document.getElementById("box2");
@@ -224,7 +225,7 @@
 				option1box.addEventListener("click", drawQ2);
 				option2box.addEventListener("click", drawQ6);
 				bubble.style.display = "block";
-				bubble.textContent = "You will have the option for grad school later.";
+				thought.textContent = "You will have the option for grad school later.";
 			};
 
 			var drawQ2 = function() {
