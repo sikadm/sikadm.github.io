@@ -1,3 +1,4 @@
+var remaining;
 function remainingBalance() {
     //grab interest rate
     var r = document.getElementById("interest-input").value;
@@ -10,9 +11,9 @@ function remainingBalance() {
     var monthly = document.getElementById("month-input").value;
 
     var q = (1+r)** payments;
-    var remaining = q * loan - ( (q-1) / r ) * monthly;
+    remaining = q * loan - ( (q-1) / r ) * monthly;
 
-    document.getElementById("remaining-amount").innerHTML = remaining.toFixed(2);
+    document.getElementById("remaining-amount").textContent = remaining.toFixed(2);
 	return false;
 }
 $("#loan-form").submit(function(e) {
