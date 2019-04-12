@@ -117,7 +117,6 @@
 				width: 170px;
 				height: 150px;
 				text-align: center;
-				background-color: yellow;
 			}
 			#iconrights {
 				bottom: 5px;
@@ -232,6 +231,7 @@
 			};
 
 			var hsGraduate = function() {
+				bubble.style.display = "none";
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
@@ -241,6 +241,7 @@
 			};
 
 			var collegeGraduate = function() {
+				bubble.style.display = "none";
 				option3box.style.display = "none";
 				year = 22;
 				updateBar();
