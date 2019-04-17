@@ -476,6 +476,7 @@
 			};
 			
 			function taxes() {
+				progress.style.display = "none";
 				thought.textContent = "You must fill out your taxes every year by April 15th. Some sites are available for help at a small cost (HRBlock.com)";
 				updateBar();
 				option1box.style.display = "block";
@@ -494,6 +495,7 @@
 			var retirementSavings;
 			var retirementPercent;
 			function retirement() {
+				progress.style.display = "block";
 				W2form.style.display = "block";
 				form1040.style.display = "block";
 				salaryForm.style.display = "none";
