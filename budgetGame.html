@@ -279,12 +279,14 @@
 				}
 				else {
 					if (confirm("Ready to get started?")) {
-						housingLocation();
+						taxes();
 					}
 				}
 			};
 			var housingMultiplier;
 			function housingLocation() {
+				form1040.style.display = "none";
+				W2form.style.display = "none";
 				money.style.display = "block";
 				money.textContent = "$" + x;
 				salaryForm.style.display = "none";
@@ -335,6 +337,7 @@
 				bank = x - yearlyRent;
 				money.textContent = "$" + bank;
 			};
+			
 			function vehicle() {
 				housingUpdate();
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
@@ -347,6 +350,25 @@
 				option1box.addEventListener("click", healthInsurance);
 				option2box.addEventListener("click", healthInsurance);
 			};
+			
+			var carCost;
+			function vehicleCost() {
+				question.textContent = "What are your car payments like?";
+				option1box.style.display = "block";
+				option2box.style.display = "block";
+				option3box.style.display = "block";
+				option1.textContent = "Car already paid off (no insurance/parents pay)";
+				option2.textContent = "Car paid off but insurance being paid";
+				option3box.style.display = "car and insurance payments monthly";
+				option1box.addEventListener("click", healthInsurance);
+				option2box.addEventListener("click", healthInsurance);
+				option2box.addEventListener("click", healthInsurance);
+				option1box.addEventListener("click", carCost = 0);
+				option2box.addEventListener("click", carCost = 120);
+				option2box.addEventListener("click", carCost = 400);
+			};
+			
+			var healthInsCost;
 			function healthInsurance() {
 				question.textContent = "Do you have health insurance?";
 				option3box.style.display = "block";
@@ -356,23 +378,65 @@
 				option3.textContent = "Yes, paid for by self";
 				option4.textContent = "No";
 				option1box.addEventListener("click", taxes);
+				option1box.addEventListener("click", healthInsCost = 1100);
 				option2box.addEventListener("click", taxes);
+				option2box.addEventListener("click", healthInsCost = 0);
 				option3box.addEventListener("click", taxes);
+				option3box.addEventListener("click", healthInsCost = 6200);
 				option4box.addEventListener("click", taxes);
-				
+				option4box.addEventListener("click", healthInsCost = 0);
 			};
+			
 			function taxes() {
 				updateBar();
-				option1box.style.display = "none";
+				option1box.style.display = "block";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
 				option4box.style.display = "none";
 				salaryForm.style.display = "none";
-				question.textContent = "Tax Time! W2 and 1040";	
+				question.textContent = "Tax forms";
+				option1box.addEventListener("click", retirement);
 				W2form.style.display = "block";
 				form1040.style.display = "block";
 				
 			};
+			
+			var retirementSavings;
+			var retirementPercent;
+			function retirement() {
+				question.textContent = "What percent of your salary are you putting into a 401K?"
+				option1box.style.display = "block";
+				option2box.style.display = "block";
+				option3box.style.display = "block";
+				option4box.style.display = "block";
+				option1.textContent = "0%";
+				option2.textContent = "5%";
+				option3.textContent = "10%";
+				option4.textContent = "20%";
+				option1box.addEventListener("click", housingLocation);
+				option1box.addEventListener("click", retirementPercent = 0);
+				option2box.addEventListener("click", housingLocation);
+				option2box.addEventListener("click", retirementPercent = 0.05);
+				option3box.addEventListener("click", housingLocation);
+				option3box.addEventListener("click", retirementPercent = .1);
+				option4box.addEventListener("click", housingLocation);
+				option4box.addEventListener("click", retirementPercent = .2);	
+			};
+			
+			function marriage() {
+				question.textContent = "Do you want to get married?";
+				option1box.style.display = "block";
+				option2box.style.display = "block";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				option1.textContent = "Yes";
+				option2.textContent = "No";
+				option1box.addEventListener("click", children);
+				option1box.addEventListener("click", );
+				option2box.addEventListener("click", children);
+				option2box.addEventListener("click", );
+			};
+			
 			function updateBar() {
 				progress.style.width = year + "%";
 				progress.textContent = year + " yrs old";
