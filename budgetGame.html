@@ -450,6 +450,7 @@
 				option4box.style.display = "none";
 				salaryForm.style.display = "none";
 				question.textContent = "Tax forms";
+				option1.textContent = "Click to continue";
 				option1box.addEventListener("click", retirement);
 				W2form.style.display = "block";
 				form1040.style.display = "block";
@@ -459,6 +460,9 @@
 			var retirementSavings;
 			var retirementPercent;
 			function retirement() {
+				W2form.style.display = "block";
+				form1040.style.display = "block";
+				salaryForm.style.display = "none";
 				question.textContent = "What percent of your salary are you putting into a 401K?"
 				option1box.style.display = "block";
 				option2box.style.display = "block";
