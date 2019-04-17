@@ -227,16 +227,22 @@
 				bubble.style.display = "block";
 				thought.textContent = "You will have the option for grad school later.";
 			};
+			
 			function hsGraduate() {
 				bubble.style.display = "none";
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
-				option1box.addEventListener("click", year = 20);
-				option1box.addEventListener("click", income);
+				option1box.addEventListener("click", tradeSchool);
 				option2box.addEventListener("click", income);
 				
 			};
+			
+			function tradeSchool() {
+				year = 20;
+				income();
+			};
+			
 			function collegeGraduate() {
 				bubble.style.display = "none";
 				option3box.style.display = "none";
@@ -255,12 +261,21 @@
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
 				option3box.style.display = "none";
-				option1box.addEventListener("click", year = 26);
-				option2box.addEventListener("click", year = 24);
-				option1box.addEventListener("click", income);
-				option2box.addEventListener("click", income);
+				option1box.addEventListener("click", doctorate);
+				option2box.addEventListener("click", masters);
 				
 			};
+			
+			function doctorate() {
+				year = 26;
+				income();
+			};
+			
+			function masters() {
+				year = 24;
+				income();
+			};
+			
 			function income() {
 				updateBar();
 				salaryForm.style.display = "block";
@@ -297,12 +312,20 @@
 				question.textContent = "Where will you live (location)?";
 				option1.textContent = "City";
 				option2.textContent = "Suburbs";
-				option1box.addEventListener("click", housingType);
-				option1box.addEventListener("click", housingMultiplier = 1);
-				option2box.addEventListener("click", housingType);
-				option2box.addEventListener("click", housingMultiplier = 2);
-				
+				option1box.addEventListener("click", city);
+				option2box.addEventListener("click", suburbs);
 			};
+			
+			function city() {
+				housingMultiplier = 2;
+				housingType();
+			};
+			
+			function suburbs() {
+				housingMultiplier = 1;
+				housingType();
+			};
+			
 			var rent;
 			function housingType() {
 				salaryForm.style.display = "none";
@@ -320,6 +343,7 @@
 				option3box.addEventListener("click", roommate);
 				option3box.addEventListener("click", rent = 6600);
 			};
+			
 			var roommateMultiplier;
 			function roommate() {
 				option1box.style.display = "block";
@@ -333,6 +357,7 @@
 				option2box.addEventListener("click", vehicle);
 				option2box.addEventListener("click", roommateMultiplier = 1);
 			};
+			
 			var bank;
 			function housingUpdate(){
 				var yearlyRent = roommateMultiplier*rent*housingMultiplier;
@@ -362,12 +387,24 @@
 				option1.textContent = "Car already paid off (no insurance/parents pay)";
 				option2.textContent = "Car paid off but insurance being paid";
 				option3box.style.display = "car and insurance payments monthly";
-				option1box.addEventListener("click", healthInsurance);
-				option2box.addEventListener("click", healthInsurance);
-				option2box.addEventListener("click", healthInsurance);
-				option1box.addEventListener("click", carCost = 0);
-				option2box.addEventListener("click", carCost = 120);
-				option2box.addEventListener("click", carCost = 400);
+				option1box.addEventListener("click", nocarpymt);
+				option2box.addEventListener("click", carIns);
+				option3box.addEventListener("click", carInsPymt);
+			};
+			
+			function nocarpymt() {
+				carCost = 0;
+				healthInsurance();
+			};
+			
+			function carIns() {
+				carCost = 120;
+				healthInsurance();
+			};
+			
+			function carInsPymt() {
+				carCost = 400;
+				healthInsurance();
 			};
 			
 			var healthInsCost;
@@ -379,14 +416,30 @@
 				option2.textContent = "Yes, still apart of my parents";
 				option3.textContent = "Yes, paid for by self";
 				option4.textContent = "No";
-				option1box.addEventListener("click", taxes);
-				option1box.addEventListener("click", healthInsCost = 1100);
-				option2box.addEventListener("click", taxes);
-				option2box.addEventListener("click", healthInsCost = 0);
-				option3box.addEventListener("click", taxes);
-				option3box.addEventListener("click", healthInsCost = 6200);
-				option4box.addEventListener("click", taxes);
-				option4box.addEventListener("click", healthInsCost = 0);
+				option1box.addEventListener("click", jobIns);
+				option2box.addEventListener("click", parIns);
+				option3box.addEventListener("click", selfIns);
+				option4box.addEventListener("click", noIns);
+			};
+			
+			function jobIns() {
+				healthInsCost = 1100;
+				taxes();
+			};
+			
+			function parIns() {
+				healthInsCost = 0;
+				taxes();
+			};
+			
+			function selfIns() {
+				healthInsCost = 6200;
+				taxes();
+			};
+			
+			function noIns() {
+				healthInsCost = 0;
+				taxes();
 			};
 			
 			function taxes() {
@@ -415,14 +468,30 @@
 				option2.textContent = "5%";
 				option3.textContent = "10%";
 				option4.textContent = "20%";
-				option1box.addEventListener("click", housingLocation);
-				option1box.addEventListener("click", retirementPercent = 0);
-				option2box.addEventListener("click", housingLocation);
-				option2box.addEventListener("click", retirementPercent = 0.05);
-				option3box.addEventListener("click", housingLocation);
-				option3box.addEventListener("click", retirementPercent = .1);
-				option4box.addEventListener("click", housingLocation);
-				option4box.addEventListener("click", retirementPercent = .2);	
+				option1box.addEventListener("click", retire0);
+				option2box.addEventListener("click", retire5);
+				option3box.addEventListener("click", retire10);
+				option4box.addEventListener("click", retire20);
+			};
+			
+			function retire0() {
+				retirementPercent = 0;
+				housingLocation();
+			};
+			
+			function retire5() {
+				retirementPercent = 0.05;
+				housingLocation();
+			};
+			
+			function retire10() {
+				retirementPercent = .1;
+				housingLocation();
+			};
+			
+			function retire20() {
+				retirementPercent = .2;
+				housingLocation();
 			};
 			
 			function marriage() {
