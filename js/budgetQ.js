@@ -1,29 +1,32 @@
-var salaryForm = document.getElementById("salary");
-var money = document.getElementById("money_tracking");
-var option1 = document.getElementById("option1");
-var option2 = document.getElementById("option2");
-var option3 = document.getElementById("option3");
-var option4 = document.getElementById("option4");
-var question = document.getElementById("question");
-var bubble = document.getElementById("container");
-var thought = document.getElementById("thought");
-var option1box = document.getElementById("box1");
-var option2box = document.getElementById("box2");
-var option3box = document.getElementById("box3");
-var option4box = document.getElementById("box4");
-var W2form = document.getElementById("W2");
-var form1040 = document.getElementById("1040form");
-var progress = document.getElementById("progressbar");
-var year = 0;
-progress.style.display = "none";
-bubble.style.display = "none";
-salaryForm.style.display = "none";
-money.style.display = "none";
-option2box.style.display = "none";
-option3box.style.display = "none";
-option4box.style.display = "none";
-form1040.style.display = "none";
-W2form.style.display = "none";
+window.onload = function () {
+	var salaryForm = document.getElementById("salary");
+	var money = document.getElementById("money_tracking");
+	var option1 = document.getElementById("option1");
+	var option2 = document.getElementById("option2");
+	var option3 = document.getElementById("option3");
+	var option4 = document.getElementById("option4");
+	var question = document.getElementById("question");
+	var bubble = document.getElementById("container");
+	var thought = document.getElementById("thought");
+	var option1box = document.getElementById("box1");
+	var option2box = document.getElementById("box2");
+	var option3box = document.getElementById("box3");
+	var option4box = document.getElementById("box4");
+	var W2form = document.getElementById("W2");
+	var form1040 = document.getElementById("1040form");
+	var progress = document.getElementById("progressbar");
+	var year = 0;
+	progress.style.display = "none";
+	bubble.style.display = "none";
+	salaryForm.style.display = "none";
+	money.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	form1040.style.display = "none";
+	W2form.style.display = "none";
+	option1box.addEventListener("click", education);
+};
 			
 function education() {
   question.style.display = "block";
@@ -266,4 +269,4 @@ if (year == 26) {
 $("#salary").submit(function(e) {
   e.preventDefault();
 });		
-option1box.addEventListener("click", education);
+
