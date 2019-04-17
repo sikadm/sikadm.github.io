@@ -225,16 +225,16 @@
 				option1box.addEventListener("click", hsGraduate);
 				option2box.addEventListener("click", collegeGraduate);
 				bubble.style.display = "block";
-				thought.textContent = "You will have the option for grad school later.";
+				thought.textContent = "Those with college degrees get paid more on average than those without but also have to spend more on education";
 			};
 			
 			function hsGraduate() {
-				bubble.style.display = "none";
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
 				option1box.addEventListener("click", tradeSchool);
 				option2box.addEventListener("click", income);
+				thought.textContent = "Those with trade skills often make more than those who don't have any higher education.";
 				
 			};
 			
@@ -244,7 +244,7 @@
 			};
 			
 			function collegeGraduate() {
-				bubble.style.display = "none";
+				thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
 				option3box.style.display = "none";
 				year = 22;
 				updateBar();
@@ -255,6 +255,7 @@
 				option2box.addEventListener("click", income);
 			};
 			function gradSchool() {
+				thought.textContent = "Although a Masters may take less time, some careers require a Doctorate to be taken seriously!";
 				year = 22;
 				updateBar();
 				question.textContent = "What kind of degree are you getting?";
@@ -262,8 +263,7 @@
 				option2.textContent = "Masters";
 				option3box.style.display = "none";
 				option1box.addEventListener("click", doctorate);
-				option2box.addEventListener("click", masters);
-				
+				option2box.addEventListener("click", masters);	
 			};
 			
 			function doctorate() {
@@ -277,6 +277,7 @@
 			};
 			
 			function income() {
+				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
 				updateBar();
 				salaryForm.style.display = "block";
 				option1box.style.display = "none";
@@ -302,6 +303,9 @@
 			};
 			var housingMultiplier;
 			function housingLocation() {
+				thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
+				option3box.style.display = "none";
+				option4box.style.display = "none";
 				form1040.style.display = "none";
 				W2form.style.display = "none";
 				money.style.display = "block";
@@ -328,20 +332,34 @@
 			
 			var rent;
 			function housingType() {
+				bubble.style.display = "none";
 				salaryForm.style.display = "none";
 				question.textContent = "Where will you live?";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option3box.style.display = "block";
+				option4box.style.display = "none";
 				option1.textContent = "High-End Apartment";
 				option2.textContent = "Cheap Apartment";
 				option3.textContent = "House";
-				option1box.addEventListener("click", roommate);
-				option1box.addEventListener("click", rent = 8400);
-				option2box.addEventListener("click", roommate);
-				option2box.addEventListener("click", rent = 6600);
-				option3box.addEventListener("click", roommate);
-				option3box.addEventListener("click", rent = 6600);
+				option1box.addEventListener("click", highEndApt);
+				option2box.addEventListener("click", cheapApt);
+				option3box.addEventListener("click", house);
+			};
+			
+			function highEndApt() {
+				rent = 8400;
+				roommate();
+			};
+			
+			function cheapApt() {
+				rent = 6600;
+				roommate();
+			};
+			
+			function house() {
+				rent = 10000;
+				roommate();
 			};
 			
 			var roommateMultiplier;
@@ -352,10 +370,18 @@
 				question.textContent = "Will you have a roommate?";
 				option1.textContent = "Yes";
 				option2.textContent = "No";
-				option1box.addEventListener("click", vehicle);
-				option1box.addEventListener("click", roommateMultiplier = 0.5);
-				option2box.addEventListener("click", vehicle);
-				option2box.addEventListener("click", roommateMultiplier = 1);
+				option1box.addEventListener("click", shareLiving);
+				option2box.addEventListener("click", dontShareLiving);
+			};
+			
+			function shareLiving() {
+				roommateMultiplier = 0.5;
+				vehicle();
+			};
+			
+			function dontShareLiving() {
+				roommateMultiplier = 1;
+				vehicle();
 			};
 			
 			var bank;
@@ -507,9 +533,7 @@
 				option1.textContent = "Yes";
 				option2.textContent = "No";
 				option1box.addEventListener("click", children);
-				option1box.addEventListener("click", );
 				option2box.addEventListener("click", children);
-				option2box.addEventListener("click", );
 			};
 			
 			function updateBar() {
