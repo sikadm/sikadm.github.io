@@ -214,7 +214,7 @@
 			W2form.style.display = "none";
 			
 
-			var drawQ1 = function() {
+			function education() {
 				question.style.display = "block";
 				year = 18;
 				option2box.style.display = "block";
@@ -389,7 +389,7 @@
 			$("#salary").submit(function(e) {
 				e.preventDefault();
 			});		
-			option1box.addEventListener("click", drawQ1);
+			option1box.addEventListener("click", education);
 		</script>
 	</body>
 </html>
