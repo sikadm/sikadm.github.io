@@ -93,55 +93,57 @@ function validateForm() {
   }
   else {
     if (confirm("Ready to get started?")) {
-      housingLocation();
+      taxes();
     }
   }
 };
 var housingMultiplier;
 function housingLocation() {
-  money.style.display = "block";
-  money.textContent = "$" + x;
-  salaryForm.style.display = "none";
-  option1box.style.display = "block";
-  option2box.style.display = "block";
-  question.textContent = "Where will you live (location)?";
-  option1.textContent = "City";
-  option2.textContent = "Suburbs";
-  option1box.addEventListener("click", housingType);
-  option1box.addEventListener("click", housingMultiplier = 1);
-  option2box.addEventListener("click", housingType);
-  option2box.addEventListener("click", housingMultiplier = 2);
+	form1040.style.display = "none";
+	W2form.style.display = "none";
+	money.style.display = "block";
+	money.textContent = "$" + x;
+	 salaryForm.style.display = "none";
+	  option1box.style.display = "block";
+	option2box.style.display = "block";
+	 question.textContent = "Where will you live (location)?";
+	 option1.textContent = "City";
+	 option2.textContent = "Suburbs";
+	 option1box.addEventListener("click", housingType);
+	 option1box.addEventListener("click", housingMultiplier = 1);
+	 option2box.addEventListener("click", housingType);
+	 option2box.addEventListener("click", housingMultiplier = 2);
 
 };
 var rent;
 function housingType() {
-  salaryForm.style.display = "none";
-  question.textContent = "Where will you live?";
-  option1box.style.display = "block";
-  option2box.style.display = "block";
-  option3box.style.display = "block";
-  option1.textContent = "High-End Apartment";
-  option2.textContent = "Cheap Apartment";
-  option3.textContent = "House";
-  option1box.addEventListener("click", roommate);
-  option1box.addEventListener("click", rent = 8400);
-  option2box.addEventListener("click", roommate);
-  option2box.addEventListener("click", rent = 6600);
-  option3box.addEventListener("click", roommate);
-  option3box.addEventListener("click", rent = 6600);
+	  salaryForm.style.display = "none";
+	  question.textContent = "Where will you live?";
+	  option1box.style.display = "block";
+	  option2box.style.display = "block";
+	  option3box.style.display = "block";
+	  option1.textContent = "High-End Apartment";
+	  option2.textContent = "Cheap Apartment";
+	  option3.textContent = "House";
+	  option1box.addEventListener("click", roommate);
+	  option1box.addEventListener("click", rent = 8400);
+	  option2box.addEventListener("click", roommate);
+	  option2box.addEventListener("click", rent = 6600);
+	  option3box.addEventListener("click", roommate);
+	  option3box.addEventListener("click", rent = 6600);
 };
 var roommateMultiplier;
 function roommate() {
-  option1box.style.display = "block";
-  option2box.style.display = "block";
-  option3box.style.display = "none";
-  question.textContent = "Will you have a roommate?";
-  option1.textContent = "Yes";
-  option2.textContent = "No";
-  option1box.addEventListener("click", vehicle);
-  option1box.addEventListener("click", roommateMultiplier = 0.5);
-  option2box.addEventListener("click", vehicle);
-  option2box.addEventListener("click", roommateMultiplier = 1);
+	  option1box.style.display = "block";
+	  option2box.style.display = "block";
+	  option3box.style.display = "none";
+	  question.textContent = "Will you have a roommate?";
+	  option1.textContent = "Yes";
+	  option2.textContent = "No";
+	  option1box.addEventListener("click", vehicle);
+	  option1box.addEventListener("click", roommateMultiplier = 0.5);
+	  option2box.addEventListener("click", vehicle);
+	  option2box.addEventListener("click", roommateMultiplier = 1);
 };
 var bank;
 function housingUpdate(){
@@ -149,48 +151,117 @@ function housingUpdate(){
   bank = x - yearlyRent;
   money.textContent = "$" + bank;
 };
-function vehicle() {
-  housingUpdate();
-  question.textContent = "Do you need a vehicle? (drive to work etc.)";
-  salaryForm.style.display="none";
-  option1box.style.display = "block";
-  option2box.style.display = "block";
-  option1.textContent = "Yes";
-  option2.textContent = "No";
-  option3box.style.display = "none";
-  option1box.addEventListener("click", healthInsurance);
-  option2box.addEventListener("click", healthInsurance);
-};
-function healthInsurance() {
-  question.textContent = "Do you have health insurance?";
-  option3box.style.display = "block";
-  option4box.style.display = "block";
-  option1.textContent = "Yes, provided through my job";
-  option2.textContent = "Yes, still apart of my parents";
-  option3.textContent = "Yes, paid for by self";
-  option4.textContent = "No";
-  option1box.addEventListener("click", taxes);
-  option2box.addEventListener("click", taxes);
-  option3box.addEventListener("click", taxes);
-  option4box.addEventListener("click", taxes);
 
+var carCost;
+function vehicle() {
+  	housingUpdate();
+  	question.textContent = "Do you need a vehicle? (drive to work etc.)";
+  	salaryForm.style.display="none";
+  	option1box.style.display = "block";
+  	option2box.style.display = "block";
+  	option1.textContent = "Yes";
+  	option2.textContent = "No";
+  	option3box.style.display = "none";
+  	option1box.addEventListener("click", vehicleCost);
+  	option2box.addEventListener("click", healthInsurance);
+	
+};
+
+function vehicleCost() {
+	question.textContent = "What are your car payments like?";
+	option1box.style.display = "block";
+  	option2box.style.display = "block";
+	option3box.style.display = "block";
+  	option1.textContent = "Car already paid off (no insurance/parents pay)";
+  	option2.textContent = "Car paid off but insurance being paid";
+  	option3box.style.display = "car and insurance payments monthly";
+  	option1box.addEventListener("click", healthInsurance);
+  	option2box.addEventListener("click", healthInsurance);
+	option2box.addEventListener("click", healthInsurance);
+	option1box.addEventListener("click", carCost = 0);
+  	option2box.addEventListener("click", carCost = 120);
+	option2box.addEventListener("click", carCost = 400);
+}
+
+var healthInsCost;
+function healthInsurance() {
+  	question.textContent = "Do you have health insurance?";
+  	option3box.style.display = "block";
+  	option4box.style.display = "block";
+  	option1.textContent = "Yes, provided through my job";
+ 	option2.textContent = "Yes, still apart of my parents";
+  	option3.textContent = "Yes, paid for by self";
+  	option4.textContent = "No";
+	option1box.addEventListener("click", taxes);
+	option1box.addEventListener("click", healthInsCost = 1100);
+	option2box.addEventListener("click", taxes);
+	option2box.addEventListener("click", healthInsCost = 0);
+	option3box.addEventListener("click", taxes);
+	option3box.addEventListener("click", healthInsCost = 6200);
+	option4box.addEventListener("click", taxes);
+	option4box.addEventListener("click", healthInsCost = 0);
 };
 function taxes() {
-  updateBar();
-  option1box.style.display = "none";
-  option2box.style.display = "none";
-  option3box.style.display = "none";
-  option4box.style.display = "none";
-  salaryForm.style.display = "none";
-  question.textContent = "Tax Time! W2 and 1040";	
-  W2form.style.display = "block";
-  form1040.style.display = "block";
+  	updateBar();
+  	option1box.style.display = "block";
+	option1.textContent = "Click here to continue"
+  	option2box.style.display = "none";
+  	option3box.style.display = "none";
+  	option4box.style.display = "none";
+  	salaryForm.style.display = "none";
+  	question.textContent = "Tax forms";	
+  	W2form.style.display = "block";
+  	form1040.style.display = "block";
+	option1box.addEventListener("click", retirement);
+};
 
+var retirementSavings;
+var retirementPercent;
+function retirement() {
+	question.textContent = "What percent of your salary are you putting into a 401K?"
+	option1box.style.display = "block";
+  	option2box.style.display = "block";
+  	option3box.style.display = "block";
+  	option4box.style.display = "block";
+  	option1.textContent = "0%";
+ 	option2.textContent = "5%";
+	option3.textContent = "10%";
+	option4.textContent = "20%";
+	option1box.addEventListener("click", housingLocation);
+	option1box.addEventListener("click", retirementPercent = 0);
+	option2box.addEventListener("click", housingLocation);
+	option2box.addEventListener("click", retirementPercent = 0.05);
+	option3box.addEventListener("click", housingLocation);
+	option3box.addEventListener("click", retirementPercent = .1);
+	option4box.addEventListener("click", housingLocation);
+	option4box.addEventListener("click", retirementPercent = .2);	
 };
+
+function marriage() {
+	question.textContent = "Do you want to get married?";
+	option1box.style.display = "block";
+  	option2box.style.display = "block";
+  	option3box.style.display = "none";
+  	option4box.style.display = "none";
+  	option1.textContent = "Yes";
+ 	option2.textContent = "No";
+	option1box.addEventListener("click", children);
+	option1box.addEventListener("click", );
+	option2box.addEventListener("click", children);
+	option2box.addEventListener("click", );
+};
+
 function updateBar() {
-  progress.style.width = year + "%";
-  progress.textContent = year + " yrs old";
+  	progress.style.width = year + "%";
+  	progress.textContent = year + " yrs old";
 };
+
+if (year == 26) {
+	healthInsurance();
+	option2box.style.display = "none";
+	
+};
+
 
 $("#salary").submit(function(e) {
   e.preventDefault();
