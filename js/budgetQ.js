@@ -1,4 +1,3 @@
-window.onload = function () {
 	var salaryForm = document.getElementById("salary");
 	var money = document.getElementById("money_tracking");
 	var option1 = document.getElementById("option1");
@@ -25,6 +24,8 @@ window.onload = function () {
 	option4box.style.display = "none";
 	form1040.style.display = "none";
 	W2form.style.display = "none";
+
+window.onload = function () {
 	option1box.addEventListener("click", education);
 };
 			
