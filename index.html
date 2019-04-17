@@ -230,7 +230,7 @@
 				thought.textContent = "You will have the option for grad school later.";
 			};
 
-			var hsGraduate = function() {
+			function hsGraduate() {
 				bubble.style.display = "none";
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
@@ -240,7 +240,7 @@
 				option2box.addEventListener("click", income);
 			};
 
-			var collegeGraduate = function() {
+			function collegeGraduate() {
 				bubble.style.display = "none";
 				option3box.style.display = "none";
 				year = 22;
@@ -251,7 +251,7 @@
 				option1box.addEventListener("click", gradSchool);
 				option2box.addEventListener("click", income);
 			};
-			var gradSchool = function() {
+			function gradSchool() {
 				question.textContent = "What kind of degree are you getting?";
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
@@ -261,7 +261,7 @@
 				option2box.addEventListener("click", income);
 				option2box.addEventListener("click", year = 24);
 			};
-			var income = function() {
+			function income() {
 				updateBar();
 				salaryForm.style.display = "block";
 				option1box.style.display = "none";
@@ -286,7 +286,7 @@
 				}
 			};
 			var housingMultiplier;
-			var housingLocation = function() {
+			function housingLocation() {
 				money.style.display = "block";
 				money.textContent = "$" + x;
 				salaryForm.style.display = "none";
@@ -302,7 +302,7 @@
 				
 			};
 			var rent;
-			var housingType = function() {
+			function housingType() {
 				salaryForm.style.display = "none";
 				question.textContent = "Where will you live?";
 				option1box.style.display = "block";
@@ -319,7 +319,7 @@
 				option3box.addEventListener("click", rent = 6600);
 			};
 			var roommateMultiplier;
-			var roommate = function() {
+			function roommate() {
 				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option3box.style.display = "none";
@@ -337,7 +337,7 @@
 				bank = x - yearlyRent;
 				money.textContent = "$" + bank;
 			};
-			var vehicle = function() {
+			function vehicle() {
 				housingUpdate();
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
 				salaryForm.style.display="none";
@@ -349,7 +349,7 @@
 				option1box.addEventListener("click", healthInsurance);
 				option2box.addEventListener("click", healthInsurance);
 			};
-			var healthInsurance = function() {
+			function healthInsurance() {
 				question.textContent = "Do you have health insurance?";
 				option3box.style.display = "block";
 				option4box.style.display = "block";
@@ -363,7 +363,7 @@
 				option4box.addEventListener("click", taxes);
 				
 			};
-			var taxes = function() {
+			function taxes() {
 				updateBar();
 				option1box.style.display = "none";
 				option2box.style.display = "none";
