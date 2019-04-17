@@ -227,6 +227,8 @@
 				thought.textContent = "You will have the option for grad school later.";
 			};
 			function hsGraduate() {
+				option1box.removeEventListener("click", hsGraduate);
+				option2box.removeEventListener("click", collegeGraduate);
 				bubble.style.display = "none";
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
@@ -237,6 +239,8 @@
 				option1box.addEventListener("click", year = 20);
 			};
 			function collegeGraduate() {
+				option1box.removeEventListener("click", hsGraduate);
+				option2box.removeEventListener("click", collegeGraduate);
 				bubble.style.display = "none";
 				option3box.style.display = "none";
 				year = 22;
@@ -248,6 +252,7 @@
 				option2box.addEventListener("click", income);
 			};
 			function gradSchool() {
+				option1box.removeEventListener("click", gradSchool);
 				year = 22;
 				updateBar();
 				question.textContent = "What kind of degree are you getting?";
@@ -260,6 +265,14 @@
 				option2box.addEventListener("click", year = 24);
 			};
 			function income() {
+				option1box.removeEventListener("click", income);
+				option2box.removeEventListener("click", income);
+				option2box.removeEventListener("click", year = 18);
+				option1box.removeEventListener("click", year = 20);
+				option1box.removeEventListener("click", income);
+				option1box.removeEventListener("click", year = 26);
+				option2box.removeEventListener("click", income);
+				option2box.removeEventListener("click", year = 24);
 				updateBar();
 				salaryForm.style.display = "block";
 				option1box.style.display = "none";
