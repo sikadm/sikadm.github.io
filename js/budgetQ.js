@@ -15,15 +15,6 @@
 	var form1040 = document.getElementById("1040form");
 	var progress = document.getElementById("progressbar");
 	var year = 0;
-	progress.style.display = "none";
-	bubble.style.display = "none";
-	salaryForm.style.display = "none";
-	money.style.display = "none";
-	option2box.style.display = "none";
-	option3box.style.display = "none";
-	option4box.style.display = "none";
-	form1040.style.display = "none";
-	W2form.style.display = "none";
 
 window.onload = function () {
 	option1box.addEventListener("click", education);
