@@ -385,19 +385,20 @@
 			
 			function shareLiving() {
 				roommateMultiplier = 0.5;
-				vehicle();
+				housingUpdate();
 			};
 			
 			function dontShareLiving() {
 				roommateMultiplier = 1;
-				vehicle();
+				housingUpdate();
 			};
 			
-			var bank;
+			var bank = x;
 			function housingUpdate(){
 				var yearlyRent = roommateMultiplier*rent*housingMultiplier;
-				bank = x - yearlyRent;
+				bank = bank - yearlyRent;
 				money.textContent = "$" + bank;
+				vehicle();
 			};
 			
 			function vehicle() {
@@ -429,16 +430,22 @@
 			
 			function nocarpymt() {
 				carCost = 0;
-				healthInsurance();
+				carUpdate();
 			};
 			
 			function carIns() {
 				carCost = 120;
-				healthInsurance();
+				carUpdate();
 			};
 			
 			function carInsPymt() {
 				carCost = 400;
+				carUpdate();
+			};
+			
+			function carUpdate() {
+				bank = bank - carCost;
+				money.textContent = "$" + bank;
 				healthInsurance();
 			};
 			
@@ -476,6 +483,10 @@
 				healthInsCost = 0;
 				taxes();
 			};
+			
+			function InsUpdate() {
+				bank = bank - healthInsCost;
+				money.textContent = "$" + bank;
 			
 			function taxes() {
 				money.style.display = "none";
