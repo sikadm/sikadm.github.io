@@ -135,12 +135,15 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-			#spendings, #retirement, #move, #marriage, #jobStatus, #car, #yearProgression {
+			.sideNavBtn {
 				padding: 6px 8px 6px 16px;
 				text-decoration: none;
-				font-size: 25px;
+				font-size: 20px;
 				color: black;
 				display: block;
+				border-style:solid;
+				border-color:#bbb #888 #666 #aaa;
+				border-width:3px 4px 4px 3px;
 			}
 			.main {
 				margin-left: 160px;
@@ -154,14 +157,14 @@
 	</head> 
 	<body>
 		<div class = "sidenav">
-			<div id="spendings">Spending History</div>
-			<div id="savings">Savings</div>
-			<div id="move">Move</div>
-			<div id="marriage">Marriage</div>
-			<div id="jobStatus">Job Options</div>
-			<div id="retire">Retire</div>
-			<div id="car">Car Options</div>
-			<div id="yearProgression">Next Year</div>
+			<div class = "sideNavBtn" id="spendings">Spending History</div>
+			<div class = "sideNavBtn" id="savings">Savings</div>
+			<div class = "sideNavBtn" id="move">Move</div>
+			<div class = "sideNavBtn" id="marriage">Marriage</div>
+			<div class = "sideNavBtn" id="jobStatus">Job Options</div>
+			<div class = "sideNavBtn" id="retire">Retire</div>
+			<div class = "sideNavBtn" id="car">Car Options</div>
+			<div class = "sideNavBtn" id="yearProgression">Next Year</div>
 		</div>
 		<div class = "main">
 		<div id="money_tracking">
@@ -326,8 +329,21 @@
 				year = 20;
 				income();
 			};
+			
 			function loan() {
-				
+				option1box.removeEventListener("click", tradeSchool);
+				option1box.removeEventListener("click", doctorate);
+				option2box.removeEventListener("click", masters);
+				bubble.style.display = "block";
+				loanForm.style.display = "block";
+				thought.textContent = "Filling out your FAFSA each year can help you get low interest loans! You'll end up paying less in interest than with private loans.";
+				updateBar();
+				salaryForm.style.display = "none";
+				option1box.style.display = "none";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				question.textContent = "How much will you have in loans?";
 			};
 			
 			function collegeGraduate() {
@@ -339,7 +355,7 @@
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
 				option1box.addEventListener("click", gradSchool);
-				option2box.addEventListener("click", income);
+				option2box.addEventListener("click", loan);
 			};
 			function gradSchool() {
 				thought.textContent = "Although a Masters may take less time, some careers require a Doctorate to be taken seriously!";
@@ -355,25 +371,14 @@
 			
 			function doctorate() {
 				year = 26;
-				income();
+				loan();
 			};
 			
 			function masters() {
 				year = 24;
-				income();
+				loan();
 			};
 			
-			function loan() {
-				bubble.style.display = "none";
-				updateBar();
-				salaryForm.style.display = "none";
-				option1box.style.display = "none";
-				option2box.style.display = "none";
-				option3box.style.display = "none";
-				option4box.style.display = "none";
-				question.textContent = "Student Loans";
-				loanForm.style.display = "block";
-			};
 			
 			function income() {
 				option1box.removeEventListener("click", tradeSchool);
