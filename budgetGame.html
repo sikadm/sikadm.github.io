@@ -207,6 +207,7 @@
 			var W2form = document.getElementById("W2");
 			var form1040 = document.getElementById("1040form");
 			var progress = document.getElementById("progressbar");
+			var copyright = document.getElementById("iconrights");
 			var year = 0;
 			
 			progress.style.display = "none";
@@ -371,6 +372,7 @@
 			
 			var roommateMultiplier;
 			function roommate() {
+				bubble.style.display = "block";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option3box.style.display = "none";
@@ -476,9 +478,10 @@
 			};
 			
 			function taxes() {
+				money.style.display = "none";
 				progress.style.display = "none";
-				thought.textContent = "You must fill out your taxes every year by April 15th. Some sites are available for help at a small cost (HRBlock.com)";
-				updateBar();
+				copyright.style.display = "none";
+				bubble.style.display = "none";
 				option1box.style.display = "block";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
@@ -495,6 +498,9 @@
 			var retirementSavings;
 			var retirementPercent;
 			function retirement() {
+				updateBar();
+				bubble.style.display = "block";
+				copyright.style.display = "block";
 				progress.style.display = "block";
 				W2form.style.display = "block";
 				form1040.style.display = "block";
