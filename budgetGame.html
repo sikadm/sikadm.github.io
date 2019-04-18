@@ -317,6 +317,7 @@
 			};
 			
 			function hsGraduate() {
+				console.log("hsGraduate: " + year);
 				option1box.removeEventListener("click", hsGraduate);
 				option2box.removeEventListener("click", collegeGraduate);
 				question.textContent = "Will you go to Trade School or get a job?";
@@ -333,29 +334,15 @@
 				income();
 			};
 			
-			function loan() {
-				option1box.removeEventListener("click", tradeSchool);
-				option1box.removeEventListener("click", doctorate);
-				option2box.removeEventListener("click", masters);
-				bubble.style.display = "block";
-				loanForm.style.display = "block";
-				thought.textContent = "Filling out your FAFSA each year can help you get low interest loans! You'll end up paying less in interest than with private loans.";
-				updateBar();
-				salaryForm.style.display = "none";
-				option1box.style.display = "none";
-				option2box.style.display = "none";
-				option3box.style.display = "none";
-				option4box.style.display = "none";
-				question.textContent = "How much will you have in loans?";
-			};
-			
 			function collegeGraduate() {
+				console.log("college Graduate b4 update: " + year);
 				option1box.removeEventListener("click", hsGraduate);
 				option2box.removeEventListener("click", collegeGraduate);
 				thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
 				option3box.style.display = "none";
 				year = 22;
 				updateBar();
+				console.log("college graduate after update: " + year);
 				question.textContent = "Will you continue on with school or start your career?";
 				option1.textContent = "Graduate School";
 				option2.textContent = "Career";
@@ -363,9 +350,13 @@
 				option2box.addEventListener("click", loan);
 			};
 			function gradSchool() {
+				console.log("grad school before update: " + year);
+				option1box.removeEventListener("click", gradSchool);
+				option2box.removeEventListener("click", loan);
 				thought.textContent = "Although a Masters may take less time, some careers require a Doctorate to be taken seriously!";
 				year = 22;
 				updateBar();
+				console.log("grad school after update: " + year);
 				question.textContent = "What kind of degree are you getting?";
 				option1.textContent = "Doctorate";
 				option2.textContent = "Masters";
@@ -384,38 +375,22 @@
 				loan();
 			};
 			
-			
-			function income() {
+			function loan() {
+				console.log("loan before update: " + year);
 				option1box.removeEventListener("click", tradeSchool);
 				option1box.removeEventListener("click", doctorate);
 				option2box.removeEventListener("click", masters);
-				option1box.removeEventListener("click", gradSchool);
-				option2box.removeEventListener("click", loan);
 				bubble.style.display = "block";
-				loanForm.style.display = "none";
-				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
+				loanForm.style.display = "block";
+				thought.textContent = "Filling out your FAFSA each year can help you get low interest loans! You'll end up paying less in interest than with private loans.";
 				updateBar();
-				salaryForm.style.display = "block";
+				console.log("loan after update: " + year);
+				salaryForm.style.display = "none";
 				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
 				option4box.style.display = "none";
-				question.textContent = "Income";
-			};
-			var x; //global variable of salary
-			function validateForm() {
-				x = document.forms["salary"]["yearly_salary"].value;
-				if (x == "") {
-					alert("Salary must be filled out");
-				}
-				else if (isNaN(x)){
-					alert("Salary can only contain numbers");
-				}
-				else {
-					if (confirm("Ready to get started?")) {
-						taxes();
-					}
-				}
+				question.textContent = "How much will you have in loans?";
 			};
 			
 			var loanPymt; //global variable of loan payment
@@ -442,7 +417,111 @@
 				}
 			};
 			
+			function income() {
+				console.log("income before update: " + year);
+				option1box.removeEventListener("click", tradeSchool);
+				option2box.removeEventListener("click", income);
+				option1box.removeEventListener("click", doctorate);
+				option2box.removeEventListener("click", masters);
+				option1box.removeEventListener("click", gradSchool);
+				option2box.removeEventListener("click", loan);
+				bubble.style.display = "block";
+				loanForm.style.display = "none";
+				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
+				updateBar();
+				console.log("income after update: " + year);
+				salaryForm.style.display = "block";
+				option1box.style.display = "none";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				question.textContent = "Income";
+			};
+			
+			var x; //global variable of salary
+			function validateForm() {
+				x = document.forms["salary"]["yearly_salary"].value;
+				if (x == "") {
+					alert("Salary must be filled out");
+				}
+				else if (isNaN(x)){
+					alert("Salary can only contain numbers");
+				}
+				else {
+					if (confirm("Ready to get started?")) {
+						taxes();
+					}
+				}
+			};
+			
+			function taxes() {
+				console.log("taxes: " + year);
+				money.style.display = "none";
+				progress.style.display = "none";
+				copyright.style.display = "none";
+				bubble.style.display = "none";
+				option1box.style.display = "block";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				salaryForm.style.display = "none";
+				question.textContent = "Tax forms";
+				option1.textContent = "Click to continue";
+				option1box.addEventListener("click", retirement);
+				W2form.style.display = "block";
+				form1040.style.display = "block";
+				
+			};
+			
+			var retirementSavings;
+			var retirementPercent;
+			function retirement() {
+				console.log("retirement b4 update(): " + year);
+				updateBar();
+				console.log("retirement after update(): " + year);
+				bubble.style.display = "block";
+				copyright.style.display = "block";
+				progress.style.display = "block";
+				W2form.style.display = "none";
+				form1040.style.display = "none";
+				salaryForm.style.display = "none";
+				question.textContent = "What percent of your salary are you putting into a 401K?"
+				option1box.style.display = "block";
+				option2box.style.display = "block";
+				option3box.style.display = "block";
+				option4box.style.display = "block";
+				option1.textContent = "0%";
+				option2.textContent = "5%";
+				option3.textContent = "10%";
+				option4.textContent = "20%";
+				option1box.addEventListener("click", retire0);
+				option2box.addEventListener("click", retire5);
+				option3box.addEventListener("click", retire10);
+				option4box.addEventListener("click", retire20);
+			};
+			
+			function retire0() {
+				retirementPercent = 0;
+				housingLocation();
+			};
+			
+			function retire5() {
+				retirementPercent = 0.05;
+				housingLocation();
+			};
+			
+			function retire10() {
+				retirementPercent = .1;
+				housingLocation();
+			};
+			
+			function retire20() {
+				retirementPercent = .2;
+				housingLocation();
+			};
+	
 			var housingMultiplier;
+			var bank;
 			function housingLocation() {
 				thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
 				option3box.style.display = "none";
@@ -451,6 +530,7 @@
 				W2form.style.display = "none";
 				money.style.display = "block";
 				money.textContent = "$" + x;
+				bank = x;
 				salaryForm.style.display = "none";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
@@ -489,16 +569,25 @@
 			};
 			
 			function highEndApt() {
+				option1box.removeEventListener("click", highEndApt);
+				option2box.removeEventListener("click", cheapApt);
+				option3box.removeEventListener("click", house);
 				rent = 8400;
 				roommate();
 			};
 			
 			function cheapApt() {
+				option1box.removeEventListener("click", highEndApt);
+				option2box.removeEventListener("click", cheapApt);
+				option3box.removeEventListener("click", house);
 				rent = 6600;
 				roommate();
 			};
 			
 			function house() {
+				option1box.removeEventListener("click", highEndApt);
+				option2box.removeEventListener("click", cheapApt);
+				option3box.removeEventListener("click", house);
 				rent = 10000;
 				roommate();
 			};
@@ -529,7 +618,6 @@
 				housingUpdate();
 			};
 			
-			var bank;
 			var yearlyRent;
 			function housingUpdate(){
 				yearlyRent = roommateMultiplier*rent*housingMultiplier;
@@ -630,68 +718,6 @@
 				taxes();
 			};
 			
-			function taxes() {
-				money.style.display = "none";
-				progress.style.display = "none";
-				copyright.style.display = "none";
-				bubble.style.display = "none";
-				option1box.style.display = "block";
-				option2box.style.display = "none";
-				option3box.style.display = "none";
-				option4box.style.display = "none";
-				salaryForm.style.display = "none";
-				question.textContent = "Tax forms";
-				option1.textContent = "Click to continue";
-				option1box.addEventListener("click", retirement);
-				W2form.style.display = "block";
-				form1040.style.display = "block";
-				
-			};
-			
-			var retirementSavings;
-			var retirementPercent;
-			function retirement() {
-				updateBar();
-				bubble.style.display = "block";
-				copyright.style.display = "block";
-				progress.style.display = "block";
-				W2form.style.display = "none";
-				form1040.style.display = "none";
-				salaryForm.style.display = "none";
-				question.textContent = "What percent of your salary are you putting into a 401K?"
-				option1box.style.display = "block";
-				option2box.style.display = "block";
-				option3box.style.display = "block";
-				option4box.style.display = "block";
-				option1.textContent = "0%";
-				option2.textContent = "5%";
-				option3.textContent = "10%";
-				option4.textContent = "20%";
-				option1box.addEventListener("click", retire0);
-				option2box.addEventListener("click", retire5);
-				option3box.addEventListener("click", retire10);
-				option4box.addEventListener("click", retire20);
-			};
-			
-			function retire0() {
-				retirementPercent = 0;
-				housingLocation();
-			};
-			
-			function retire5() {
-				retirementPercent = 0.05;
-				housingLocation();
-			};
-			
-			function retire10() {
-				retirementPercent = .1;
-				housingLocation();
-			};
-			
-			function retire20() {
-				retirementPercent = .2;
-				housingLocation();
-			};
 			
 			function marriage() {
 				question.textContent = "Do you want to get married?";
