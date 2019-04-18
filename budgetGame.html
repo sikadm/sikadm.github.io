@@ -144,6 +144,7 @@
 				border-style:solid;
 				border-color:#bbb #888 #666 #aaa;
 				border-width:3px 4px 4px 3px;
+				margin: auto;
 			}
 			.main {
 				margin-left: 160px;
@@ -162,8 +163,8 @@
 			<div class = "sideNavBtn" id="move">Move</div>
 			<div class = "sideNavBtn" id="marriage">Marriage</div>
 			<div class = "sideNavBtn" id="jobStatus">Job Options</div>
-			<div class = "sideNavBtn" id="retire">Retire</div>
 			<div class = "sideNavBtn" id="car">Car Options</div>
+			<div class = "sideNavBtn" id="retire">Retire</div>
 			<div class = "sideNavBtn" id="yearProgression">Next Year</div>
 		</div>
 		<div class = "main">
@@ -316,6 +317,8 @@
 			};
 			
 			function hsGraduate() {
+				option1box.removeEventListener("click", hsGraduate);
+				option2box.removeEventListener("click", collegeGraduate);
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
@@ -347,6 +350,8 @@
 			};
 			
 			function collegeGraduate() {
+				option1box.removeEventListener("click", hsGraduate);
+				option2box.removeEventListener("click", collegeGraduate);
 				thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
 				option3box.style.display = "none";
 				year = 22;
@@ -384,6 +389,8 @@
 				option1box.removeEventListener("click", tradeSchool);
 				option1box.removeEventListener("click", doctorate);
 				option2box.removeEventListener("click", masters);
+				option1box.removeEventListener("click", gradSchool);
+				option2box.removeEventListener("click", loan);
 				bubble.style.display = "block";
 				loanForm.style.display = "none";
 				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
@@ -501,6 +508,7 @@
 				bubble.style.display = "block";
 				thought.textContent = "Having a roommate may make your living situation more cost efficient!";
 				salaryForm.style.display = "none";
+				loanForm.style.display = "none";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option3box.style.display = "none";
@@ -522,9 +530,13 @@
 			};
 			
 			var bank;
+			var yearlyRent;
 			function housingUpdate(){
-				var yearlyRent = roommateMultiplier*rent*housingMultiplier;
+				yearlyRent = roommateMultiplier*rent*housingMultiplier;
+				console.log("yearly rent: " + yearlyRent);
+				console.log("bank before rent: " + bank);
 				bank = bank - yearlyRent;
+				console.log("bank after rent: " + bank);
 				money.textContent = "$" + bank;
 				vehicle();
 			};
