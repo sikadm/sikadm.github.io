@@ -371,6 +371,9 @@
 			};
 			
 			function income() {
+				option1box.removeEventListener("click", tradeSchool);
+				option1box.removeEventListener("click", doctorate);
+				option2box.removeEventListener("click", masters);
 				bubble.style.display = "block";
 				loanForm.style.display = "none";
 				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
