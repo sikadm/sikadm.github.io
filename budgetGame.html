@@ -135,7 +135,7 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-			#spendings, #retirement, #move, #marriage, #jobStatus, #car {
+			#spendings, #retirement, #move, #marriage, #jobStatus, #car, #yearProgression {
 				padding: 6px 8px 6px 16px;
 				text-decoration: none;
 				font-size: 25px;
@@ -160,6 +160,7 @@
 			<div id="marriage">Marriage</div>
 			<div id="jobStatus">Job Options</div>
 			<div id="car">Car Options</div>
+			<div id="yearProgression">Next Year</div>
 		</div>
 		<div class = "main">
 		<div id="money_tracking">
@@ -171,7 +172,7 @@
 		</div>
 
 		<form name = "salary" id="salary">
-			<label>Enter your predicted yearly salary:</label>
+			<label>Enter your predicted gross(before taxes) salary:</label>
 			<br>
 			<textarea name="yearly_salary"></textarea>
 			<br>
@@ -180,6 +181,19 @@
 			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
 		</form>
 		<br>
+		<form name = "loan" id="loan">
+			<label>Enter your predicted monthly loan payment:</label>
+			<br>
+			<textarea name="monthly_loan"></textarea>
+			<br>
+			<label>Enter your predicted number of loan payments:</label>
+			<br>
+			<textarea name="loan_length"></textarea>
+			<br>
+			<input type="submit" value="Submit" onclick="validateForm2()">
+			<br>
+			<input type=button onClick="parent.open(https://sikadm.github.io/loancalc.html)" value='click here to use a loan calculator' >
+		</form>
 		<div class="option" id="box1">
 			<br>
 			<p id="option1">Click to Start!</p>
@@ -240,6 +254,7 @@
 
 		<script>
 			var salaryForm = document.getElementById("salary");
+			var loanForm = document.getElementById("loan");
 			var money = document.getElementById("money_tracking");
 			var option1 = document.getElementById("option1");
 			var option2 = document.getElementById("option2");
@@ -256,6 +271,13 @@
 			var form1040 = document.getElementById("1040form");
 			var progress = document.getElementById("progressbar");
 			var copyright = document.getElementById("iconrights");
+			var spendingButton = document.getElementById("spendings");
+			var retirementButton = document.getElementById("retirement");
+			var moveButton = document.getElementById("move");
+			var marriageButton = document.getElementById("marriage");
+			var jobButton = document.getElementById("jobStatus");
+			var carButton = document.getElementById("car");
+			var fwdYear = document.getElementById("yearProgression");
 			var year = 0;
 			
 			progress.style.display = "none";
@@ -298,6 +320,9 @@
 				year = 20;
 				income();
 			};
+			function loan() {
+				
+			};
 			
 			function collegeGraduate() {
 				thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
@@ -332,7 +357,21 @@
 				income();
 			};
 			
+			function loan() {
+				bubble.style.display = "none";
+				updateBar();
+				salaryForm.style.display = "none";
+				option1box.style.display = "none";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
+				question.textContent = "Student Loans";
+				loanForm.style.display = "block";
+			};
+			
 			function income() {
+				bubble.style.display = "block";
+				loanForm.style.display = "none";
 				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
 				updateBar();
 				salaryForm.style.display = "block";
@@ -357,6 +396,31 @@
 					}
 				}
 			};
+			
+			var loanPymt; //global variable of loan payment
+			var loanLength; //global variable of loan length
+			function validateForm2() {
+				loanPymt = document.forms["loan"]["monthly_loan"].value;
+				loanLength = document.forms["loan"]["loan_length"].value;
+				if (loanPymt == "") {
+					alert("Loan payment must be filled out");
+				}
+				else if (isNaN(loanPymt)){
+					alert("Loan payment can only contain numbers");
+				}
+				else { 
+					if (loanLength == "") {
+						alert("Loan length must be filled out");
+					}
+					else if (isNaN(loanLength)) {
+						alert("Loan length can only contain numbers");
+					}
+					else {
+						income();
+					}
+				}
+			};
+			
 			var housingMultiplier;
 			function housingLocation() {
 				thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
