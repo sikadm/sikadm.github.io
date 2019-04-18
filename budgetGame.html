@@ -124,9 +124,44 @@
 				font-size: 10px;
 				color: white;
 			}
+			.sidenav {
+				height: 100%;
+				width: 160px;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color: white;
+				overflow-x: hidden;
+				padding-top: 20px;
+			}
+			#spendings, #retirement, #move, #marriage, #jobStatus, #car {
+				padding: 6px 8px 6px 16px;
+				text-decoration: none;
+				font-size: 25px;
+				color: black;
+				display: block;
+			}
+			.main {
+				margin-left: 160px;
+				padding: 0px 10px;
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 16px;}
+				.sidenav a {font-size: 18px;}
+			}
 		</style> 
 	</head> 
 	<body>
+		<div class = "sidenav">
+			<div id="spendings">Spending History</div>
+			<div id="retirement">Savings</div>
+			<div id="move">Move</div>
+			<div id="marriage">Marriage</div>
+			<div id="jobStatus">Job Options</div>
+			<div id="car">Car Options</div>
+		</div>
+		<div class = "main">
 		<div id="money_tracking">
 			
 		</div>
@@ -187,7 +222,7 @@
 			from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
 			is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
 		</div>
-		
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> //jQuery
 
 		<script>
