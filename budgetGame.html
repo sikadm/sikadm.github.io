@@ -466,27 +466,29 @@
 			
 			function jobIns() {
 				healthInsCost = 1100;
-				taxes();
+				InsUpdate();
 			};
 			
 			function parIns() {
 				healthInsCost = 0;
-				taxes();
+				InsUpdate();
 			};
 			
 			function selfIns() {
 				healthInsCost = 6200;
-				taxes();
+				InsUpdate();
 			};
 			
 			function noIns() {
 				healthInsCost = 0;
-				taxes();
+				InsUpdate();
 			};
 			
 			function InsUpdate() {
 				bank = bank - healthInsCost;
 				money.textContent = "$" + bank;
+				taxes();
+			};
 			
 			function taxes() {
 				money.style.display = "none";
