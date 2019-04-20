@@ -239,12 +239,12 @@
 			<div class = "sideNavBtn" id="retire">Retire</div>
 			<div class = "sideNavBtn" id="yearProgression">Next Year</div>
 		</div>
-		<!-- The Modal -->
+		<!-- Spending History Modal -->
 		<div id="spendingTableModal" class="modal">
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span id="closeSpTbl" class="close">&times;</span>
-				<table>  
+				<table id="SpendingTable">  
 					<tr>  
 					    <th>One</th>
 					    <th>Two</th>
@@ -268,6 +268,36 @@
 				</table>
 			</div>
 		</div>
+		<!-- Savings History Modal -->
+		<div id="savingsTableModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span id="closeSvTbl" class="close">&times;</span>
+				<table id="SavingsTable">  
+					<tr>  
+					    <th>One</th>
+					    <th>Two</th>
+					    <th>Three</th>
+					</tr>  
+					<tr>  
+					    <td>Apples</td>
+					    <td>Carrots</td>
+					    <td>Steak</td>
+					</tr>  
+					<tr>  
+					    <td>Oranges</td>
+					    <td>Potato</td>
+					    <td>Pork</td>
+					</tr>  
+					<tr>  
+					    <td>Pears</td>
+					    <td>Peas</td>
+					    <td>Chicken</td>
+					</tr>  
+				</table>
+			</div>
+		</div>
+		
 		<div class = "main">
 		<div id="money_tracking">
 			
@@ -387,6 +417,8 @@
 			var fwdYear = document.getElementById("yearProgression");
 			var spendingTbl = document.getElementById("spendingTableModal");
 			var closeSpending = document.getElementById("closeSpTbl");
+			var savingsTbl = document.getElementById("SavingsTable");
+			var closeSavings = document.getElementById("closeSvTbl");
 			var year = 0;
 			
 			spendingButton.onclick = function() {
@@ -397,12 +429,24 @@
 				spendingTbl.style.display = "none";
 			}
 			
-			// When the user clicks anywhere outside of the spending table, close it
+			// When the user clicks anywhere outside of a modal, close it
 			window.onclick = function(event) {
-			  if (event.target == spendingTbl) {
+				if (event.target == spendingTbl) {
 			    spendingTbl.style.display = "none";
 			  }
+				else if (event.target == savingsTbl) {
+			    savingsTbl.style.display = "none";
+			  }
 			}
+			
+			savingsButton.onclick = function() {
+				savingsTbl.style.display = "block";
+			}
+			
+			closeSavings.onclick = function() {
+				savingsTbl.style.display = "none";
+			}
+			
 			
 			progress.style.display = "none";
 			bubble.style.display = "none";
@@ -414,9 +458,6 @@
 			option4box.style.display = "none";
 			form1040.style.display = "none";
 			W2form.style.display = "none";
-			moveButton.style.display = "none";
-			marriageButton.style.display = "none";
-			jobButton.style.display = "none";
 			
 			function education() {
 				question.style.display = "block";
