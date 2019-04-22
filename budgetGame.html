@@ -750,6 +750,7 @@
 			
 			function city() {
 				bank = bank - 3500;
+				money.textContent = "$" + bank;
 				housingType();
 			};
 			
@@ -780,6 +781,7 @@
 				option3box.removeEventListener("click", house);*/
 				rent = 8400;
 				bank = bank - rent;
+				money.textContent = "$" + bank;
 				roommate();
 			};
 			
@@ -789,6 +791,7 @@
 				option3box.removeEventListener("click", house);*/
 				rent = 6600;
 				bank = bank - rent;
+				money.textContent = "$" + bank;
 				roommate();
 			};
 			
@@ -798,6 +801,7 @@
 				option3box.removeEventListener("click", house);*/
 				rent = 10000;
 				bank = bank - rent;
+				money.textContent = "$" + bank;
 				roommate();
 			};
 			
@@ -819,6 +823,7 @@
 			
 			function shareLiving() {
 				bank = bank + 100;
+				money.textContent = "$" + bank;
 				vehicle();
 			};
 			
