@@ -780,8 +780,8 @@
 				option2box.removeEventListener("click", cheapApt);
 				option3box.removeEventListener("click", house);*/
 				rent = 8400;
-				bank = bank - rent;
-				money.textContent = "$" + bank;
+				/*bank = bank - rent;
+				money.textContent = "$" + bank;*/
 				roommate();
 			};
 			
@@ -790,8 +790,8 @@
 				option2box.removeEventListener("click", cheapApt);
 				option3box.removeEventListener("click", house);*/
 				rent = 6600;
-				bank = bank - rent;
-				money.textContent = "$" + bank;
+				/*bank = bank - rent;
+				money.textContent = "$" + bank;*/
 				roommate();
 			};
 			
@@ -800,8 +800,8 @@
 				option2box.removeEventListener("click", cheapApt);
 				option3box.removeEventListener("click", house);*/
 				rent = 10000;
-				bank = bank - rent;
-				money.textContent = "$" + bank;
+				/*bank = bank - rent;
+				money.textContent = "$" + bank;*/
 				roommate();
 			};
 			
@@ -822,13 +822,11 @@
 			};
 			
 			function shareLiving() {
-				bank = bank + 100;
-				money.textContent = "$" + bank;
-				vehicle();
+				housingUpdate()
 			};
 			
 			function dontShareLiving() {
-				vehicle();
+				housingUpdate();
 			};
 			
 			var yearlyRent;
@@ -850,8 +848,8 @@
 				option1.textContent = "Yes";
 				option2.textContent = "No";
 				option3box.style.display = "none";
-				option1box.addEventListener("click", healthInsurance);
-				option2box.addEventListener("click", healthInsurance);
+				option1box.addEventListener("click", vehicleCost);
+				option2box.addEventListener("click", vehicleCost);
 			};
 			
 			var carCost;
@@ -927,9 +925,16 @@
 			function InsUpdate() {
 				bank = bank - healthInsCost;
 				money.textContent = "$" + bank;
-				taxes();
+				summary();
 			};
 			
+			function summary() {
+				question.textContent = "The End";
+				option1box.style.display = "block";
+				option1.textContent = "Exit";
+				option2box.style.display = "none";
+				option3box.style.display = "none";
+				option4box.style.display = "none";
 			
 			function marriage() {
 				question.textContent = "Do you want to get married?";
