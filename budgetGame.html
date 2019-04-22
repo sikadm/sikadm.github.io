@@ -476,6 +476,12 @@
 				}
 			};
 			
+			carButton.onclick = function() {
+				if (confirm("Do you need to change your vehicle situation?")){
+					vehicle();
+				}
+			};
+			
 			fwdYear.onclick = function() {
 				if (confirm("Ready for another year?")) {
 					if (year == 95) {
@@ -517,8 +523,8 @@
 			
 			function hsGraduate() {
 				console.log("hsGraduate: " + year);
-				option1box.removeEventListener("click", hsGraduate);
-				option2box.removeEventListener("click", collegeGraduate);
+				/*option1box.removeEventListener("click", hsGraduate);
+				option2box.removeEventListener("click", collegeGraduate);*/
 				question.textContent = "Will you go to Trade School or get a job?";
 				option1.textContent = "Trade School";
 				option2.textContent = "Job";
@@ -535,8 +541,8 @@
 			
 			function collegeGraduate() {
 				console.log("college Graduate b4 update: " + year);
-				option1box.removeEventListener("click", hsGraduate);
-				option2box.removeEventListener("click", collegeGraduate);
+				/*option1box.removeEventListener("click", hsGraduate);
+				option2box.removeEventListener("click", collegeGraduate);*/
 				thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
 				option3box.style.display = "none";
 				year = 22;
@@ -550,8 +556,8 @@
 			};
 			function gradSchool() {
 				console.log("grad school before update: " + year);
-				option1box.removeEventListener("click", gradSchool);
-				option2box.removeEventListener("click", loan);
+				/*option1box.removeEventListener("click", gradSchool);
+				option2box.removeEventListener("click", loan);*/
 				thought.textContent = "Although a Masters may take less time, some careers require a Doctorate to be taken seriously!";
 				year = 22;
 				updateBar();
@@ -576,10 +582,10 @@
 			
 			function loan() {
 				console.log("loan before update: " + year);
-				option1box.removeEventListener("click", tradeSchool);
+				/*option1box.removeEventListener("click", tradeSchool);
 				option2box.removeEventListener("click", loan);
 				option1box.removeEventListener("click", doctorate);
-				option2box.removeEventListener("click", masters);
+				option2box.removeEventListener("click", masters);*/
 				bubble.style.display = "block";
 				loanForm.style.display = "block";
 				thought.textContent = "Filling out your FAFSA each year can help you get low interest loans! You'll end up paying less in interest than with private loans.";
@@ -619,12 +625,12 @@
 			
 			function income() {
 				console.log("income before update: " + year);
-				option1box.removeEventListener("click", tradeSchool);
+				/*option1box.removeEventListener("click", tradeSchool);
 				option2box.removeEventListener("click", income);
 				option1box.removeEventListener("click", doctorate);
 				option2box.removeEventListener("click", masters);
 				option1box.removeEventListener("click", gradSchool);
-				option2box.removeEventListener("click", loan);
+				option2box.removeEventListener("click", loan); */
 				bubble.style.display = "block";
 				loanForm.style.display = "none";
 				thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
@@ -769,25 +775,25 @@
 			};
 			
 			function highEndApt() {
-				option1box.removeEventListener("click", highEndApt);
+				/*option1box.removeEventListener("click", highEndApt);
 				option2box.removeEventListener("click", cheapApt);
-				option3box.removeEventListener("click", house);
+				option3box.removeEventListener("click", house);*/
 				rent = 8400;
 				roommate();
 			};
 			
 			function cheapApt() {
-				option1box.removeEventListener("click", highEndApt);
+				/*option1box.removeEventListener("click", highEndApt);
 				option2box.removeEventListener("click", cheapApt);
-				option3box.removeEventListener("click", house);
+				option3box.removeEventListener("click", house);*/
 				rent = 6600;
 				roommate();
 			};
 			
 			function house() {
-				option1box.removeEventListener("click", highEndApt);
+				/*option1box.removeEventListener("click", highEndApt);
 				option2box.removeEventListener("click", cheapApt);
-				option3box.removeEventListener("click", house);
+				option3box.removeEventListener("click", house);*/
 				rent = 10000;
 				roommate();
 			};
