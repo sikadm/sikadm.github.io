@@ -421,6 +421,13 @@
 			var closeSavings = document.getElementById("closeSvTbl");
 			var year = 0;
 			
+			moveButton.disabled = true;
+			marriageButton.disabled = true;
+			jobButton.disabled = true;
+			retireButton.disabled = true;
+			carButton.disabled = true;
+			fwdYear.disabled = true;
+			
 			spendingButton.onclick = function() {
 				spendingTbl.style.display = "block";
 			};
@@ -734,6 +741,12 @@
 			var housingMultiplier;
 			var bank;
 			function housingLocation() {
+				moveButton.disabled = false;
+				marriageButton.disabled = false;
+				jobButton.disabled = false;
+				retireButton.disabled = false;
+				carButton.disabled = false;
+				fwdYear.disabled = false;
 				loanForm.style.display = "none";
 				thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
 				option3box.style.display = "none";
