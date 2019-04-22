@@ -708,21 +708,25 @@
 			};
 			
 			function retire0() {
+				loanForm.style.display = "none";
 				retirementPercent = 0;
 				housingLocation();
 			};
 			
 			function retire5() {
+				loanForm.style.display = "none";
 				retirementPercent = 0.05;
 				housingLocation();
 			};
 			
 			function retire10() {
+				loanForm.style.display = "none";
 				retirementPercent = .1;
 				housingLocation();
 			};
 			
 			function retire20() {
+				loanForm.style.display = "none";
 				retirementPercent = .2;
 				housingLocation();
 			};
@@ -730,6 +734,7 @@
 			var housingMultiplier;
 			var bank;
 			function housingLocation() {
+				loanForm.style.display = "none";
 				thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
 				option3box.style.display = "none";
 				option4box.style.display = "none";
@@ -761,6 +766,7 @@
 			var rent;
 			function housingType() {
 				bubble.style.display = "none";
+				loanForm.style.display = "none";
 				salaryForm.style.display = "none";
 				question.textContent = "Where will you live?";
 				option1box.style.display = "block";
