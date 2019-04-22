@@ -682,6 +682,7 @@
 			var retirementSavings;
 			var retirementPercent;
 			function retirement() {
+				loanForm.style.display = "none";
 				console.log("retirement b4 update(): " + year);
 				updateBar();
 				console.log("retirement after update(): " + year);
@@ -748,12 +749,11 @@
 			};
 			
 			function city() {
-				housingMultiplier = 2;
+				bank = bank - 3500;
 				housingType();
 			};
 			
 			function suburbs() {
-				housingMultiplier = 1;
 				housingType();
 			};
 			
@@ -779,6 +779,7 @@
 				option2box.removeEventListener("click", cheapApt);
 				option3box.removeEventListener("click", house);*/
 				rent = 8400;
+				bank = bank - rent;
 				roommate();
 			};
 			
@@ -787,6 +788,7 @@
 				option2box.removeEventListener("click", cheapApt);
 				option3box.removeEventListener("click", house);*/
 				rent = 6600;
+				bank = bank - rent;
 				roommate();
 			};
 			
@@ -795,6 +797,7 @@
 				option2box.removeEventListener("click", cheapApt);
 				option3box.removeEventListener("click", house);*/
 				rent = 10000;
+				bank = bank - rent;
 				roommate();
 			};
 			
@@ -815,13 +818,12 @@
 			};
 			
 			function shareLiving() {
-				roommateMultiplier = 0.5;
-				housingUpdate();
+				bank = bank + 100;
+				vehicle();
 			};
 			
 			function dontShareLiving() {
-				roommateMultiplier = 1;
-				housingUpdate();
+				vehicle();
 			};
 			
 			var yearlyRent;
