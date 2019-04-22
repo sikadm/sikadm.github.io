@@ -423,11 +423,11 @@
 			
 			spendingButton.onclick = function() {
 				spendingTbl.style.display = "block";
-			}
+			};
 			
 			closeSpending.onclick = function() {
 				spendingTbl.style.display = "none";
-			}
+			};
 			
 			// When the user clicks anywhere outside of a modal, close it
 			window.onclick = function(event) {
@@ -437,16 +437,56 @@
 				else if (event.target == savingsTbl) {
 			    savingsTbl.style.display = "none";
 			  }
-			}
+			};
 			
 			savingsButton.onclick = function() {
 				savingsTbl.style.display = "block";
-			}
+			};
 			
 			closeSavings.onclick = function() {
 				savingsTbl.style.display = "none";
-			}
+			};
 			
+			moveButton.onclick = funtion() {
+				if (confirm("Are you ready to move?")){
+					housingLocation();
+				}
+			};
+			
+			var couple;
+			marriageButton.onclick = function() {
+				if (confirm("Are you ready to get married?")){
+					couple = 1;
+					x = x*2;
+				}
+			};
+			
+			jobButton.onclick = function() {
+				if (confirm("Are you ready to change jobs?")){
+					income();
+					if (couple == 1) {
+						x = x*2;
+					}
+				}
+			};
+			
+			retireButton.onclick = function() {
+				if (confirm("Are you ready to retire?")) {
+					x = 0;
+				}
+			};
+			
+			fwdYear.onclick = funtion() {
+				if (confirm("Ready for another year?")) {
+					if (year == 95) {
+						alert ("You lived a happy life! Review how your savings and spendings added up");
+					}
+					else {
+						year++;
+						updateYear();
+					}
+				}
+			};
 			
 			progress.style.display = "none";
 			bubble.style.display = "none";
