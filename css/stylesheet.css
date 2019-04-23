@@ -30,6 +30,11 @@ body {
     border: 0.1rem solid var(--mainGreen);
     color: var(--mainGreen);
   }
+  .min-submit {
+    background: transparent;
+    border: 0.1rem solid var(--mainBlue);
+    color: var(--mainBlue);
+  }
   .expense-submit {
     background: transparent;
     border: 0.1rem solid var(--mainRed);
@@ -81,6 +86,10 @@ body {
   .budget {
     font-size: 1.6rem;
     color: var(--mainGreen);
+  }
+  .minBudget {
+    font-size: 1.6rem;
+    color: var(--mainBlue);
   }
   .expense {
     font-size: 1.6rem;
