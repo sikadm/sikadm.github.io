@@ -420,13 +420,9 @@
 			var savingsTbl = document.getElementById("savingsTableModal");
 			var closeSavings = document.getElementById("closeSvTbl");
 			var year = 0;
+			var sideBar = document.getElementByClassName("sidenav");
 			
-			moveButton.disabled = true;
-			marriageButton.disabled = true;
-			jobButton.disabled = true;
-			retireButton.disabled = true;
-			carButton.disabled = true;
-			fwdYear.disabled = true;
+			sideBar.style.display = "none";
 			
 			spendingButton.onclick = function() {
 				spendingTbl.style.display = "block";
@@ -445,7 +441,7 @@
 			    savingsTbl.style.display = "none";
 			  }
 			};
-			
+
 			savingsButton.onclick = function() {
 				savingsTbl.style.display = "block";
 			};
@@ -500,6 +496,7 @@
 					}
 				}
 			};
+			
 			
 			progress.style.display = "none";
 			bubble.style.display = "none";
@@ -948,12 +945,14 @@
 			};
 			
 			function summary() {
-				question.textContent = "The End";
+				question.textContent = "From this point on, your life events occur when you want them to. Use the side buttons to continue your life.";
 				option1box.style.display = "block";
 				option1.textContent = "Exit";
+				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
 				option4box.style.display = "none";
+				sideBar.style.display = "block";
 			};
 			
 			function marriage() {
