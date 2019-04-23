@@ -38,6 +38,7 @@
                                 </div>
                                 <!-- submit button -->
                                 <button type="submit" class="btn text-capitalize loan-submit" id="calc-submit" onclick="remainingBalance()">calculate</button>
+                                <button type="submit" class="btn text-capitalize min-submit" id="minPayment-submit" onclick="minPayment()">calculate the Minimum Payment/Month</button>
                             </form>
                         </div>
                         <div class="col-md-7">
@@ -46,6 +47,13 @@
                                     <h6 class="text-uppercase info-title">remaining loan amount</h6>
                                     <span class="budget-icon"><i class="fas fa-money-bill-alt"></i></span>
                                     <h4 class="text-uppercase mt-2 budget" id="budget"><span>$ </span><span id="remaining-amount"></span></h4>
+                                </div>
+                            </div>
+                            <div class="row my-5">
+                                <div class="col-12 text-center mb-2">
+                                    <h6 class="text-uppercase info-title">minimum monthly payment</h6>
+                                    <span class="budget-icon"><i class="fas fa-money-bill-alt"></i></span>
+                                    <h4 class="text-uppercase mt-2 minBudget" id="budget"><span>$ </span><span id="min-amount"></span></h4>
                                 </div>
                             </div>
                         </div>
