@@ -445,7 +445,7 @@
 			    savingsTbl.style.display = "none";
 			  }
 			};
-			
+
 			savingsButton.onclick = function() {
 				savingsTbl.style.display = "block";
 			};
@@ -453,7 +453,8 @@
 			closeSavings.onclick = function() {
 				savingsTbl.style.display = "none";
 			};
-			
+			var buttons;
+			if (buttons == 1) {
 			moveButton.onclick = function() {
 				if (confirm("Are you ready to move?")){
 					housingLocation();
@@ -500,6 +501,7 @@
 					}
 				}
 			};
+			};
 			
 			progress.style.display = "none";
 			bubble.style.display = "none";
@@ -513,6 +515,7 @@
 			W2form.style.display = "none";
 			
 			function education() {
+				buttons=0;
 				question.style.display = "block";
 				year = 18;
 				option2box.style.display = "block";
@@ -954,6 +957,7 @@
 				option2box.style.display = "none";
 				option3box.style.display = "none";
 				option4box.style.display = "none";
+				buttons=1;
 			};
 			
 			function marriage() {
