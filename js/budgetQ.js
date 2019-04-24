@@ -577,4 +577,5 @@ $("#loan").submit(function(e) {
 	e.preventDefault();
 });
 };
+};
 
