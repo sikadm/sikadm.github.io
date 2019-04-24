@@ -111,7 +111,6 @@ window.onload = function() {
 option1box.onclick = function() {
 	education();
 };
-			
 function education() {
 	question.style.display = "block";
 	window.year = 18;
@@ -122,70 +121,72 @@ function education() {
 	question.textContent = "What is (or will be) your highest level of education?";
 	option1.textContent = "High School";
 	option2.textContent = "College";
+	option1box.addEventListener("click", hsGraduate);
+	option2box.addEventListener("click", collegeGraduate);
 	bubble.style.display = "block";
-	thought.textContent = "Those with college degrees get paid more on average than those without but also have to spend more on education";};
-
-	//If they pick HS
-	option1box.onclick = function() {
-		bubble.style.display = "none";
-		option2box.style.display = "block";
-		question.textContent = "Will you go to Trade School or get a job?";
-		option1.textContent = "Trade School";
-		option2.textContent = "Job";
-		option1box.onclick = function() {
-			window.year = 20;
-			income();
-		};
-		
-		option2box.onclick = function() {
-			window.year = 18;
-			income();
-		};
-	};
-	
-	//if they pick College
-	option2box.onclick = function() {
-		thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
-		option2box.style.display = "block";
-		window.year = 22;
-		updateBar();
-		console.log("college graduate after update: " + year);
-		question.textContent = "Will you continue on with school or start your career?";
-		option1.textContent = "Graduate School";
-		option2.textContent = "Career";
-		
-		//if they pick Grad School
-		option1box.onclick = function() {
-			window.year = 22;
-			updateBar();
-			question.textContent = "What kind of degree are you getting?";
-			option1.textContent = "Doctorate";
-			option2.textContent = "Masters";
-			option3box.style.display = "none";
-			//Doctorate
-			option1box.onclick = function() {
-				window.year = 26;
-				income();
-			};
-			
-			//Masters
-			option2box.onclick = function() {
-				window.year = 24;
-				income();
-			};
-		};
-		//if they pick Career
-		option2box.onclick = function() {
-			//loan  
-		};
-	};
+	thought.textContent = "Those with college degrees get paid more on average than those without but also have to spend more on education";
 };
-	
+
+function hsGraduate() {
+	question.textContent = "Will you go to Trade School or get a job?";
+	option1.textContent = "Trade School";
+	option2.textContent = "Job";
+	option1box.addEventListener("click", tradeSchool);
+	option2box.addEventListener("click", income);
+	thought.textContent = "Those with trade skills often make more than those who don't have any higher education.";
+
+};
+
+function tradeSchool() {
+	window.year = 20;
+	updateBar();
+	income();
+};
+
+function collegeGraduate() {
+	console.log("college Graduate b4 update: " + year);
+	thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
+	option3box.style.display = "none";
+	window.year = 22;
+	updateBar();
+	console.log("college graduate after update: " + year);
+	question.textContent = "Will you continue on with school or start your career?";
+	option1.textContent = "Graduate School";
+	option2.textContent = "Career";
+	option1box.addEventListener("click", gradSchool);
+	option2box.addEventListener("click", loan);
+};
+function gradSchool() {
+	thought.textContent = "Although a Masters may take less time, some careers require a Doctorate to be taken seriously!";
+	window.year = 22;
+	updateBar();
+	question.textContent = "What kind of degree are you getting?";
+	option1.textContent = "Doctorate";
+	option2.textContent = "Masters";
+	option3box.style.display = "none";
+	option1box.addEventListener("click", doctorate);
+	option2box.addEventListener("click", masters);	
+};
+
+function doctorate() {
+	window.year = 26;
+	updateBar();
+	loan();
+};
+
+function masters() {
+	window.year = 24;
+	updateBar();
+	loan();
+};
+
 function loan() {
+	console.log("loan before update: " + year);
 	bubble.style.display = "block";
 	loanForm.style.display = "block";
 	thought.textContent = "Filling out your FAFSA each year can help you get low interest loans! You'll end up paying less in interest than with private loans.";
 	updateBar();
+	console.log("loan after update: " + year);
 	salaryForm.style.display = "none";
 	option1box.style.display = "none";
 	option2box.style.display = "none";
@@ -193,7 +194,7 @@ function loan() {
 	option4box.style.display = "none";
 	question.textContent = "How much will you have in loans?";
 };
-			
+
 var loanPymt; //global variable of loan payment
 var loanLength; //global variable of loan length
 function validateForm2() {
@@ -217,20 +218,12 @@ function validateForm2() {
 		}
 	}
 };
-			
+
 function income() {
-	console.log("income before update: " + year);
-	/*option1box.removeEventListener("click", tradeSchool);
-	option2box.removeEventListener("click", income);
-	option1box.removeEventListener("click", doctorate);
-	option2box.removeEventListener("click", masters);
-	option1box.removeEventListener("click", gradSchool);
-	option2box.removeEventListener("click", loan); */
 	bubble.style.display = "block";
 	loanForm.style.display = "none";
 	thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
 	updateBar();
-	console.log("income after update: " + year);
 	salaryForm.style.display = "block";
 	option1box.style.display = "none";
 	option2box.style.display = "none";
@@ -238,7 +231,7 @@ function income() {
 	option4box.style.display = "none";
 	question.textContent = "Income";
 };
-			
+
 var x; //global variable of salary
 function validateForm() {
 	x = document.forms["salary"]["yearly_salary"].value;
@@ -254,9 +247,8 @@ function validateForm() {
 		}
 	}
 };
-			
+
 function taxes() {
-	console.log("taxes: " + year);
 	money.style.display = "none";
 	progress.style.display = "none";
 	copyright.style.display = "none";
@@ -270,16 +262,17 @@ function taxes() {
 	option1.textContent = "Click to continue";
 	option1box.addEventListener("click", retirement);
 	W2form.style.display = "block";
-	form1040.style.display = "block";
+	form1040.style.display = "block";	
 };
-			
+
 var retirementSavings;
 var retirementPercent;
+var bank;
 function retirement() {
+	money.style.display = "block";
+	money.textContent = "$" + x;
+	bank = x;
 	loanForm.style.display = "none";
-	console.log("retirement b4 update(): " + year);
-	updateBar();
-	console.log("retirement after update(): " + year);
 	bubble.style.display = "block";
 	copyright.style.display = "block";
 	progress.style.display = "block";
@@ -300,33 +293,43 @@ function retirement() {
 	option3box.addEventListener("click", retire10);
 	option4box.addEventListener("click", retire20);
 };
-			
+
 function retire0() {
 	loanForm.style.display = "none";
 	retirementPercent = 0;
+	retirementFund();
 	housingLocation();
 };
 
 function retire5() {
 	loanForm.style.display = "none";
 	retirementPercent = 0.05;
+	retirementFund();
 	housingLocation();
 };
 
 function retire10() {
 	loanForm.style.display = "none";
 	retirementPercent = .1;
+	retirementFund();
 	housingLocation();
 };
 
 function retire20() {
 	loanForm.style.display = "none";
 	retirementPercent = .2;
+	retirementFund();
 	housingLocation();
 };
-	
+
+var retirementSavings;
+function retirementFund() {
+	window.retirementSavings = retirementPercent*x;
+	window.bank = bank - retirementSavings;
+	money.textContent = "$" + bank;
+};
+
 var housingMultiplier;
-var bank;
 function housingLocation() {
 	loanForm.style.display = "none";
 	thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
@@ -334,9 +337,6 @@ function housingLocation() {
 	option4box.style.display = "none";
 	form1040.style.display = "none";
 	W2form.style.display = "none";
-	money.style.display = "block";
-	money.textContent = "$" + x;
-	bank = x;
 	salaryForm.style.display = "none";
 	option1box.style.display = "block";
 	option2box.style.display = "block";
@@ -346,7 +346,7 @@ function housingLocation() {
 	option1box.addEventListener("click", city);
 	option2box.addEventListener("click", suburbs);
 };
-			
+
 function city() {
 	housingMultiplier = 2;
 	housingType();
@@ -374,7 +374,7 @@ function housingType() {
 	option2box.addEventListener("click", cheapApt);
 	option3box.addEventListener("click", house);
 };
-			
+
 function highEndApt() {
 	/*option1box.removeEventListener("click", highEndApt);
 	option2box.removeEventListener("click", cheapApt);
@@ -394,7 +394,7 @@ function cheapApt() {
 	money.textContent = "$" + bank;*/
 	roommate();
 };
-			
+
 function house() {
 	/*option1box.removeEventListener("click", highEndApt);
 	option2box.removeEventListener("click", cheapApt);
@@ -422,15 +422,15 @@ function roommate() {
 };
 
 function shareLiving() {
-	rommateMultiplier = 0.5;
+	roommateMultiplier = 0.5;
 	housingUpdate()
 };
 
 function dontShareLiving() {
-	rommateMultiplier = 1;
+	roommateMultiplier = 1;
 	housingUpdate();
 };
-			
+
 var yearlyRent;
 function housingUpdate(){
 	yearlyRent = roommateMultiplier*rent*housingMultiplier;
@@ -471,7 +471,7 @@ function vehicleCost() {
 	option3box.addEventListener("click", carInsPymt);
 	carButton.style.display = "block";
 };
-			
+
 function nocarpymt() {
 	carCost = 0;
 	carUpdate();
@@ -507,7 +507,7 @@ function healthInsurance() {
 	option3box.addEventListener("click", selfIns);
 	option4box.addEventListener("click", noIns);
 };
-			
+
 function jobIns() {
 	healthInsCost = 1100;
 	InsUpdate();
@@ -533,7 +533,7 @@ function InsUpdate() {
 	money.textContent = "$" + bank;
 	summary();
 };
-			
+
 function summary() {
 	bubble.style.display = "none";
 	question.textContent = "From this point on, your life events occur when you want them to. Use the side buttons to continue your life.";
@@ -570,7 +570,7 @@ when (year>65) {
 
 };
 */
-			
+
 $("#salary").submit(function(e) {
 	e.preventDefault();
 });	
