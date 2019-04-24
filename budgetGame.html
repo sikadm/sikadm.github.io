@@ -228,7 +228,7 @@
 		</style> 
 	</head> 
 	<body>
-		<div class = "sidenav">
+		<div class = "sidenav" id="sideBar">
 			<h3>Tools</h3>
 			<div class = "sideNavBtn" id="spendings">Spending History</div>
 			<div class = "sideNavBtn" id="savings">Savings</div>
@@ -420,7 +420,7 @@
 			var savingsTbl = document.getElementById("savingsTableModal");
 			var closeSavings = document.getElementById("closeSvTbl");
 			var year = 0;
-			var sideBar = document.getElementByClassName("sidenav");
+			var sideBar = document.getElementByCId("sideBar");
 			
 			sideBar.style.display = "none";
 			
