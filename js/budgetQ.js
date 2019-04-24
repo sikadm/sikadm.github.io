@@ -26,7 +26,6 @@ window.onload = function() {
 	W2form.style.display = "none";
 	form1040.style.display = "none";
 	progress.style.display = "none";
-};
 
 option1box.onclick = function() {
 	education();
@@ -272,5 +271,6 @@ if (year == 26) {
 
 $("#salary").submit(function(e) {
   e.preventDefault();
-});		
+});
+};
 
