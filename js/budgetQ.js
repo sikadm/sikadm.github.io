@@ -1,131 +1,131 @@
 window.onload = function() {
-			var salaryForm = document.getElementById("salary");
-			var loanForm = document.getElementById("loan");
-			var money = document.getElementById("money_tracking");
-			var option1 = document.getElementById("option1");
-			var option2 = document.getElementById("option2");
-			var option3 = document.getElementById("option3");
-			var option4 = document.getElementById("option4");
-			var question = document.getElementById("question");
-			var bubble = document.getElementById("container");
-			var thought = document.getElementById("thought");
-			var option1box = document.getElementById("box1");
-			var option2box = document.getElementById("box2");
-			var option3box = document.getElementById("box3");
-			var option4box = document.getElementById("box4");
-			var W2form = document.getElementById("W2");
-			var form1040 = document.getElementById("1040form");
-			var progress = document.getElementById("progressbar");
-			var copyright = document.getElementById("iconrights");
-			var spendingButton = document.getElementById("spendings");
-			var moveButton = document.getElementById("move");
-			var marriageButton = document.getElementById("marriage");
-			var jobButton = document.getElementById("jobStatus");
-			var retireButton = document.getElementById("retire");
-			var carButton = document.getElementById("car");
-			var fwdYear = document.getElementById("yearProgression");
-			var spendingTbl = document.getElementById("spendingTableModal");
-			var closeSpending = document.getElementById("closeSpTbl");
-			var year = 0;
-			var sideBar = document.getElementById("sideBar");
-			
-			moveButton.style.display = "none";
-			marriageButton.style.display = "none";
-			jobButton.style.display = "none";
-			retireButton.style.display = "none";
-			carButton.style.display = "none";
-			fwdYear.style.display = "none";
-			progress.style.display = "none";
-			bubble.style.display = "none";
-			salaryForm.style.display = "none";
-			loanForm.style.display = "none";
-			money.style.display = "none";
-			option2box.style.display = "none";
-			option3box.style.display = "none";
-			option4box.style.display = "none";
-			form1040.style.display = "none";
-			W2form.style.display = "none";
-	
-			spendingButton.onclick = function() {
-				spendingTbl.style.display = "block";
-			};
-			
-			closeSpending.onclick = function() {
-				spendingTbl.style.display = "none";
-			};
-			
-			// When the user clicks anywhere outside of a modal, close it
-			window.onclick = function(event) {
-				if (event.target == spendingTbl) {
-			    spendingTbl.style.display = "none";
-			  }
-			};
-			
-			moveButton.onclick = function() {
-				if (confirm("Are you ready to move?")){
-					housingLocation();
-				}
-			};
-			
-			var couple;
-			marriageButton.onclick = function() {
-				if (confirm("Are you ready to get married?")){
-					couple = 1;
-					x = x*2;
-				}
-			};
-			
-			jobButton.onclick = function() {
-				if (confirm("Are you ready to change jobs?")){
-					income();
-					if (couple == 1) {
-						x = x*2;
-					}
-				}
-			};
-			
-			retireButton.onclick = function() {
-				if (confirm("Are you ready to retire?")) {
-					x = 0;
-				}
-			};
-			
-			carButton.onclick = function() {
-				if (confirm("Do you need to change your vehicle situation?")){
-					vehicle();
-				}
-			};
-			
-			fwdYear.onclick = function() {
-				if (confirm("Ready for another year?")) {
-					if (year >= 95) {
-						alert ("You lived a happy life! Review how your savings and spendings added up");
-					}
-					else {
-						year = year + 10;
-						updateYear();
-					}
-				}
-			};
+	var salaryForm = document.getElementById("salary");
+	var loanForm = document.getElementById("loan");
+	var money = document.getElementById("money_tracking");
+	var option1 = document.getElementById("option1");
+	var option2 = document.getElementById("option2");
+	var option3 = document.getElementById("option3");
+	var option4 = document.getElementById("option4");
+	var question = document.getElementById("question");
+	var bubble = document.getElementById("container");
+	var thought = document.getElementById("thought");
+	var option1box = document.getElementById("box1");
+	var option2box = document.getElementById("box2");
+	var option3box = document.getElementById("box3");
+	var option4box = document.getElementById("box4");
+	var W2form = document.getElementById("W2");
+	var form1040 = document.getElementById("1040form");
+	var progress = document.getElementById("progressbar");
+	var copyright = document.getElementById("iconrights");
+	var spendingButton = document.getElementById("spendings");
+	var moveButton = document.getElementById("move");
+	var marriageButton = document.getElementById("marriage");
+	var jobButton = document.getElementById("jobStatus");
+	var retireButton = document.getElementById("retire");
+	var carButton = document.getElementById("car");
+	var fwdYear = document.getElementById("yearProgression");
+	var spendingTbl = document.getElementById("spendingTableModal");
+	var closeSpending = document.getElementById("closeSpTbl");
+	var year = 0;
+	var sideBar = document.getElementById("sideBar");
 
-option1box.onclick = function() {
-	education();
-};
-function education() {
-	question.style.display = "block";
-	window.year = 18;
-	option2box.style.display = "block";
-	progress.style.display = "block";
-	progress.style.width = year + '%';
-	progress.textContent =  year + " yrs old";
-	question.textContent = "What is (or will be) your highest level of education?";
-	option1.textContent = "High School";
-	option2.textContent = "College";
-	option1box.addEventListener("click", hsGraduate);
-	option2box.addEventListener("click", collegeGraduate);
-	bubble.style.display = "block";
-	thought.textContent = "Those with college degrees get paid more on average than those without but also have to spend more on education";
-};
+	moveButton.style.display = "none";
+	marriageButton.style.display = "none";
+	jobButton.style.display = "none";
+	retireButton.style.display = "none";
+	carButton.style.display = "none";
+	fwdYear.style.display = "none";
+	progress.style.display = "none";
+	bubble.style.display = "none";
+	salaryForm.style.display = "none";
+	loanForm.style.display = "none";
+	money.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	form1040.style.display = "none";
+	W2form.style.display = "none";
+
+	spendingButton.onclick = function() {
+		spendingTbl.style.display = "block";
+	};
+
+	closeSpending.onclick = function() {
+		spendingTbl.style.display = "none";
+	};
+
+	// When the user clicks anywhere outside of a modal, close it
+	window.onclick = function(event) {
+		if (event.target == spendingTbl) {
+	    spendingTbl.style.display = "none";
+	  }
+	};
+
+	moveButton.onclick = function() {
+		if (confirm("Are you ready to move?")){
+			housingLocation();
+		}
+	};
+
+	var couple;
+	marriageButton.onclick = function() {
+		if (confirm("Are you ready to get married?")){
+			couple = 1;
+			x = x*2;
+		}
+	};
+
+	jobButton.onclick = function() {
+		if (confirm("Are you ready to change jobs?")){
+			income();
+			if (couple == 1) {
+				x = x*2;
+			}
+		}
+	};
+
+	retireButton.onclick = function() {
+		if (confirm("Are you ready to retire?")) {
+			x = 0;
+		}
+	};
+
+	carButton.onclick = function() {
+		if (confirm("Do you need to change your vehicle situation?")){
+			vehicle();
+		}
+	};
+
+	fwdYear.onclick = function() {
+		if (confirm("Ready for another year?")) {
+			if (year >= 95) {
+				alert ("You lived a happy life! Review how your savings and spendings added up");
+			}
+			else {
+				year = year + 10;
+				updateYear();
+			}
+		}
+	};
+
+	option1box.onclick = function() {
+		education();
+	};
+	function education() {
+		question.style.display = "block";
+		window.year = 18;
+		option2box.style.display = "block";
+		progress.style.display = "block";
+		progress.style.width = year + '%';
+		progress.textContent =  year + " yrs old";
+		question.textContent = "What is (or will be) your highest level of education?";
+		option1.textContent = "High School";
+		option2.textContent = "College";
+		option1box.setAttribute("onClick", "hsGraduate()");
+		option2box.setAttribute("onClick", "collegeGraduate()");
+		bubble.style.display = "block";
+		thought.textContent = "Those with college degrees get paid more on average than those without but also have to spend more on education";
+	};
 
 function hsGraduate() {
 	question.textContent = "Will you go to Trade School or get a job?";
