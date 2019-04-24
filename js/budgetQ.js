@@ -127,10 +127,11 @@ function education() {
 
 	//If they pick HS
 	option1box.onclick = function() {
-	bubble.style.display = "none";
-	question.textContent = "Will you go to Trade School or get a job?";
-	option1.textContent = "Trade School";
-	option2.textContent = "Job";
+		bubble.style.display = "none";
+		option2box.style.display = "block";
+		question.textContent = "Will you go to Trade School or get a job?";
+		option1.textContent = "Trade School";
+		option2.textContent = "Job";
 		option1box.onclick = function() {
 			window.year = 20;
 			income();
@@ -145,7 +146,7 @@ function education() {
 	//if they pick College
 	option2box.onclick = function() {
 		thought.textContent = "Going to grad school could pay off for some majors; Others may want to consider if spending the extra money and time is worthwhile!";
-		option3box.style.display = "none";
+		option2box.style.display = "block";
 		window.year = 22;
 		updateBar();
 		console.log("college graduate after update: " + year);
