@@ -1,3 +1,4 @@
+window.onload = function() {
 	var salaryForm = document.getElementById("salary");
 	var money = document.getElementById("money_tracking");
 	var option1 = document.getElementById("option1");
@@ -15,6 +16,7 @@
 	var form1040 = document.getElementById("1040form");
 	var progress = document.getElementById("progressbar");
 	var year = 0;
+};
 
 option1box.onclick = function() {
 	education();
