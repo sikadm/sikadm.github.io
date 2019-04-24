@@ -576,6 +576,4 @@ $("#salary").submit(function(e) {
 $("#loan").submit(function(e) {
 	e.preventDefault();
 });
-};
-};
 
