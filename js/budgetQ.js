@@ -16,6 +16,16 @@ window.onload = function() {
 	var form1040 = document.getElementById("1040form");
 	var progress = document.getElementById("progressbar");
 	var year = 0;
+	salaryForm.style.display = "none";
+	money.style.display = "none";
+	option1box.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	bubble.style.display = "none";
+	W2form.style.display = "none";
+	form1040.style.display = "none";
+	progress.style.display = "none";
 };
 
 option1box.onclick = function() {
