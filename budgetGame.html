@@ -495,7 +495,7 @@
 						alert ("You lived a happy life! Review how your savings and spendings added up");
 					}
 					else {
-						year++;
+						year = year + 10;
 						updateYear();
 					}
 				}
@@ -870,7 +870,7 @@
 				option2.textContent = "No";
 				option3box.style.display = "none";
 				option1box.addEventListener("click", vehicleCost);
-				option2box.addEventListener("click", vehicleCost);
+				option2box.addEventListener("click", healthIns);
 			};
 			
 			var carCost;
@@ -881,6 +881,8 @@
 				option3box.style.display = "block";
 				option1.textContent = "Car already paid off (no insurance/parents pay)";
 				option2.textContent = "Car paid off but insurance being paid";
+				option3.textContent = "Car payment and insurance";
+				bubble.style.display = "none";
 				option3box.style.display = "car and insurance payments monthly";
 				option1box.addEventListener("click", nocarpymt);
 				option2box.addEventListener("click", carIns);
@@ -951,6 +953,7 @@
 			};
 			
 			function summary() {
+				bubble.style.display = "none";
 				question.textContent = "From this point on, your life events occur when you want them to. Use the side buttons to continue your life.";
 				option1box.style.display = "block";
 				option1.textContent = "Exit";
