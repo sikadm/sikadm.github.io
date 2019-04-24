@@ -16,8 +16,8 @@
 	var progress = document.getElementById("progressbar");
 	var year = 0;
 
-window.onload = function () {
-	option1box.addEventListener("click", education);
+option1box.onclick = function() {
+	education();
 };
 			
 function education() {
