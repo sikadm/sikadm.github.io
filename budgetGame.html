@@ -422,7 +422,12 @@
 			var year = 0;
 			var sideBar = document.getElementById("sideBar");
 			
-			sideBar.style.display = "none";
+			moveButton.style.display = "none";
+			marriageButton.style.display = "none";
+			jobButton.style.display = "none";
+			retireButton.style.display = "none";
+			carButton.style.display = "none";
+			fwdYear.style.display = "none";
 			
 			spendingButton.onclick = function() {
 				spendingTbl.style.display = "block";
@@ -847,6 +852,7 @@
 			
 			var yearlyRent;
 			function housingUpdate(){
+				moveButton.style.display = "block";
 				yearlyRent = roommateMultiplier*rent*housingMultiplier;
 				console.log("yearly rent: " + yearlyRent);
 				console.log("bank before rent: " + bank);
@@ -880,6 +886,7 @@
 				option1box.addEventListener("click", nocarpymt);
 				option2box.addEventListener("click", carIns);
 				option3box.addEventListener("click", carInsPymt);
+				carButton.style.display = "block";
 			};
 			
 			function nocarpymt() {
@@ -951,8 +958,11 @@
 				option1box.style.display = "none";
 				option2box.style.display = "none";
 				option3box.style.display = "none";
-				option4box.style.display = "none";
-				sideBar.style.display = "block";
+				moveButton.style.display = "block";
+				marriageButton.style.display = "block";
+				retireButton.style.display = "block";
+				carButton.style.display = "block";
+				fwdYear.style.display = "block";
 			};
 			
 			function marriage() {
