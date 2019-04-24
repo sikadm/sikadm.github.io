@@ -231,8 +231,7 @@
 	<body>
 		<div class = "sidenav" id="sideBar">
 			<h3>Tools</h3>
-			<div class = "sideNavBtn" id="spendings">Spending History</div>
-			<div class = "sideNavBtn" id="savings">Savings</div>
+			<div class = "sideNavBtn" id="spendings">Expenses</div>
 			<div class = "sideNavBtn" id="move">Move</div>
 			<div class = "sideNavBtn" id="marriage">Marriage</div>
 			<div class = "sideNavBtn" id="jobStatus">Job Options</div>
@@ -247,53 +246,11 @@
 				<span id="closeSpTbl" class="close">&times;</span>
 				<table id="SpendingTable">  
 					<tr>  
-					    <th>One</th>
-					    <th>Two</th>
-					    <th>Three</th>
-					</tr>  
-					<tr>  
-					    <td>Apples</td>
-					    <td>Carrots</td>
-					    <td>Steak</td>
-					</tr>  
-					<tr>  
-					    <td>Oranges</td>
-					    <td>Potato</td>
-					    <td>Pork</td>
-					</tr>  
-					<tr>  
-					    <td>Pears</td>
-					    <td>Peas</td>
-					    <td>Chicken</td>
-					</tr>  
-				</table>
-			</div>
-		</div>
-		<!-- Savings History Modal -->
-		<div id="savingsTableModal" class="modal">
-			<!-- Modal content -->
-			<div class="modal-content">
-				<span id="closeSvTbl" class="close">&times;</span>
-				<table id="SavingsTable">  
-					<tr>  
-					    <th>One</th>
-					    <th>Two</th>
-					    <th>Three</th>
-					</tr>  
-					<tr>  
-					    <td>Apples</td>
-					    <td>Carrots</td>
-					    <td>Steak</td>
-					</tr>  
-					<tr>  
-					    <td>Oranges</td>
-					    <td>Potato</td>
-					    <td>Pork</td>
-					</tr>  
-					<tr>  
-					    <td>Pears</td>
-					    <td>Peas</td>
-					    <td>Chicken</td>
+					    <th>Income</th>
+					    <th>Taxes</th>
+					    <th>Housing</th>
+						<th>Other</th>
+						<th>Retirement</th>
 					</tr>  
 				</table>
 			</div>
@@ -411,7 +368,6 @@
 			var progress = document.getElementById("progressbar");
 			var copyright = document.getElementById("iconrights");
 			var spendingButton = document.getElementById("spendings");
-			var savingsButton = document.getElementById("savings");
 			var moveButton = document.getElementById("move");
 			var marriageButton = document.getElementById("marriage");
 			var jobButton = document.getElementById("jobStatus");
@@ -420,8 +376,6 @@
 			var fwdYear = document.getElementById("yearProgression");
 			var spendingTbl = document.getElementById("spendingTableModal");
 			var closeSpending = document.getElementById("closeSpTbl");
-			var savingsTbl = document.getElementById("savingsTableModal");
-			var closeSavings = document.getElementById("closeSvTbl");
 			var year = 0;
 			var sideBar = document.getElementById("sideBar");
 			
@@ -445,17 +399,6 @@
 				if (event.target == spendingTbl) {
 			    spendingTbl.style.display = "none";
 			  }
-				else if (event.target == savingsTbl) {
-			    savingsTbl.style.display = "none";
-			  }
-			};
-
-			savingsButton.onclick = function() {
-				savingsTbl.style.display = "block";
-			};
-			
-			closeSavings.onclick = function() {
-				savingsTbl.style.display = "none";
 			};
 			
 			moveButton.onclick = function() {
