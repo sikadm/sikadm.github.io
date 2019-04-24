@@ -9,20 +9,115 @@
         	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         	<link rel="stylesheet" href="css/budgetStyle.css">
-		<script type="text/javascript" src="/js/budgetQ.js"></script>
+		
         	
 	</head> 
 	<body>
-		<div id="money_tracking" style="display:none">
+		<script type="text/javascript" src="/js/budgetQ.js"></script>
+		<div class = "sidenav" id="sideBar">
+			<h3>Tools</h3>
+			<div class = "sideNavBtn" id="spendings">Spending History</div>
+			<div class = "sideNavBtn" id="savings">Savings</div>
+			<div class = "sideNavBtn" id="move">Move</div>
+			<div class = "sideNavBtn" id="marriage">Marriage</div>
+			<div class = "sideNavBtn" id="jobStatus">Job Options</div>
+			<div class = "sideNavBtn" id="car">Car Options</div>
+			<div class = "sideNavBtn" id="retire">Retire</div>
+			<div class = "sideNavBtn" id="yearProgression">Next Year</div>
+		</div>
+		<!-- Spending History Modal -->
+		<div id="spendingTableModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span id="closeSpTbl" class="close">&times;</span>
+				<table id="SpendingTable">  
+					<tr>  
+					    <th>One</th>
+					    <th>Two</th>
+					    <th>Three</th>
+					</tr>  
+					<tr>  
+					    <td>Apples</td>
+					    <td>Carrots</td>
+					    <td>Steak</td>
+					</tr>  
+					<tr>  
+					    <td>Oranges</td>
+					    <td>Potato</td>
+					    <td>Pork</td>
+					</tr>  
+					<tr>  
+					    <td>Pears</td>
+					    <td>Peas</td>
+					    <td>Chicken</td>
+					</tr>  
+				</table>
+			</div>
+		</div>
+		<!-- Savings History Modal -->
+		<div id="savingsTableModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span id="closeSvTbl" class="close">&times;</span>
+				<table id="SavingsTable">  
+					<tr>  
+					    <th>One</th>
+					    <th>Two</th>
+					    <th>Three</th>
+					</tr>  
+					<tr>  
+					    <td>Apples</td>
+					    <td>Carrots</td>
+					    <td>Steak</td>
+					</tr>  
+					<tr>  
+					    <td>Oranges</td>
+					    <td>Potato</td>
+					    <td>Pork</td>
+					</tr>  
+					<tr>  
+					    <td>Pears</td>
+					    <td>Peas</td>
+					    <td>Chicken</td>
+					</tr>  
+				</table>
+			</div>
+		</div>
+		
+		<div class = "main">
+		<div id="money_tracking">
 			
 		</div>
 		<br>
 		<div>
 			<h2 id="question">Welcome to The Game of Life!</h2>
 		</div>
-
-		<form name = "salary" id="salary" style="display:none">
-			<label>Enter your predicted yearly salary:</label>
+		<img id="W2" src="W2form.PNG" alt = "W2 form" style="display:none; width: 75%;"/>
+		<br>
+		<div id="1040form" style="display:none" style="position:absolute; left:100px; right:100px;">
+			<div style="position:relative;">
+				<img src="1040form.PNG" alt = "1040 form" style="width: 50%; float: left;"/>
+				<div style="position: relative; width:40%; height:600px; margin: auto; float: right; background-color: white; text-align:left;">
+					You must fill out your taxes every year!
+					Some sites are available to help at a small cost (HRBlock.com, Turbotax.com, etc)
+					When you start a new job, you fill out a W-4 form that tells your employers how much to take out of each paycheck for taxes.
+					If you pay more in taxes than you should (based on the government and your salary), you may get a refund. However, if you don't let them take enough, you may owe the government at the end of the year, and sometimes even an additional fee.
+					Witholdings include:
+					<ul>
+						<li>FICA taxes (Social Security and Medicare) 7.65%</li>
+						<li>Federal Income Taxes</li>
+						<li>State and Local Taxes</li>
+					</ul>
+					FICA taxes are required but you have some flexibility on Federal, State and Local taxes.
+					Some states don't even have income tax!
+					Federal taxes are based on your tax bracket. This means that depending on the range your salary falls under, you will have to pay a different percent than someone who has a salary in a different range.
+				</div>
+			</div>
+			<button onclick="retirement()">Click to Continue</button>
+		</div>
+			<br>
+		<form name = "salary" id="salary">
+			<label>Enter your predicted gross(before taxes) salary:</label>
 			<br>
 			<textarea name="yearly_salary"></textarea>
 			<br>
@@ -31,33 +126,45 @@
 			<input type=button onClick="parent.open('https://www.bls.gov/ooh/')" value='click here to visit salary website' >
 		</form>
 		<br>
+		<form name = "loan" id="loan">
+			<label>Enter your predicted monthly loan payment:</label>
+			<br>
+			<textarea name="monthly_loan"></textarea>
+			<br>
+			<label>Enter your predicted number of loan payments:</label>
+			<br>
+			<textarea name="loan_length"></textarea>
+			<br>
+			<input type="submit" value="Submit" onclick="validateForm2()">
+			<br>
+			<input type=button onClick="parent.open('https://sikadm.github.io/loancalc.html')" value='click here to use a loan calculator' >
+		</form>
+			<br>
 		<div class="option" id="box1">
 			<br>
 			<p id="option1">Click to Start!</p>
 		</div>
 		<br>
-		<div class="option" id="box2" style="display:none">
+		<div class="option" id="box2">
 			<br>
 			<p  id="option2">none</p>
 		</div>
 		<br>
-		<div class="option" id="box3" style="display:none">
+		<div class="option" id="box3">
 			<br>
 			<p id="option3">none</p>
 		</div>
 		<br>
-		<div class="option" id="box4" style="display:none">
+		<div class="option" id="box4">
 			<br>
 			<p id="option4">none</p>
 		</div>
-		<img id="W2" src="W2form.PNG" alt = "W2 form" style="display:none"/>
 		<br>
-		<img id="1040form" src="1040form.PNG" alt = "1040 form" style="display:none"/>
-		<div id="Progress_Status" style="display:none">		
+		<div id="Progress_Status">		
 			<div id="progressbar"></div>
 		</div>
 
-		<div id="container" style="display:none">
+		<div id="container">
 		<img id="thoughtBubble" src="thoughtbubble.png" alt="thought bubble">
 			<p id="thought">words</p>
 		</div>
@@ -66,7 +173,7 @@
 			from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
 			is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
 		</div>
-		
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
 
 	</body>
