@@ -744,12 +744,6 @@
 			var housingMultiplier;
 			var bank;
 			function housingLocation() {
-				moveButton.disabled = false;
-				marriageButton.disabled = false;
-				jobButton.disabled = false;
-				retireButton.disabled = false;
-				carButton.disabled = false;
-				fwdYear.disabled = false;
 				loanForm.style.display = "none";
 				thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
 				option3box.style.display = "none";
@@ -844,17 +838,19 @@
 			};
 			
 			function shareLiving() {
+				rommateMultiplier = 0.5;
 				housingUpdate()
 			};
 			
 			function dontShareLiving() {
+				rommateMultiplier = 1;
 				housingUpdate();
 			};
 			
 			var yearlyRent;
 			function housingUpdate(){
-				moveButton.style.display = "block";
 				yearlyRent = roommateMultiplier*rent*housingMultiplier;
+				moveButton.style.display = "block";
 				console.log("yearly rent: " + yearlyRent);
 				console.log("bank before rent: " + bank);
 				bank = bank - yearlyRent;
