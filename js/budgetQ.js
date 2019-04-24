@@ -131,10 +131,15 @@ function education() {
 	question.textContent = "Will you go to Trade School or get a job?";
 	option1.textContent = "Trade School";
 	option2.textContent = "Job";
-	option1box.addEventListener("click", income);
-	option2box.addEventListener("click", income);
-	option2box.addEventListener("click", year = 18);
-	option1box.addEventListener("click", year = 20);
+		option1box.onclick = function() {
+			window.year = 20;
+			income();
+		};
+		
+		option2box.onclick = function() {
+			window.year = 18;
+			income();
+		};
 	};
 	
 	//if they pick College
@@ -175,198 +180,401 @@ function education() {
 	};
 };
 	
-function income() {
-  updateBar();
-  salaryForm.style.display = "block";
-  option1box.style.display = "none";
-  option2box.style.display = "none";
-  option3box.style.display = "none";
-  option4box.style.display = "none";
-  question.textContent = "Income";
+function loan() {
+	bubble.style.display = "block";
+	loanForm.style.display = "block";
+	thought.textContent = "Filling out your FAFSA each year can help you get low interest loans! You'll end up paying less in interest than with private loans.";
+	updateBar();
+	salaryForm.style.display = "none";
+	option1box.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	question.textContent = "How much will you have in loans?";
 };
+			
+var loanPymt; //global variable of loan payment
+var loanLength; //global variable of loan length
+function validateForm2() {
+	loanPymt = document.forms["loan"]["monthly_loan"].value;
+	loanLength = document.forms["loan"]["loan_length"].value;
+	if (loanPymt == "") {
+		alert("Loan payment must be filled out");
+	}
+	else if (isNaN(loanPymt)){
+		alert("Loan payment can only contain numbers");
+	}
+	else { 
+		if (loanLength == "") {
+			alert("Loan length must be filled out");
+		}
+		else if (isNaN(loanLength)) {
+			alert("Loan length can only contain numbers");
+		}
+		else {
+			income();
+		}
+	}
+};
+			
+function income() {
+	console.log("income before update: " + year);
+	/*option1box.removeEventListener("click", tradeSchool);
+	option2box.removeEventListener("click", income);
+	option1box.removeEventListener("click", doctorate);
+	option2box.removeEventListener("click", masters);
+	option1box.removeEventListener("click", gradSchool);
+	option2box.removeEventListener("click", loan); */
+	bubble.style.display = "block";
+	loanForm.style.display = "none";
+	thought.textContent = "Depending on your education choices, some careers (and salaries) may be out of reach";
+	updateBar();
+	console.log("income after update: " + year);
+	salaryForm.style.display = "block";
+	option1box.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	question.textContent = "Income";
+};
+			
 var x; //global variable of salary
 function validateForm() {
-  x = document.forms["salary"]["yearly_salary"].value;
-  if (x == "") {
-    alert("Salary must be filled out");
-  }
-  else if (isNaN(x)){
-    alert("Salary can only contain numbers");
-  }
-  else {
-    if (confirm("Ready to get started?")) {
-      taxes();
-    }
-  }
+	x = document.forms["salary"]["yearly_salary"].value;
+	if (x == "") {
+		alert("Salary must be filled out");
+	}
+	else if (isNaN(x)){
+		alert("Salary can only contain numbers");
+	}
+	else {
+		if (confirm("Ready to get started?")) {
+			taxes();
+		}
+	}
 };
+			
+function taxes() {
+	console.log("taxes: " + year);
+	money.style.display = "none";
+	progress.style.display = "none";
+	copyright.style.display = "none";
+	bubble.style.display = "none";
+	option1box.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	salaryForm.style.display = "none";
+	question.textContent = "Tax forms";
+	option1.textContent = "Click to continue";
+	option1box.addEventListener("click", retirement);
+	W2form.style.display = "block";
+	form1040.style.display = "block";
+};
+			
+var retirementSavings;
+var retirementPercent;
+function retirement() {
+	loanForm.style.display = "none";
+	console.log("retirement b4 update(): " + year);
+	updateBar();
+	console.log("retirement after update(): " + year);
+	bubble.style.display = "block";
+	copyright.style.display = "block";
+	progress.style.display = "block";
+	W2form.style.display = "none";
+	form1040.style.display = "none";
+	salaryForm.style.display = "none";
+	question.textContent = "What percent of your salary are you putting into a 401K?"
+	option1box.style.display = "block";
+	option2box.style.display = "block";
+	option3box.style.display = "block";
+	option4box.style.display = "block";
+	option1.textContent = "0%";
+	option2.textContent = "5%";
+	option3.textContent = "10%";
+	option4.textContent = "20%";
+	option1box.addEventListener("click", retire0);
+	option2box.addEventListener("click", retire5);
+	option3box.addEventListener("click", retire10);
+	option4box.addEventListener("click", retire20);
+};
+			
+function retire0() {
+	loanForm.style.display = "none";
+	retirementPercent = 0;
+	housingLocation();
+};
+
+function retire5() {
+	loanForm.style.display = "none";
+	retirementPercent = 0.05;
+	housingLocation();
+};
+
+function retire10() {
+	loanForm.style.display = "none";
+	retirementPercent = .1;
+	housingLocation();
+};
+
+function retire20() {
+	loanForm.style.display = "none";
+	retirementPercent = .2;
+	housingLocation();
+};
+	
 var housingMultiplier;
+var bank;
 function housingLocation() {
+	loanForm.style.display = "none";
+	thought.textContent = "Be aware that in some cities (NYC, Chicago, LA), rent will be much more expensive, while cheaper in others (Cincinnati). Also consider your commute to work!"
+	option3box.style.display = "none";
+	option4box.style.display = "none";
 	form1040.style.display = "none";
 	W2form.style.display = "none";
 	money.style.display = "block";
 	money.textContent = "$" + x;
-	 salaryForm.style.display = "none";
-	  option1box.style.display = "block";
+	bank = x;
+	salaryForm.style.display = "none";
+	option1box.style.display = "block";
 	option2box.style.display = "block";
-	 question.textContent = "Where will you live (location)?";
-	 option1.textContent = "City";
-	 option2.textContent = "Suburbs";
-	 option1box.addEventListener("click", housingType);
-	 option1box.addEventListener("click", housingMultiplier = 1);
-	 option2box.addEventListener("click", housingType);
-	 option2box.addEventListener("click", housingMultiplier = 2);
-
+	question.textContent = "Where will you live (location)?";
+	option1.textContent = "City";
+	option2.textContent = "Suburbs";
+	option1box.addEventListener("click", city);
+	option2box.addEventListener("click", suburbs);
 };
+			
+function city() {
+	housingMultiplier = 2;
+	housingType();
+};
+
+function suburbs() {
+	housingMultiplier = 1;
+	housingType();
+};
+
 var rent;
 function housingType() {
-	  salaryForm.style.display = "none";
-	  question.textContent = "Where will you live?";
-	  option1box.style.display = "block";
-	  option2box.style.display = "block";
-	  option3box.style.display = "block";
-	  option1.textContent = "High-End Apartment";
-	  option2.textContent = "Cheap Apartment";
-	  option3.textContent = "House";
-	  option1box.addEventListener("click", roommate);
-	  option1box.addEventListener("click", rent = 8400);
-	  option2box.addEventListener("click", roommate);
-	  option2box.addEventListener("click", rent = 6600);
-	  option3box.addEventListener("click", roommate);
-	  option3box.addEventListener("click", rent = 6600);
+	bubble.style.display = "none";
+	loanForm.style.display = "none";
+	salaryForm.style.display = "none";
+	question.textContent = "Where will you live?";
+	option1box.style.display = "block";
+	option2box.style.display = "block";
+	option3box.style.display = "block";
+	option4box.style.display = "none";
+	option1.textContent = "High-End Apartment";
+	option2.textContent = "Cheap Apartment";
+	option3.textContent = "House";
+	option1box.addEventListener("click", highEndApt);
+	option2box.addEventListener("click", cheapApt);
+	option3box.addEventListener("click", house);
 };
+			
+function highEndApt() {
+	/*option1box.removeEventListener("click", highEndApt);
+	option2box.removeEventListener("click", cheapApt);
+	option3box.removeEventListener("click", house);*/
+	rent = 8400;
+	/*bank = bank - rent;
+	money.textContent = "$" + bank;*/
+	roommate();
+};
+
+function cheapApt() {
+	/*option1box.removeEventListener("click", highEndApt);
+	option2box.removeEventListener("click", cheapApt);
+	option3box.removeEventListener("click", house);*/
+	rent = 6600;
+	/*bank = bank - rent;
+	money.textContent = "$" + bank;*/
+	roommate();
+};
+			
+function house() {
+	/*option1box.removeEventListener("click", highEndApt);
+	option2box.removeEventListener("click", cheapApt);
+	option3box.removeEventListener("click", house);*/
+	rent = 10000;
+	/*bank = bank - rent;
+	money.textContent = "$" + bank;*/
+	roommate();
+};
+
 var roommateMultiplier;
 function roommate() {
-	  option1box.style.display = "block";
-	  option2box.style.display = "block";
-	  option3box.style.display = "none";
-	  question.textContent = "Will you have a roommate?";
-	  option1.textContent = "Yes";
-	  option2.textContent = "No";
-	  option1box.addEventListener("click", vehicle);
-	  option1box.addEventListener("click", roommateMultiplier = 0.5);
-	  option2box.addEventListener("click", vehicle);
-	  option2box.addEventListener("click", roommateMultiplier = 1);
+	bubble.style.display = "block";
+	thought.textContent = "Having a roommate may make your living situation more cost efficient!";
+	salaryForm.style.display = "none";
+	loanForm.style.display = "none";
+	option1box.style.display = "block";
+	option2box.style.display = "block";
+	option3box.style.display = "none";
+	question.textContent = "Will you have a roommate?";
+	option1.textContent = "Yes";
+	option2.textContent = "No";
+	option1box.addEventListener("click", shareLiving);
+	option2box.addEventListener("click", dontShareLiving);
 };
-var bank;
+
+function shareLiving() {
+	rommateMultiplier = 0.5;
+	housingUpdate()
+};
+
+function dontShareLiving() {
+	rommateMultiplier = 1;
+	housingUpdate();
+};
+			
+var yearlyRent;
 function housingUpdate(){
-  var yearlyRent = roommateMultiplier*rent*housingMultiplier;
-  bank = x - yearlyRent;
-  money.textContent = "$" + bank;
+	yearlyRent = roommateMultiplier*rent*housingMultiplier;
+	moveButton.style.display = "block";
+	console.log("yearly rent: " + yearlyRent);
+	console.log("bank before rent: " + bank);
+	bank = bank - yearlyRent;
+	console.log("bank after rent: " + bank);
+	money.textContent = "$" + bank;
+	vehicle();
+};
+
+function vehicle() {
+	question.textContent = "Do you need a vehicle? (drive to work etc.)";
+	salaryForm.style.display="none";
+	option1box.style.display = "block";
+	option2box.style.display = "block";
+	option1.textContent = "Yes";
+	option2.textContent = "No";
+	option3box.style.display = "none";
+	option1box.addEventListener("click", vehicleCost);
+	option2box.addEventListener("click", healthIns);
 };
 
 var carCost;
-function vehicle() {
-  	housingUpdate();
-  	question.textContent = "Do you need a vehicle? (drive to work etc.)";
-  	salaryForm.style.display="none";
-  	option1box.style.display = "block";
-  	option2box.style.display = "block";
-  	option1.textContent = "Yes";
-  	option2.textContent = "No";
-  	option3box.style.display = "none";
-  	option1box.addEventListener("click", vehicleCost);
-  	option2box.addEventListener("click", healthInsurance);
-	
-};
-
 function vehicleCost() {
 	question.textContent = "What are your car payments like?";
 	option1box.style.display = "block";
-  	option2box.style.display = "block";
+	option2box.style.display = "block";
 	option3box.style.display = "block";
-  	option1.textContent = "Car already paid off (no insurance/parents pay)";
-  	option2.textContent = "Car paid off but insurance being paid";
-  	option3box.style.display = "car and insurance payments monthly";
-  	option1box.addEventListener("click", healthInsurance);
-  	option2box.addEventListener("click", healthInsurance);
-	option2box.addEventListener("click", healthInsurance);
-	option1box.addEventListener("click", carCost = 0);
-  	option2box.addEventListener("click", carCost = 120);
-	option2box.addEventListener("click", carCost = 400);
-}
+	option1.textContent = "Car already paid off (no insurance/parents pay)";
+	option2.textContent = "Car paid off but insurance being paid";
+	option3.textContent = "Car payment and insurance";
+	bubble.style.display = "none";
+	option3box.style.display = "car and insurance payments monthly";
+	option1box.addEventListener("click", nocarpymt);
+	option2box.addEventListener("click", carIns);
+	option3box.addEventListener("click", carInsPymt);
+	carButton.style.display = "block";
+};
+			
+function nocarpymt() {
+	carCost = 0;
+	carUpdate();
+};
+
+function carIns() {
+	carCost = 120;
+	carUpdate();
+};
+
+function carInsPymt() {
+	carCost = 400;
+	carUpdate();
+};
+
+function carUpdate() {
+	bank = bank - carCost;
+	money.textContent = "$" + bank;
+	healthInsurance();
+};
 
 var healthInsCost;
 function healthInsurance() {
-  	question.textContent = "Do you have health insurance?";
-  	option3box.style.display = "block";
-  	option4box.style.display = "block";
-  	option1.textContent = "Yes, provided through my job";
- 	option2.textContent = "Yes, still apart of my parents";
-  	option3.textContent = "Yes, paid for by self";
-  	option4.textContent = "No";
-	option1box.addEventListener("click", taxes);
-	option1box.addEventListener("click", healthInsCost = 1100);
-	option2box.addEventListener("click", taxes);
-	option2box.addEventListener("click", healthInsCost = 0);
-	option3box.addEventListener("click", taxes);
-	option3box.addEventListener("click", healthInsCost = 6200);
-	option4box.addEventListener("click", taxes);
-	option4box.addEventListener("click", healthInsCost = 0);
+	question.textContent = "Do you have health insurance?";
+	option3box.style.display = "block";
+	option4box.style.display = "block";
+	option1.textContent = "Yes, provided through my job";
+	option2.textContent = "Yes, still apart of my parents";
+	option3.textContent = "Yes, paid for by self";
+	option4.textContent = "No";
+	option1box.addEventListener("click", jobIns);
+	option2box.addEventListener("click", parIns);
+	option3box.addEventListener("click", selfIns);
+	option4box.addEventListener("click", noIns);
 };
-function taxes() {
-  	updateBar();
-  	option1box.style.display = "block";
-	option1.textContent = "Click here to continue"
-  	option2box.style.display = "none";
-  	option3box.style.display = "none";
-  	option4box.style.display = "none";
-  	salaryForm.style.display = "none";
-  	question.textContent = "Tax forms";	
-  	W2form.style.display = "block";
-  	form1040.style.display = "block";
-	option1box.addEventListener("click", retirement);
+			
+function jobIns() {
+	healthInsCost = 1100;
+	InsUpdate();
 };
 
-var retirementSavings;
-var retirementPercent;
-function retirement() {
-	question.textContent = "What percent of your salary are you putting into a 401K?"
+function parIns() {
+	healthInsCost = 0;
+	InsUpdate();
+};
+
+function selfIns() {
+	healthInsCost = 6200;
+	InsUpdate();
+};
+
+function noIns() {
+	healthInsCost = 0;
+	InsUpdate();
+};
+
+function InsUpdate() {
+	bank = bank - healthInsCost;
+	money.textContent = "$" + bank;
+	summary();
+};
+			
+function summary() {
+	bubble.style.display = "none";
+	question.textContent = "From this point on, your life events occur when you want them to. Use the side buttons to continue your life.";
 	option1box.style.display = "block";
-  	option2box.style.display = "block";
-  	option3box.style.display = "block";
-  	option4box.style.display = "block";
-  	option1.textContent = "0%";
- 	option2.textContent = "5%";
-	option3.textContent = "10%";
-	option4.textContent = "20%";
-	option1box.addEventListener("click", housingLocation);
-	option1box.addEventListener("click", retirementPercent = 0);
-	option2box.addEventListener("click", housingLocation);
-	option2box.addEventListener("click", retirementPercent = 0.05);
-	option3box.addEventListener("click", housingLocation);
-	option3box.addEventListener("click", retirementPercent = .1);
-	option4box.addEventListener("click", housingLocation);
-	option4box.addEventListener("click", retirementPercent = .2);	
+	option1.textContent = "Exit";
+	option1box.style.display = "none";
+	option2box.style.display = "none";
+	option3box.style.display = "none";
+	moveButton.style.display = "block";
+	marriageButton.style.display = "block";
+	retireButton.style.display = "block";
+	carButton.style.display = "block";
+	fwdYear.style.display = "block";
 };
 
 function marriage() {
 	question.textContent = "Do you want to get married?";
 	option1box.style.display = "block";
-  	option2box.style.display = "block";
-  	option3box.style.display = "none";
-  	option4box.style.display = "none";
-  	option1.textContent = "Yes";
- 	option2.textContent = "No";
+	option2box.style.display = "block";
+	option3box.style.display = "none";
+	option4box.style.display = "none";
+	option1.textContent = "Yes";
+	option2.textContent = "No";
 	option1box.addEventListener("click", children);
-	option1box.addEventListener("click", );
 	option2box.addEventListener("click", children);
-	option2box.addEventListener("click", );
 };
 
 function updateBar() {
-  	progress.style.width = year + "%";
-  	progress.textContent = year + " yrs old";
+	progress.style.width = year + "%";
+	progress.textContent = year + " yrs old";
 };
+/*
+when (year>65) {
 
-if (year == 26) {
-	healthInsurance();
-	option2box.style.display = "none";
-	
 };
-
-
+*/
+			
 $("#salary").submit(function(e) {
-  e.preventDefault();
+	e.preventDefault();
+});	
+$("#loan").submit(function(e) {
+	e.preventDefault();
 });
 };
 
