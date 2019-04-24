@@ -33,7 +33,7 @@ option1box.onclick = function() {
 			
 function education() {
   question.style.display = "block";
-  year = 18;
+  window.year = 18;
   option2box.style.display = "block";
   progress.style.display = "block";
   progress.style.width = year + '%';
@@ -59,7 +59,7 @@ function hsGraduate() {
 function collegeGraduate() {
   bubble.style.display = "none";
   option3box.style.display = "none";
-  year = 22;
+  window.year = 22;
   updateBar();
   question.textContent = "Will you continue on with school or start your career?";
   option1.textContent = "Graduate School";
@@ -68,7 +68,7 @@ function collegeGraduate() {
   option2box.addEventListener("click", income);
 };
 function gradSchool() {
-  year = 22;
+  window.year = 22;
   updateBar();
   question.textContent = "What kind of degree are you getting?";
   option1.textContent = "Doctorate";
