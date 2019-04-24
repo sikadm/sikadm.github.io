@@ -18,7 +18,8 @@
 				position: relative;
 				top: 50px;
 			}
-			.option { 
+			.option {
+				position: relative;
 				width: 300px; 
 				margin: auto;
 				height: 170px; 
@@ -493,7 +494,7 @@
 			
 			fwdYear.onclick = function() {
 				if (confirm("Ready for another year?")) {
-					if (year == 95) {
+					if (year >= 95) {
 						alert ("You lived a happy life! Review how your savings and spendings added up");
 					}
 					else {
