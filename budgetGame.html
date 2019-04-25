@@ -237,7 +237,7 @@
 			<div class = "sideNavBtn" id="jobStatus">Job Options</div>
 			<div class = "sideNavBtn" id="car">Car Options</div>
 			<div class = "sideNavBtn" id="retire">Retire</div>
-			<div class = "sideNavBtn" id="yearProgression">Next Year</div>
+			<div class = "sideNavBtn" id="yearProgression">Add 10 Years</div>
 		</div>
 		<!-- Spending History Modal -->
 		<div id="spendingTableModal" class="modal">
@@ -437,13 +437,14 @@
 			};
 			
 			fwdYear.onclick = function() {
-				if (confirm("Ready for another year?")) {
+				if (confirm("Fast forward 10 years?")) {
 					if (window.year >= 95) {
 						alert ("You lived a happy life! Review how your savings and spendings added up");
 					}
 					else {
 						window.year = window.year + 10;
 						updateYear();
+						bank = bank+ 10*(x-retirementSavings-healthInsCost-carCost-yearlyRent);
 					}
 				}
 			};
@@ -674,7 +675,7 @@
 			var retirementSavings;
 			function retirementFund() {
 				window.retirementSavings = retirementPercent*x;
-				window.bank = bank - retirementSavings;
+				bank = bank - retirementSavings;
 				money.textContent = "$" + bank;
 			};
 	
@@ -725,29 +726,16 @@
 			};
 			
 			function highEndApt() {
-				/*option1box.removeEventListener("click", highEndApt);
-				option2box.removeEventListener("click", cheapApt);
-				option3box.removeEventListener("click", house);*/
 				rent = 8400;
-				/*bank = bank - rent;
-				money.textContent = "$" + bank;*/
 				roommate();
 			};
 			
 			function cheapApt() {
-				/*option1box.removeEventListener("click", highEndApt);
-				option2box.removeEventListener("click", cheapApt);
-				option3box.removeEventListener("click", house);*/
 				rent = 6600;
-				/*bank = bank - rent;
-				money.textContent = "$" + bank;*/
 				roommate();
 			};
 			
 			function house() {
-				/*option1box.removeEventListener("click", highEndApt);
-				option2box.removeEventListener("click", cheapApt);
-				option3box.removeEventListener("click", house);*/
 				rent = 10000;
 				/*bank = bank - rent;
 				money.textContent = "$" + bank;*/
@@ -802,7 +790,7 @@
 				option2.textContent = "No";
 				option3box.style.display = "none";
 				option1box.addEventListener("click", vehicleCost);
-				option2box.addEventListener("click", healthIns);
+				option2box.addEventListener("click", healthInsurance);
 			};
 			
 			var carCost;
