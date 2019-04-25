@@ -795,6 +795,7 @@
 			function vehicle() {
 				question.textContent = "Do you need a vehicle? (drive to work etc.)";
 				salaryForm.style.display="none";
+				loanForm.style.display = "none";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option1.textContent = "Yes";
@@ -807,6 +808,8 @@
 			var carCost;
 			function vehicleCost() {
 				question.textContent = "What are your car payments like?";
+				loanForm.style.display = "none";
+				salaryForm.style.display = "none";
 				option1box.style.display = "block";
 				option2box.style.display = "block";
 				option3box.style.display = "block";
