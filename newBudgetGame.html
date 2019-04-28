@@ -47,13 +47,14 @@
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
 		var savings;
-		savings = retire*grossSal;
+		savings = Number(retire)/100*grossSal;
+		console.log("savings calculation"+savings);
 		console.log("determined retirement fund");
 		
 		//calculate yearly rent
 		var rent = document.getElementById("rent");
 		var yearlyRent;
-		yearlyRent = rent*12;
+		yearlyRent = Number(rent)*12;
 		console.log("determined rent"+yearlyRent);
 		
 		//loop to add rows to the table
@@ -67,7 +68,7 @@
 		var bankSum;
 		var bank = document.getElementById("bank");
 		
-		for (i=0; i<= simLength; i++) {
+		for (i=0; i< simLength; i++) {
 			console.log("in for loop");
 			//calculate yearly loan payments
 			var loanPymt = document.getElementById("monthlyPayment").value;
