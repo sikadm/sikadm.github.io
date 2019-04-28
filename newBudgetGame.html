@@ -44,6 +44,18 @@
 		
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
+		var savings;
+		if (isNaN(retire)) {
+			alert("Can only contain numbers (enter a percent w/o '%'");
+		}
+		else {
+			savings = retire*grossSal;
+		}
+		
+		//calculate yearly rent
+		var rent = document.getElementById("rent");
+		var yearlyRent;
+		yearlyRent = rent*12;
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
@@ -95,8 +107,8 @@
 		incomeCell.innerHTML = document.getElementById("salary").value;
 		taxCell.innerHTML = taxValue;
 		loanCell.innerHTML = yearLoan;
-		rentCell.innerHTML = document.getElementById("age").value;
-		retireCell.innerHTML = document.getElementById("age").value;
+		rentCell.innerHTML = yearlyRent;
+		retireCell.innerHTML = savings;
 	};
 	
 	function resetSimulation() {
@@ -109,7 +121,7 @@
 		document.getElementById("monthlyPayment").value = "";
 		document.getElementById("salary").value = "";
 		document.getElementById("rent").value = "";
-		document.getElementById("").value = "";
+		document.getElementById("retirement").value = "";
 		
 		//delete table data
 		for (var i = table.rows.length - 1; i > 0; i--) {
