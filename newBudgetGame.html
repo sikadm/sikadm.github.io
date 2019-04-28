@@ -42,6 +42,8 @@
 			taxValue = grossSal*(.37+statePercent);
 		}
 		
+		// calculate amount taken out for retirement
+		var retire = document.getElementById("retirement");
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
@@ -68,6 +70,7 @@
 					yearLoan = loanPymt*loanLen;
 					document.getElementById("loanLength").value = 0;
 					document.getElementById("monthlyPayment").value = 0;
+				}
 			}
 			appendTable();
 			age = startingAge + 1;
@@ -167,7 +170,7 @@
 <ul>
 	<li> Set your age, salary, cost of living and see what age you might be able to retire at. </li>
 		<ul>
-			<li> You can change your decisions at any time </li>
+			<li> You can change your salary, income tax, retirement savings, or rent at any time </li>
 			<li> Watch your savings and spending change on a 5, 10, or 20 time schedule </li>
 			</ul>
 	<li> If you are unsure of a typical value, click the buttons below to explore these topics more</li>
@@ -209,6 +212,10 @@ How much will you have in loans? (monthly payment and number of months) <br>
 <br>
 How much is rent? <br>
 <input type="text" id="rent">
+<br>
+<br>
+What percent of your salary are you saving for retirement? <br>
+<input type="text" id="retirement">
 <br>
 <br>
 <p>
