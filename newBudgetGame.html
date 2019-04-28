@@ -5,6 +5,7 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
 	function startSimulation() {
+		console.log("at start of function");
 		document.getElementById("age").disabled = "true";
 		document.getElementById("monthlyPayment").disabled = "true";
 		document.getElementById("loanLength").disabled = "true";
@@ -41,16 +42,19 @@
 		else {
 			taxValue = grossSal*(.37+statePercent);
 		}
+		console.log("determined tax value");
 		
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
 		var savings;
 		savings = Number(retire)*Number(grossSal);
+		console.log("determined retirement fund");
 		
 		//calculate yearly rent
 		var rent = document.getElementById("rent");
 		var yearlyRent;
 		yearlyRent = Number(rent)*12;
+		console.log("determined rent");
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
@@ -64,6 +68,7 @@
 		var bank = document.getElementById("bank");
 		
 		while (endAge > Number(startingAge)) {
+			console.log("in while loop");
 			//calculate yearly loan payments
 			var loanPymt = document.getElementById("monthlyPayment").value;
 			var loanLen = document.getElementById("loanLength").value;
@@ -97,6 +102,7 @@
 			yearTotal = grossSal - yearLoan - taxRound - yearlyRent - totalSavings;
 			bankSum = yearTotal + bank;
 			document.getElementById("bank").textContent = bankSum;
+			console.log("summed bank and total retirement savings");
 			
 			//add row to table
 			var table = document.getElementById("table");
@@ -113,29 +119,14 @@
 			loanCell.innerHTML = yearLoan;
 			rentCell.innerHTML = yearlyRent;
 			retireCell.innerHTML = savings;
+			
+			console.log("added table row");
+			
 			age = startingAge + 1;
 			document.getElementById("age").value = age;
 		}
+		console.log("exited while loop");	
 		
-			
-		
-	};
-	//not called but could work on
-	function appendTable() {
-		var table = document.getElementById("table");
-		var row = table.insertRow(-1);
-		var ageCell = row.insertCell(0);
-		var incomeCell = row.insertCell(1);
-		var taxCell = row.insertCell(2);
-		var loanCell = row.insertCell(3);
-		var rentCell = row.insertCell(4);
-		var retireCell = row.insertCell(5);
-		ageCell.innerHTML = startingAge;
-		incomeCell.innerHTML = Number(document.getElementById("salary").value);
-		taxCell.innerHTML = taxValue;
-		loanCell.innerHTML = yearLoan;
-		rentCell.innerHTML = yearlyRent;
-		retireCell.innerHTML = savings;
 	};
 	
 	function resetSimulation() {
