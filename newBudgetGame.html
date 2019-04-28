@@ -48,7 +48,8 @@
 		var retire = document.getElementById("retirement");
 		console.log(retire);
 		var savings;
-		var retirePercent = retire/100;
+		var percent = 100;
+		var retirePercent = retire / percent;
 		console.log(retirePercent);
 		console.log("gross"+grossSal);
 		savings = retirePercent * grossSal;
@@ -57,9 +58,8 @@
 		
 		//calculate yearly rent
 		var rent = document.getElementById("rent");
-		var yearlyRent;
 		var month = 12;
-		yearlyRent = rent * month;
+		var yearlyRent = rent * month;
 		console.log("determined rent"+yearlyRent);
 		
 		//loop to add rows to the table
