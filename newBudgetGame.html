@@ -67,8 +67,8 @@
 		var bankSum;
 		var bank = document.getElementById("bank");
 		
-		while (endAge > startingAge) {
-			console.log("in while loop");
+		for (i=0; i<= simLength; i++) {
+			console.log("in for loop");
 			//calculate yearly loan payments
 			var loanPymt = document.getElementById("monthlyPayment").value;
 			var loanLen = document.getElementById("loanLength").value;
