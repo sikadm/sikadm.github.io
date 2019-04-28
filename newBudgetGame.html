@@ -19,49 +19,49 @@
 			statePercent = 0;
 		}
 		else {
-			statePercent = Number(stateTax)/100;
+			statePercent = stateTax/100;
 		}
 		var taxValue;
-		if (Number(grossSal) < 9525) {
+		if (grossSal < 9525) {
 			taxValue = grossSal*(.1+statePercent);
 		}
-		else if (Number(grossSal) < 38700) {
+		else if (grossSal < 38700) {
 			taxValue = grossSal*(.12+statePercent);
 		}
-		else if (Number(grossSal) < 82500) {
+		else if (grossSal < 82500) {
 			taxValue = grossSal*(.22+statePercent);
 		}
-		else if (Number(grossSal) < 157500) {
+		else if (grossSal < 157500) {
 			taxValue = grossSal*(.24+statePercent);
 		}
-		else if (Number(grossSal) < 200000) {
+		else if (grossSal < 200000) {
 			taxValue = grossSal*(.32+statePercent);
 		}
-		else if (Number(grossSal) < 500000) {
+		else if (grossSal < 500000) {
 			taxValue = grossSal*(.35+statePercent);
 		}
 		else {
 			taxValue = grossSal*(.37+statePercent);
 		}
-		console.log("determined tax value");
+		console.log("determined tax value"+TaxValue);
 		
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
 		var savings;
-		savings = Number(retire)*Number(grossSal);
+		savings = retire*grossSal;
 		console.log("determined retirement fund");
 		
 		//calculate yearly rent
 		var rent = document.getElementById("rent");
 		var yearlyRent;
-		yearlyRent = Number(rent)*12;
+		yearlyRent = rent*12;
 		console.log("determined rent");
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
 		var simLength = document.getElementById("simLength").value;
-		var endAge = Number(startingAge) + Number(simLength);
-		var age= Number(startingAge);
+		var endAge = startingAge + simLength;
+		var age = startingAge;
 		var addSavings=document.getElementById("currentRetireFund");
 		var totalSavings;
 		var yearTotal;
@@ -115,15 +115,14 @@
 			var rentCell = row.insertCell(4);
 			var retireCell = row.insertCell(5);
 			ageCell.innerHTML = startingAge;
-			incomeCell.innerHTML = Number(document.getElementById("salary").value);
+			incomeCell.innerHTML = document.getElementById("salary").value;
 			taxCell.innerHTML = taxRound;
 			loanCell.innerHTML = yearLoan;
 			rentCell.innerHTML = yearlyRent;
 			retireCell.innerHTML = savings;
 			
 			console.log("added table row");
-			
-			age = startingAge + 1;
+			age++;
 			document.getElementById("age").value = age;
 		}
 		console.log("exited while loop");	
@@ -236,38 +235,38 @@
 <br>
 <br>
 What is your age? <br>
-<input type="text" id="age">
+<input type="number" id="age">
 <br>
 <br>
 How much will you make? 
-(yearly salary before taxes) <br>
-<input type="text" id="salary">
+(yearly salary before taxes--numbers only) <br>
+<input type="number" id="salary">
 <br>
 <br>
-What is your state's income tax rate? <br>
-<input type="text" id="tax">
+What is your state's income tax rate? (enter the percent without '%')<br>
+<input type="number" id="tax">
 <br>
 <br>
 How much will you have in loans? (monthly payment and number of months) <br>
-<input type="text" id="monthlyPayment">
-<input type="text" id="loanLength">
+<input type="number" id="monthlyPayment">
+<input type="number" id="loanLength">
 <br>
 <br>
-How much is rent? <br>
-<input type="text" id="rent">
+How much is monthly rent? (numbers only) <br>
+<input type="number" id="rent">
 <br>
 <br>
-What percent of your salary are you saving for retirement? <br>
-<input type="text" id="retirement">
+What percent of your salary are you saving for retirement? (enter the percent without '%') <br>
+<input type="number" id="retirement">
 <br>
 <br>
 <p>
 Length of Simulation:
 <select id="simLength">
-<option value="1"> 1 year </option>
-<option value="5"> 5 years </option>
-<option value="10"> 10 years </option>
-<option value="20"> 20 years </option>
+<option value=1> 1 year </option>
+<option value=5> 5 years </option>
+<option value=10> 10 years </option>
+<option value=20> 20 years </option>
 </select>
 </p>
 <button onclick="startSimulation()"> Start Simulation </button>
