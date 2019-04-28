@@ -100,7 +100,7 @@
 			//update retirement savings total
 			console.log("before retirement if statements");
 			console.log("addSavings: "+addSavings);
-			if (addSavings === "0") {
+			if (addSavings === "undefined") {
 				console.log("if statement true");
 				totalSavings = savings;
 				console.log("totalSavings: "+totalSavings);
@@ -125,7 +125,7 @@
 			//update bank total
 			console.log("before bank if else");
 			console.log("bank: "+bank);
-			if (bank === "0") {
+			if (bank === "undefined") {
 				console.log("if statement true");
 				yearTotal = grossSal - yearLoan - taxRound - yearlyRent - savings;
 				console.log("yearTotal = grossSal - yearLoan - taxRound - yearlyRent - savings: "+yearTotal);
