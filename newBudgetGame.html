@@ -48,9 +48,9 @@
 		savings = Number(retire)*Number(grossSal);
 		
 		//calculate yearly rent
-		var rent = Number(document.getElementById("rent"));
+		var rent = document.getElementById("rent");
 		var yearlyRent;
-		yearlyRent = rent*12;
+		yearlyRent = Number(rent)*12;
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
@@ -266,6 +266,9 @@ Length of Simulation:
 			<th>Retirement</th>
 		</tr>  
 	</table>
+	Current savings: <span id="currentRetireFund"></span>
+	<br>
+	
 </div>
 </div>
 </div>
