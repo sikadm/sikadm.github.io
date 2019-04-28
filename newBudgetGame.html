@@ -57,6 +57,12 @@
 		var simLength = document.getElementById("simLength").value;
 		var endAge = Number(startingAge) + Number(simLength);
 		var age;
+		var addSavings=document.getElementById("currentRetireFund");
+		var totalSavings;
+		var yearTotal;
+		var bankSum;
+		var bank = document.getElementById("bank");
+		
 		while (endAge > Number(startingAge)) {
 			//calculate yearly loan payments
 			var loanPymt = document.getElementById("monthlyPayment").value;
@@ -79,7 +85,20 @@
 					document.getElementById("monthlyPayment").value = 0;
 				}
 			}
+
+			//update retirement savings total
+			totalSavings = savings + addSavings;
+			document.getElementById("currentRetireFund") = totalSavings;
+			
+			//round tax to two decimals
 			var taxRound = taxValue.toFixed(2);
+			
+			//update bank total
+			yearTotal = grossSal - yearLoan - taxRound - yearlyRent - totalSavings;
+			bankSum = yearTotal + bank;
+			document.getElementById("bank") = bankSum;
+			
+			//add row to table
 			var table = document.getElementById("table");
 			var row = table.insertRow(-1);
 			var ageCell = row.insertCell(0);
@@ -87,7 +106,6 @@
 			var taxCell = row.insertCell(2);
 			var loanCell = row.insertCell(3);
 			var rentCell = row.insertCell(4);
-			//var otherCell = row.insertCell(5);
 			var retireCell = row.insertCell(5);
 			ageCell.innerHTML = startingAge;
 			incomeCell.innerHTML = Number(document.getElementById("salary").value);
