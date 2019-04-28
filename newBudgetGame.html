@@ -4,188 +4,25 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
-	var age;
-	var salary;
-	var taxes;
-	var rent;
-	var apps = 0;
-	var amzns = 0;
-	var faces = 0;
-	var snaps = 0;
-	var ageArray= [];
-	var salaryArray= [];
-	var taxArray= [];
-	var rentArray= [];
+	function startSimulation() {
+		document.getElementById("age").disabled = "true";
+		document.getElementById("age").disabled = "true";
+	};
 	
-	function getMoney()
-	{
-		document.getElementById("mon").innerHTML = money;
-	}
-	
-	
-	function currentAStock()
-	{
-		document.getElementById("appstock").innerHTML = "";
-		document.getElementById("appstock").innerHTML = apps;
+	function resetSimulation() {
+		document.getElementById("age").disabled = "false";
+		document.getElementById("age").disabled = "false";
 		
-	}
-	function currentAmStock()
-	{
-		document.getElementById("amznstock").innerHTML = amzns;
-		
-	}
-	function currentFStock()
-	{
-		document.getElementById("fstock").innerHTML = faces;
-		
-	}
-	function currentSStock()
-	{
-		document.getElementById("sstock").innerHTML = snaps;
-		
-	}
-	
-	function buyStock(stock, number){
-	var origMoney = money;
-	money = money - 10;
-	money = money - (stock * number);
-	if (money < 0)
-	{
-		money = origMoney;
-		window.alert("You do not have enough money to do this");
-		document.getElementById("success").innerHTML = "Unsuccesful Transaction";
-		return false;
-		
-	
-	}
-	document.getElementById("success").innerHTML = "Succesful Transaction";
-	return true;
-	}
-	function sellStock(stock, number){
-	money = eval(money) + (eval(stock) * eval(number));
-	money = money - 10;
-	return true;
-	
+		document.getElementById("").value = "";
+		document.getElementById("").value = "";
+		document.getElementById("").value = "";
+		document.getElementById("").value = "";
+		document.getElementById("").value = "";
+		document.getElementById("").value = "";
+	};
 
-	}
-	
-	
-	function resetSimulation()
-	{
-		var money = 1000;
-		var apple = 200;
-		var amazon = 2000;
-		var facebook = 100;
-		var snapchat = 10;
-		var apps = 0;
-		var amzns = 0;
-		var faces = 0;
-		var snaps = 0;
-		var appArray= [];
-		var amzArray= [];
-		var faceArray= [];
-		var snapArray= [];
-		location.reload();
-		var profi = 0;
-	}
-	
-	function processTransaction()
-	{
-		var e = document.getElementById("stockSelector");
-		var val = e.options[e.selectedIndex].value;
-		var num = document.getElementById("number").value;
-		if (val == 0)
-		{
-			var foo = buyStock(apple, num);
-			if (foo == true)
-			{
-			apps = eval(apps) + eval(num);
-			}
-		}
-		if (val == 1)
-		{
-			var foo = buyStock(amazon, num);
-			if (foo == true)
-			{
-			amzns = eval(amzns) + eval(num);
-			}
-		}
-		if (val == 2)
-		{
-			var foo = buyStock(facebook, num);
-			if (foo == true)
-			{
-			faces = eval(faces) + eval(num);
-			}
-			
-			
-		}
-		if (val == 3)
-		{
-			var foo = buyStock(snapchat, num);
-			if (foo == true)
-			{
-			snaps = eval(snaps) + eval(num);
-			}
-		}
-		var f = document.getElementById("stockSellSelector");
-		var valu = f.options[f.selectedIndex].value;
-		var numb = document.getElementById("sellnumber").value;
-		if (valu == 0)
-		{
-			var fool = sellStock(apple, numb);
-			apps = eval(apps) - eval(numb);
-			var profi = getProfit();
-			//document.getElementById("prof").innerHTML = profi;
-		}
-		if (valu == 1)
-		{
-			var fool = sellStock(amazon, numb);
-			amzns = eval(amzns) - eval(numb);
-			var profi = getProfit();
-			//document.getElementById("prof").innerHTML = profi;
-		}
-		if (valu == 2)
-		{
-			var fool = sellStock(facebook, numb);
-			faces = eval(faces) - eval(numb);
-			var profi = getProfit();
-			//document.getElementById("prof").innerHTML = profi;
-		}
-		if (valu == 3)
-		{
-			var fool = sellStock(snapchat, numb);
-			snaps = eval(snaps) - eval(numb);
-			var profi = getProfit();
-			//document.getElementById("prof").innerHTML = profi;
-		}
-		
-		currentAStock();
-		currentAmStock();
-		currentFStock();
-		currentSStock();
-		getMoney();
-		if (foo == true){
-		document.getElementById("success").innerHTML = "Succesful Transaction";
-		}
-		if (fool == true){
-		document.getElementById("success").innerHTML = "Succesful Transaction";
-		}
-		}
-		
-		function getSimPeriod()
-		{
-			var e = document.getElementById("sim");
-			var val = e.options[e.selectedIndex].value;
-			return val;
-		}
-		function getProfit(){
-		return eval(money) - 10000;
-		}
-
-	</script>
-	
-	<style> 
+</script>	
+<style> 
 	body{
 		background-color: rgb(255,255,204);
 	}
@@ -268,10 +105,6 @@ How much is rent? <br>
 <input type="text" id="rent">
 <br>
 <br>
-<p id="success"> </p>
-<button onclick="processTransaction()"> Submit Amounts </button>
-<br>
-<br>
 <p>
 Length of Simulation:
 <select id="sim">
@@ -282,6 +115,7 @@ Length of Simulation:
 </select>
 </p>
 <button onclick="startSimulation()"> Start Simulation </button>
+<br>
 <button onclick="resetSimulation()"> Reset Simulation </button>
 <p id="array"> </p>
 </div>
@@ -289,8 +123,10 @@ Length of Simulation:
 <div id="spendingTable">
 	<table>
 		<tr>
+			<th>Age</th>
 			<th>Income</th>
 			<th>Taxes</th>
+			<th>Loans</th>
 			<th>Housing</th>
 			<th>Other</th>
 			<th>Retirement</th>
