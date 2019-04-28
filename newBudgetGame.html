@@ -60,14 +60,14 @@
 		var startingAge = document.getElementById("age").value;
 		var simLength = document.getElementById("simLength").value;
 		var endAge = startingAge + simLength;
-		var age = startingAge;
+		var age;
 		var addSavings=document.getElementById("currentRetireFund");
 		var totalSavings;
 		var yearTotal;
 		var bankSum;
 		var bank = document.getElementById("bank");
 		
-		while (endAge > age) {
+		while (endAge > startingAge) {
 			console.log("in while loop");
 			//calculate yearly loan payments
 			var loanPymt = document.getElementById("monthlyPayment").value;
@@ -121,7 +121,8 @@
 			retireCell.innerHTML = savings;
 			
 			console.log("added table row");
-			age++;
+			age = startingAge + 1;
+			console.log(age);
 			document.getElementById("age").value = age;
 		}
 		console.log("exited while loop");	
