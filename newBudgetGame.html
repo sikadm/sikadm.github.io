@@ -44,25 +44,7 @@
 		document.getElementById("sstock").innerHTML = snaps;
 		
 	}
-/*	
-	function markval(stock){
-
-	var minn = -5;
-	var maxx = 6; 
-	var randomNum  =Math.floor(Math.random() * (+maxx - +minn)) + +minn;
-	var newStockPrice = stock + randomNum;
-	return newStockPrice;
-	}
 	
-	function snapval(stock){
-
-	var minn = -1;
-	var maxx = 2; 
-	var randomNum  =Math.floor(Math.random() * (+maxx - +minn)) + +minn;
-	var newStockPrice = stock + randomNum;
-	return newStockPrice;
-	}
-*/	
 	function buyStock(stock, number){
 	var origMoney = money;
 	money = money - 10;
@@ -200,98 +182,7 @@
 		function getProfit(){
 		return eval(money) - 10000;
 		}
-	
-	
-	
-//document.writeln(markval(apple)); 
-//apple = markval(apple);
-//document.writeln(apple);
-//document.writeln(markval(amazon));
-//document.writeln(markval(facebook));
-//document.writeln(snapval(snapchat));
 
-	 function graphApp()
-  {
-	var trace1 = {
-  y: appArray,
-  mode: 'scatter'
-};
-
-var data = [ trace1];
-
-var layout = {title:
-		{
-			text: 'Apple Stock',
-			font:{
-			size:24
-			},
-			}
-			};
-
-Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true});
-}
-	 function graphAmz()
-  {
-	var trace1 = {
-  y: amzArray,
-  mode: 'scatter'
-};
-
-var data = [ trace1];
-
-var layout = {title:
-		{
-			text: 'Amazon Stock',
-			font:{
-			size:24
-			},
-			}
-			};
-
-Plotly.newPlot('myDiv1', data, layout, {showSendToCloud: true});
-}
-	 function graphFace()
-  {
-	var trace1 = {
-  y: faceArray,
-  mode: 'scatter'
-};
-
-var data = [ trace1];
-
-var layout = {title:
-		{
-			text: 'Facebook Stock',
-			font:{
-			size:24
-			},
-			}
-			};
-
-Plotly.newPlot('myDiv2', data, layout, {showSendToCloud: true});
-}
-	 function graphSnap()
-  {
-	var trace1 = {
-  y: snapArray,
-  mode: 'scatter'
-};
-
-var data = [ trace1];
-
-var layout = {
-	title:
-		{
-			text: 'Snapchat Stock',
-			font:{
-			size:24
-			},
-			}
-			};
-
-Plotly.newPlot('myDiv3', data, layout, {showSendToCloud: true});
-}
-	
 	</script>
 	
 	<style> 
