@@ -98,12 +98,21 @@
 			}
 
 			//update retirement savings total
+			console.log("before retirement if statements");
 			if (addSavings === "") {
+				console.log("if statement true");
 				totalSavings = savings;
+				console.log("totalSavings: "+totalSavings);
+				console.log("savings: "+savings);
 			}
 			else {
-				totalSavings = savings + addSavings;
+				console.log("if statement false");
+				totalSavings = savings + Number(addSavings);
+				console.log("totalSavings: "+totalSavings);
+				console.log("savings: "+savings);
+				console.log("addSavings: "+addSavings);
 			}
+			console.log("outside if else of retirement");
 			console.log("total Savings"+totalSavings);
 			var saveString = totalSavings.toString();
 			console.log("save String"+saveString);
@@ -113,12 +122,20 @@
 			var taxRound = taxValue.toFixed(2);
 			
 			//update bank total
+			console.log("before bank if else");
 			if (bank === "") {
+				console.log("if statement true");
 				yearTotal = grossSal - yearLoan - taxRound - yearlyRent - savings;
+				console.log("yearTotal = grossSal - yearLoan - taxRound - yearlyRent - savings: "+yearTotal);
+
 			}
-			else {
+			else {				
+				console.log("if statement false");
 				yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - savings;
+				console.log("yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - savings: "+yearTotal);
+
 			}
+			console.log("outside if else of bank");
 			console.log("year total"+yearTotal);
 			document.getElementById("bank").innerHTML = yearTotal;
 			console.log("summed bank and total retirement savings");
