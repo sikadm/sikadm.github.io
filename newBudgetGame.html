@@ -114,7 +114,7 @@
 			//update bank total
 			console.log("before bank if else");
 			console.log("bank: "+bank);
-			yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - savings;
+			yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - Number(savings);
 			document.getElementById("bank").innerHTML = yearTotal;
 			console.log("summed bank and total retirement savings");
 			
