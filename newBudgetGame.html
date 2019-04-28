@@ -99,7 +99,9 @@
 
 			//update retirement savings total
 			totalSavings = savings + addSavings;
+			console.log("total Savings"+totalSavings);
 			var saveString = totalSavings.toString();
+			console.log("save String"+saveString);
 			document.getElementById("currentRetireFund").innerHTML = saveString;
 			
 			//round tax to two decimals
@@ -107,8 +109,11 @@
 			
 			//update bank total
 			yearTotal = grossSal - yearLoan - taxRound - yearlyRent - totalSavings;
+			console.log("year total"+yearTotal);
 			bankSum = yearTotal + bank;
+			console.log("bank sum"+bankSum);
 			var bankString = bankSum.toString();
+			console.log("bank string"+bankString);
 			document.getElementById("bank").innerHTML = bankString;
 			console.log("summed bank and total retirement savings");
 			
