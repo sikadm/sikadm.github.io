@@ -1,0 +1,366 @@
+<!doctype html>
+<head>
+<title> Budget Game </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+	var money = 10000;
+	var apple = 200;
+	var amazon = 2000;
+	var facebook = 100;
+	var snapchat = 10;
+	var apps = 0;
+	var amzns = 0;
+	var faces = 0;
+	var snaps = 0;
+	var appArray= [];
+	var amzArray= [];
+	var faceArray= [];
+	var snapArray= [];
+	
+	function getMoney()
+	{
+		document.getElementById("mon").innerHTML = money;
+	}
+	
+	
+	function currentAStock()
+	{
+		document.getElementById("appstock").innerHTML = "";
+		document.getElementById("appstock").innerHTML = apps;
+		
+	}
+	function currentAmStock()
+	{
+		document.getElementById("amznstock").innerHTML = amzns;
+		
+	}
+	function currentFStock()
+	{
+		document.getElementById("fstock").innerHTML = faces;
+		
+	}
+	function currentSStock()
+	{
+		document.getElementById("sstock").innerHTML = snaps;
+		
+	}
+/*	
+	function markval(stock){
+
+	var minn = -5;
+	var maxx = 6; 
+	var randomNum  =Math.floor(Math.random() * (+maxx - +minn)) + +minn;
+	var newStockPrice = stock + randomNum;
+	return newStockPrice;
+	}
+	
+	function snapval(stock){
+
+	var minn = -1;
+	var maxx = 2; 
+	var randomNum  =Math.floor(Math.random() * (+maxx - +minn)) + +minn;
+	var newStockPrice = stock + randomNum;
+	return newStockPrice;
+	}
+*/	
+	function buyStock(stock, number){
+	var origMoney = money;
+	money = money - 10;
+	money = money - (stock * number);
+	if (money < 0)
+	{
+		money = origMoney;
+		window.alert("You do not have enough money to do this");
+		document.getElementById("success").innerHTML = "Unsuccesful Transaction";
+		return false;
+		
+	
+	}
+	document.getElementById("success").innerHTML = "Succesful Transaction";
+	return true;
+	}
+	function sellStock(stock, number){
+	money = eval(money) + (eval(stock) * eval(number));
+	money = money - 10;
+	return true;
+	
+
+	}
+	
+	
+	function resetSimulation()
+	{
+		var money = 1000;
+		var apple = 200;
+		var amazon = 2000;
+		var facebook = 100;
+		var snapchat = 10;
+		var apps = 0;
+		var amzns = 0;
+		var faces = 0;
+		var snaps = 0;
+		var appArray= [];
+		var amzArray= [];
+		var faceArray= [];
+		var snapArray= [];
+		location.reload();
+		var profi = 0;
+	}
+	
+	function processTransaction()
+	{
+		var e = document.getElementById("stockSelector");
+		var val = e.options[e.selectedIndex].value;
+		var num = document.getElementById("number").value;
+		if (val == 0)
+		{
+			var foo = buyStock(apple, num);
+			if (foo == true)
+			{
+			apps = eval(apps) + eval(num);
+			}
+		}
+		if (val == 1)
+		{
+			var foo = buyStock(amazon, num);
+			if (foo == true)
+			{
+			amzns = eval(amzns) + eval(num);
+			}
+		}
+		if (val == 2)
+		{
+			var foo = buyStock(facebook, num);
+			if (foo == true)
+			{
+			faces = eval(faces) + eval(num);
+			}
+			
+			
+		}
+		if (val == 3)
+		{
+			var foo = buyStock(snapchat, num);
+			if (foo == true)
+			{
+			snaps = eval(snaps) + eval(num);
+			}
+		}
+		var f = document.getElementById("stockSellSelector");
+		var valu = f.options[f.selectedIndex].value;
+		var numb = document.getElementById("sellnumber").value;
+		if (valu == 0)
+		{
+			var fool = sellStock(apple, numb);
+			apps = eval(apps) - eval(numb);
+			var profi = getProfit();
+			//document.getElementById("prof").innerHTML = profi;
+		}
+		if (valu == 1)
+		{
+			var fool = sellStock(amazon, numb);
+			amzns = eval(amzns) - eval(numb);
+			var profi = getProfit();
+			//document.getElementById("prof").innerHTML = profi;
+		}
+		if (valu == 2)
+		{
+			var fool = sellStock(facebook, numb);
+			faces = eval(faces) - eval(numb);
+			var profi = getProfit();
+			//document.getElementById("prof").innerHTML = profi;
+		}
+		if (valu == 3)
+		{
+			var fool = sellStock(snapchat, numb);
+			snaps = eval(snaps) - eval(numb);
+			var profi = getProfit();
+			//document.getElementById("prof").innerHTML = profi;
+		}
+		
+		currentAStock();
+		currentAmStock();
+		currentFStock();
+		currentSStock();
+		getMoney();
+		if (foo == true){
+		document.getElementById("success").innerHTML = "Succesful Transaction";
+		}
+		if (fool == true){
+		document.getElementById("success").innerHTML = "Succesful Transaction";
+		}
+		}
+		
+		function getSimPeriod()
+		{
+			var e = document.getElementById("sim");
+			var val = e.options[e.selectedIndex].value;
+			return val;
+		}
+		function getProfit(){
+		return eval(money) - 10000;
+		}
+	
+	
+	
+//document.writeln(markval(apple)); 
+//apple = markval(apple);
+//document.writeln(apple);
+//document.writeln(markval(amazon));
+//document.writeln(markval(facebook));
+//document.writeln(snapval(snapchat));
+
+	 function graphApp()
+  {
+	var trace1 = {
+  y: appArray,
+  mode: 'scatter'
+};
+
+var data = [ trace1];
+
+var layout = {title:
+		{
+			text: 'Apple Stock',
+			font:{
+			size:24
+			},
+			}
+			};
+
+Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true});
+}
+	 function graphAmz()
+  {
+	var trace1 = {
+  y: amzArray,
+  mode: 'scatter'
+};
+
+var data = [ trace1];
+
+var layout = {title:
+		{
+			text: 'Amazon Stock',
+			font:{
+			size:24
+			},
+			}
+			};
+
+Plotly.newPlot('myDiv1', data, layout, {showSendToCloud: true});
+}
+	 function graphFace()
+  {
+	var trace1 = {
+  y: faceArray,
+  mode: 'scatter'
+};
+
+var data = [ trace1];
+
+var layout = {title:
+		{
+			text: 'Facebook Stock',
+			font:{
+			size:24
+			},
+			}
+			};
+
+Plotly.newPlot('myDiv2', data, layout, {showSendToCloud: true});
+}
+	 function graphSnap()
+  {
+	var trace1 = {
+  y: snapArray,
+  mode: 'scatter'
+};
+
+var data = [ trace1];
+
+var layout = {
+	title:
+		{
+			text: 'Snapchat Stock',
+			font:{
+			size:24
+			},
+			}
+			};
+
+Plotly.newPlot('myDiv3', data, layout, {showSendToCloud: true});
+}
+	
+	</script>
+	
+	<style> 
+	body{
+		background-color: rgb(255,255,204);
+		}
+	</style>
+</head>
+<body>
+<br>
+<br>
+<center><h1> Budget Game </h1></center>
+<br>
+<br> 
+<h2> Rules to the game </h2>
+<ul>
+	<li> Set your age, salary, cost of living and see what age you might be able to retire at. </li>
+		<ul>
+			<li> You can change your decisions at any time </li>
+			<li> Watch your savings and spending change on a 5, 10, or 20 time schedule </li>
+			</ul>
+</ul> 
+<br>
+<div class="container" style="margin-bottom: 0px;">
+<div class="row">
+<div class="col">
+<br>
+<br>
+What is your age?
+<input type="text" id="age">
+<br>
+<br>
+How much will you make (yearly salary before taxes)?
+<input type="text" id="salary">
+<br>
+<br>
+How much is rent?
+<input type="text" id="rent">
+<br>
+<br>
+<p id="success"> </p>
+<button onclick="processTransaction()"> Submit Amounts </button>
+<br>
+<br>
+<p>
+Length of Simulation:
+<select id="sim">
+<option value="1"> 1 year </option>
+<option value="5"> 5 years </option>
+<option value="10"> 10 years </option>
+<option value="20"> 20 years </option>
+</select>
+</p>
+<button onclick="startSimulation()"> Start Simulation </button>
+<button onclick="resetSimulation()"> Reset Simulation </button>
+<p id="array"> </p>
+</div>
+<div class="col">
+ <div id="myDiv" ><!-- table --></div>
+ </div>
+ </div>
+ </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+	
