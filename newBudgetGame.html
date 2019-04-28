@@ -313,6 +313,7 @@ Plotly.newPlot('myDiv3', data, layout, {showSendToCloud: true});
 	th {  
 	    background: #DFDFDF;  /* Darken header a bit */
 	    font-weight: bold;
+		text-align: center;
 	}
 	td {  
 	    background: #FAFAFA;
@@ -344,11 +345,21 @@ Plotly.newPlot('myDiv3', data, layout, {showSendToCloud: true});
 <br>
 <div class="container" style="margin-bottom: 0px;">
 <div class="row">
+	<div class="col-4">
 	<button onclick="startSimulation()"> Salary </button>
+	</div>
+	<div class="col-4">
 	<button onclick="startSimulation()"> Loan Calculator </button>
+	</div>
+	<div class="col-4">
 	<button onclick="resetSimulation()"> Retirement Calculator </button>
+	</div>
+	<div class="col-4">
 	<button onclick="startSimulation()"> State Income Tax </button>
+	</div>
+	<div class="col-4">
 	<button onclick="resetSimulation()"> Average Rent </button>
+	</div>
 </div>
 <div class="row">
 <div class="col">
@@ -358,7 +369,8 @@ What is your age? <br>
 <input type="text" id="age">
 <br>
 <br>
-How much will you make (yearly salary before taxes)? <br>
+How much will you make? 
+(yearly salary before taxes) <br>
 <input type="text" id="salary">
 <br>
 <br>
@@ -366,9 +378,9 @@ What is your state's income tax rate? <br>
 <input type="text" id="tax">
 <br>
 <br>
-How much will you have in loans (monthly payment and number of months)? <br>
+How much will you have in loans? (monthly payment and number of months) <br>
 <input type="text" id="monthlyPayment">
-<input type="text" id="loanLenght">
+<input type="text" id="loanLength">
 <br>
 <br>
 How much is rent? <br>
