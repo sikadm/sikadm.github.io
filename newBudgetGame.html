@@ -99,12 +99,10 @@
 
 			//update retirement savings total
 			console.log("before retirement if statements");
-			totalSavings = savings + addSavings;
+			totalSavings = Number(savings) + Number(addSavings);
 			console.log("totalSavings: "+totalSavings);
 			console.log("savings: "+savings);
 			console.log("addSavings: "+addSavings);
-			
-			console.log("outside if else of retirement");
 			console.log("total Savings"+totalSavings);
 			var saveString = totalSavings.toString();
 			console.log("save String"+saveString);
@@ -116,7 +114,7 @@
 			//update bank total
 			console.log("before bank if else");
 			console.log("bank: "+bank);
-			yearTotal = grossSal + bank - yearLoan - taxRound - yearlyRent - savings;
+			yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - savings;
 			document.getElementById("bank").innerHTML = yearTotal;
 			console.log("summed bank and total retirement savings");
 			
