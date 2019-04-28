@@ -79,7 +79,21 @@
 					document.getElementById("monthlyPayment").value = 0;
 				}
 			}
-			appendTable();
+			var table = document.getElementById("table");
+			var row = table.insertRow(-1);
+			var ageCell = row.insertCell(0);
+			var incomeCell = row.insertCell(1);
+			var taxCell = row.insertCell(2);
+			var loanCell = row.insertCell(3);
+			var rentCell = row.insertCell(4);
+			//var otherCell = row.insertCell(5);
+			var retireCell = row.insertCell(5);
+			ageCell.innerHTML = startingAge;
+			incomeCell.innerHTML = Number(document.getElementById("salary").value);
+			taxCell.innerHTML = taxValue;
+			loanCell.innerHTML = yearLoan;
+			rentCell.innerHTML = yearlyRent;
+			retireCell.innerHTML = savings;
 			age = startingAge + 1;
 			startingAge = age;
 		}
@@ -87,7 +101,7 @@
 			
 		
 	};
-	
+	//not called but could work on
 	function appendTable() {
 		var table = document.getElementById("table");
 		var row = table.insertRow(-1);
