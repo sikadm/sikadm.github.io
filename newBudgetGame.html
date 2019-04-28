@@ -6,19 +6,112 @@
 <script type="text/javascript">
 	function startSimulation() {
 		document.getElementById("age").disabled = "true";
-		document.getElementById("age").disabled = "true";
+		document.getElementById("monthlyPayment").disabled = "true";
+		document.getElementById("loanLength").disabled = "true";
+		
+		//calculate amount of money taken out of salary for taxes
+		var grossSal = document.getElementById("salary").value;
+		var stateTax = document.getElementById("tax").value;
+		var statePercent;
+		if (stateTax = 0) {
+			statePercent = 0;
+		}
+		else {
+			statePercent = stateTax/100;
+		}
+		var taxValue;
+		if (grossSal < 9525) {
+			taxValue = grossSal*(.1+statePercent);
+		}
+		else if (grossSal < 38700) {
+			taxValue = grossSal*(.12+statePercent);
+		}
+		else if (grossSal < 82500) {
+			taxValue = grossSal*(.22+statePercent);
+		}
+		else if (grossSal < 157500) {
+			taxValue = grossSal*(.24+statePercent);
+		}
+		else if (grossSal < 200000) {
+			taxValue = grossSal*(.32+statePercent);
+		}
+		else if (grossSal < 500000) {
+			taxValue = grossSal*(.35+statePercent);
+		}
+		else {
+			taxValue = grossSal*(.37+statePercent);
+		}
+		
+		
+		//loop to add rows to the table
+		var startingAge = document.getElementById("age").value;
+		var simLength = document.getElementById("simLength").value;
+		var endAge = startingAge + simLength;
+		var age;
+		while (endAge > startingAge) {
+			//calculate yearly loan payments
+			var loanPymt = document.getElementById("monthlyPayment").value;
+			var loanLen = document.getElementById("loanLength").value;
+			var yearLoan;
+			var loanInt;
+
+			if (loanPymt = 0 || loanLen = 0) {
+				yearLoan = 0;
+			}
+			else {
+				if (loanLen > 11) {
+					yearLoan = loanPymt*12;
+					loanInt = loanLen - 12;
+					document.getElementById("loanLength").value = loanInt;
+				}
+				else {
+					yearLoan = loanPymt*loanLen;
+					document.getElementById("loanLength").value = 0;
+					document.getElementById("monthlyPayment").value = 0;
+			}
+			appendTable();
+			age = startingAge + 1;
+			startingAge = age;
+		}
+		
+			
+		
+	};
+	
+	function appendTable() {
+		var table = document.getElementById("table");
+		var row = table.insertRow(-1);
+		var ageCell = row.insertCell(0);
+		var incomeCell = row.insertCell(1);
+		var taxCell = row.insertCell(2);
+		var loanCell = row.insertCell(3);
+		var rentCell = row.insertCell(4);
+		//var otherCell = row.insertCell(5);
+		var retireCell = row.insertCell(6);
+		ageCell.innerHTML = startingAge;
+		incomeCell.innerHTML = document.getElementById("salary").value;
+		taxCell.innerHTML = taxValue;
+		loanCell.innerHTML = yearLoan;
+		rentCell.innerHTML = document.getElementById("age").value;
+		retireCell.innerHTML = document.getElementById("age").value;
 	};
 	
 	function resetSimulation() {
 		document.getElementById("age").disabled = "false";
-		document.getElementById("age").disabled = "false";
+		document.getElementById("monthlyPayment").disabled = "false";
+		document.getElementById("loanLength").disabled = "false";
 		
+		document.getElementById("age").value = "";
+		document.getElementById("monthlyPayment").value = "";
+		document.getElementById("monthlyPayment").value = "";
+		document.getElementById("salary").value = "";
+		document.getElementById("rent").value = "";
 		document.getElementById("").value = "";
-		document.getElementById("").value = "";
-		document.getElementById("").value = "";
-		document.getElementById("").value = "";
-		document.getElementById("").value = "";
-		document.getElementById("").value = "";
+		
+		//delete table data
+		for (var i = table.rows.length - 1; i > 0; i--) {
+			table.deleteRow(i);
+		}
 	};
 
 </script>	
@@ -120,7 +213,7 @@ How much is rent? <br>
 <br>
 <p>
 Length of Simulation:
-<select id="sim">
+<select id="simLength">
 <option value="1"> 1 year </option>
 <option value="5"> 5 years </option>
 <option value="10"> 10 years </option>
@@ -134,14 +227,13 @@ Length of Simulation:
 </div>
 <div class="col">
 <div id="spendingTable">
-	<table>
+	<table= "table">
 		<tr>
 			<th>Age</th>
 			<th>Income</th>
 			<th>Taxes</th>
 			<th>Loans</th>
 			<th>Housing</th>
-			<th>Other</th>
 			<th>Retirement</th>
 		</tr>  
 	</table>
