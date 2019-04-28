@@ -47,14 +47,16 @@
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
 		var savings;
-		savings = Number(retire)/100*grossSal;
+		var retirePercent = retire/100;
+		savings = retirePercent * grossSal;
 		console.log("savings calculation"+savings);
 		console.log("determined retirement fund");
 		
 		//calculate yearly rent
 		var rent = document.getElementById("rent");
 		var yearlyRent;
-		yearlyRent = Number(rent)*12;
+		var month = 12;
+		yearlyRent = rent * month;
 		console.log("determined rent"+yearlyRent);
 		
 		//loop to add rows to the table
