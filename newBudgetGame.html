@@ -43,7 +43,6 @@
 		else {
 			taxValue = grossSal*(.37+statePercent);
 		}
-		console.log("determined tax value"+TaxValue);
 		
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
@@ -55,7 +54,7 @@
 		var rent = document.getElementById("rent");
 		var yearlyRent;
 		yearlyRent = rent*12;
-		console.log("determined rent");
+		console.log("determined rent"+yearlyRent);
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
