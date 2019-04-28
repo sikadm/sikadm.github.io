@@ -55,7 +55,7 @@
 			var yearLoan;
 			var loanInt;
 
-			if (loanPymt = 0 || loanLen = 0) {
+			if (loanPymt === "0" || loanLen === "0") {
 				yearLoan = 0;
 			}
 			else {
@@ -221,6 +221,7 @@ Length of Simulation:
 </select>
 </p>
 <button onclick="startSimulation()"> Start Simulation </button>
+<br>
 <br>
 <button onclick="resetSimulation()"> Reset Simulation </button>
 <p id="array"> </p>
