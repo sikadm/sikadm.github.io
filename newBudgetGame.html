@@ -67,11 +67,11 @@
 		var simLength = document.getElementById("simLength").value;
 		var endAge = startingAge + simLength;
 		var age;
-		var addSavings=document.getElementById("currentRetireFund").value;
+		var addSavings=document.getElementById("currentRetireFund").innerHTML;
 		var totalSavings;
 		var yearTotal;
 		var bankSum;
-		var bank = document.getElementById("bank").value;
+		var bank = document.getElementById("bank").innerHTML;
 		
 		for (i=0; i< simLength; i++) {
 			console.log("in for loop");
