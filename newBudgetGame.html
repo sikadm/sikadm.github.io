@@ -116,9 +116,10 @@
 			console.log("yearlyRent: "+yearlyRent);
 			console.log("savings: "+savings);
 			yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - Number(savings);
-			document.getElementById("bank").innerHTML = yearTotal;
+			var yearString = yearTotal.toString();
+			document.getElementById("bank").innerHTML = yearString;
 			console.log("after bank");
-			console.log("yearTotal: "+yearTotal);
+			console.log("yearString: "+yearString);
 			
 			//add row to table
 			var table = document.getElementById("table");
