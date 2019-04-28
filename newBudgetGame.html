@@ -53,11 +53,11 @@
 		yearlyRent = rent*12;
 		
 		//loop to add rows to the table
-		var startingAge = Number(document.getElementById("age").value);
-		var simLength = Number(document.getElementById("simLength").value);
-		var endAge = startingAge + simLength;
+		var startingAge = document.getElementById("age").value;
+		var simLength = document.getElementById("simLength").value;
+		var endAge = Number(startingAge) + Number(simLength);
 		var age;
-		while (endAge > startingAge) {
+		while (endAge > Number(startingAge)) {
 			//calculate yearly loan payments
 			var loanPymt = document.getElementById("monthlyPayment").value;
 			var loanLen = document.getElementById("loanLength").value;
