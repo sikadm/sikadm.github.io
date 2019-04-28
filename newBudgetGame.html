@@ -53,6 +53,15 @@
 	tr:nth-child(odd) td { background: #FEFEFE; }  
 	tr td:hover { background: #666; color: #FFF; }  
 	/* Hover cell effect! */
+	.buttonRow {
+		text-align: justify;
+		justify-content: space-around;
+		/*min-width:45em;
+		padding: 1.2em 1em 0;
+		box-shadow:0 0 5px;
+		margin:1em;
+		border-radius:0.25em;
+		*/
 	</style>
 </head>
 <body>
@@ -72,12 +81,14 @@
 </ul> 
 <br>
 <div class="container" style="margin-bottom: 0px;">
-<div class="row" style="justifycontent: space-around;">
+<div class="row">
+	<div class="buttonRow">
 	<button onclick="parent.open('https://www.bls.gov/ooh/')"> Salary </button>
 	<button onclick="parent.open('https://sikadm.github.io/loancalc.html')"> Loan Calculator </button>
 	<button onclick="parent.open('https://smartasset.com/retirement/retirement-calculator')"> Retirement Calculator </button>
 	<button onclick="parent.open('https://files.taxfoundation.org/20180315171940/PIT-011.png')"> State Income Tax </button>
 	<button onclick="parent.open('https://www.nerdwallet.com/cost-of-living-calculator')"> Average Rent </button>
+	</div>
 </div>
 <div class="row">
 <div class="col">
