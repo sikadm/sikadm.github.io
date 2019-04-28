@@ -67,11 +67,11 @@
 		var simLength = document.getElementById("simLength").value;
 		var endAge = startingAge + simLength;
 		var age;
-		var addSavings=document.getElementById("currentRetireFund");
+		var addSavings=document.getElementById("currentRetireFund").value;
 		var totalSavings;
 		var yearTotal;
 		var bankSum;
-		var bank = document.getElementById("bank");
+		var bank = document.getElementById("bank").value;
 		
 		for (i=0; i< simLength; i++) {
 			console.log("in for loop");
@@ -98,7 +98,12 @@
 			}
 
 			//update retirement savings total
-			totalSavings = savings + addSavings;
+			if (addSavings === "") {
+				totalSavings = savings;
+			}
+			else {
+				totalSavings = savings + addSavings;
+			}
 			console.log("total Savings"+totalSavings);
 			var saveString = totalSavings.toString();
 			console.log("save String"+saveString);
@@ -108,13 +113,14 @@
 			var taxRound = taxValue.toFixed(2);
 			
 			//update bank total
-			yearTotal = grossSal - yearLoan - taxRound - yearlyRent - totalSavings;
+			if (bank === "") {
+				yearTotal = grossSal - yearLoan - taxRound - yearlyRent - savings;
+			}
+			else {
+				yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - savings;
+			}
 			console.log("year total"+yearTotal);
-			bankSum = yearTotal + bank;
-			console.log("bank sum"+bankSum);
-			var bankString = bankSum.toString();
-			console.log("bank string"+bankString);
-			document.getElementById("bank").innerHTML = bankString;
+			document.getElementById("bank").innerHTML = yearTotal;
 			console.log("summed bank and total retirement savings");
 			
 			//add row to table
