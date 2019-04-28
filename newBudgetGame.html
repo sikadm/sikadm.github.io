@@ -13,6 +13,7 @@
 		
 		//calculate amount of money taken out of salary for taxes
 		var grossSal = document.getElementById("salary").value;
+		console.log("gross salary: "+grossSal);
 		var stateTax = document.getElementById("tax").value;
 		var statePercent;
 		if (stateTax === "0") {
@@ -109,8 +110,8 @@
 			
 			//update bank total
 			console.log("before bank");
-			console.log("yearTotal: "+yearTotal);
 			console.log("bank: "+bank);
+			console.log("grossSal: "+grossSal);
 			console.log("yearLoan: "+yearLoan);
 			console.log("taxRound: "+taxRound);
 			console.log("yearlyRent: "+yearlyRent);
@@ -119,6 +120,7 @@
 			var yearString = yearTotal.toString();
 			document.getElementById("bank").innerHTML = yearString;
 			console.log("after bank");
+			console.log("yearTotal: "+yearTotal);
 			console.log("yearString: "+yearString);
 			
 			//add row to table
