@@ -50,17 +50,12 @@
 		var savings;
 		var percent = 100;
 		var retirePercent = retire / percent;
-		console.log(retirePercent);
-		console.log("gross"+grossSal);
 		savings = retirePercent * grossSal;
-		console.log("savings calculation"+savings);
-		console.log("determined retirement fund");
 		
 		//calculate yearly rent
 		var rent = document.getElementById("rent").value;
 		var month = 12;
 		var yearlyRent = rent * month;
-		console.log("determined rent"+yearlyRent);
 		
 		//loop to add rows to the table
 		var startingAge = document.getElementById("age").value;
@@ -98,7 +93,7 @@
 			}
 
 			//update retirement savings total
-			console.log("before retirement if statements");
+			console.log("before total savings");
 			totalSavings = Number(savings) + Number(addSavings);
 			console.log("totalSavings: "+totalSavings);
 			console.log("savings: "+savings);
@@ -107,11 +102,14 @@
 			var saveString = totalSavings.toString();
 			console.log("save String"+saveString);
 			document.getElementById("currentRetireFund").innerHTML = saveString;
+			console.log("after total savings");
 			
 			//round tax to two decimals
 			var taxRound = taxValue.toFixed(2);
 			
 			//update bank total
+			console.log("before bank");
+			console.log("yearTotal: "+yearTotal);
 			console.log("bank: "+bank);
 			console.log("yearLoan: "+yearLoan);
 			console.log("taxRound: "+taxRound);
@@ -119,7 +117,8 @@
 			console.log("savings: "+savings);
 			yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - Number(savings);
 			document.getElementById("bank").innerHTML = yearTotal;
-			console.log("summed bank and total retirement savings");
+			console.log("after bank");
+			console.log("yearTotal: "+yearTotal);
 			
 			//add row to table
 			var table = document.getElementById("table");
