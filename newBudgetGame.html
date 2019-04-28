@@ -112,8 +112,11 @@
 			var taxRound = taxValue.toFixed(2);
 			
 			//update bank total
-			console.log("before bank if else");
 			console.log("bank: "+bank);
+			console.log("yearLoan: "+yearLoan);
+			console.log("taxRound: "+taxRound);
+			console.log("yearlyRent: "+yearlyRent);
+			console.log("savings: "+savings);
 			yearTotal = grossSal + Number(bank) - yearLoan - taxRound - yearlyRent - Number(savings);
 			document.getElementById("bank").innerHTML = yearTotal;
 			console.log("summed bank and total retirement savings");
