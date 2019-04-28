@@ -79,6 +79,7 @@
 					document.getElementById("monthlyPayment").value = 0;
 				}
 			}
+			var taxRound = taxValue.toFixed(2);
 			var table = document.getElementById("table");
 			var row = table.insertRow(-1);
 			var ageCell = row.insertCell(0);
@@ -90,7 +91,7 @@
 			var retireCell = row.insertCell(5);
 			ageCell.innerHTML = startingAge;
 			incomeCell.innerHTML = Number(document.getElementById("salary").value);
-			taxCell.innerHTML = taxValue;
+			taxCell.innerHTML = taxRound;
 			loanCell.innerHTML = yearLoan;
 			rentCell.innerHTML = yearlyRent;
 			retireCell.innerHTML = savings;
