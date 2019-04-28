@@ -46,8 +46,11 @@
 		
 		// calculate amount taken out for retirement
 		var retire = document.getElementById("retirement");
+		console.log(retire);
 		var savings;
 		var retirePercent = retire/100;
+		console.log(retirePercent);
+		console.log("gross"+grossSal);
 		savings = retirePercent * grossSal;
 		console.log("savings calculation"+savings);
 		console.log("determined retirement fund");
